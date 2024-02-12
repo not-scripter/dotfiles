@@ -5,6 +5,7 @@ recentrepos:
 - /data/data/com.termux/files/home
 - /data/data/com.termux/files/home/chai-aur-react
 startuppopupversion: 5
-customcommandshistory: []
+customcommandshistory:
+- git tag v2
 hidecommandlog: false
 ignorewhitespaceindiffview: false
