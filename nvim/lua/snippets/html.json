@@ -1,0 +1,38 @@
+{
+	"sc": {
+		"prefix": "sc",
+		"body": [
+			"<script defer src='${1:script.js}'></script>"
+		],
+  "description": ""
+	},
+	"id": {
+		"prefix": "id",
+		"body": [
+			"id='$1'"
+		],
+  "description": ""
+	},
+	"c": {
+		"prefix": "c",
+		"body": [
+			"class='$1'"
+		],
+  "description": ""
+	},
+	"cl": {
+		"prefix": "cl",
+		"body": [
+			"onClick='$1'"
+		],
+  "description": ""
+	},
+	"ch": {
+		"prefix": "ch",
+		"body": [
+			"onChange='$1'"
+		],
+  "description": ""
+	}
+
+}

@@ -1,0 +1,20 @@
+{
+ "use client": {
+  "prefix": "useclient",
+  "body": ["\"use client\""],
+  "description": ""
+ },
+
+ "suppressHydrationWarning": {
+  "prefix": "suppressHydrationWarning",
+  "body": ["suppressHydrationWarning"],
+  "description": ""
+ },
+
+  "<></>": {
+  "prefix": "<",
+  "body": ["<>",	"$1", "</>"],
+  "description": ""
+ }
+
+}
