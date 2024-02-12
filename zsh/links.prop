@@ -1,0 +1,3 @@
+$DOTFILES/zsh/rc.zsh=$HOME/.zshrc
+$DOTFILES/zsh/oh-my-zsh=$HOME/.oh-my-zsh
+$DOTFILES/zsh/p10k.zsh=$HOME/.p10k.zsh
