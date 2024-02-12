@@ -1,6 +1,7 @@
 lastupdatecheck: 0
 recentrepos:
 - /data/data/com.termux/files/home/dotfiles
+- /data/data/com.termux/files/home/dotfiles/nvim
 - /data/data/com.termux/files/home
 - /data/data/com.termux/files/home/chai-aur-react
 startuppopupversion: 5
