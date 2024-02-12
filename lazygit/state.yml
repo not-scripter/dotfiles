@@ -3,7 +3,6 @@ recentrepos:
 - /data/data/com.termux/files/home/dotfiles
 - /data/data/com.termux/files/home
 - /data/data/com.termux/files/home/chai-aur-react
-- /data/data/com.termux/files/home/.config/nvim
 startuppopupversion: 5
 customcommandshistory: []
 hidecommandlog: false
