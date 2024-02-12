@@ -15,3 +15,4 @@ cd dotfiles
 ```
 stow .
 ```
+test
