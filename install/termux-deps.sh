@@ -6,3 +6,4 @@ pkg install wget
 pkg install lazygit
 pkg install ruby
 gem install colorls
+pkg install entr
