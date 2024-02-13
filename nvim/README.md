@@ -8,5 +8,3 @@
 ```bash
 git clone https://github.com/VikramNvim/VikramNvim ~/.config/nvim
 ```
-
-

@@ -14,10 +14,6 @@ return {
     -- you can add other fields for setting up lsp server in this table
    })
   end
-  require('ufo').setup({
-      provider_selector = function(buffer, filetype, buftype)
-        return { 'lsp', 'indent' }
-      end
-    })
+  require('ufo').setup()
  end,
 }

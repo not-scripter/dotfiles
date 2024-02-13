@@ -1,8 +1,5 @@
 return {
   {
-    "alexghergh/nvim-tmux-navigation"
-  },
-  {
     "numToStr/FTerm.nvim",
   },
   {
@@ -53,7 +50,7 @@ return {
   },
   {
     "aurum77/live-server.nvim",
-    config = function()
+    run = function()
       require"live_server.util".install()
     end,
     cmd = { "LiveServer", "LiveServerStart", "LiveServerStop" },
