@@ -1,5 +1,8 @@
 return {
   {
+    "alexghergh/nvim-tmux-navigation"
+  },
+  {
     "numToStr/FTerm.nvim",
   },
   {
