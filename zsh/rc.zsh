@@ -21,4 +21,3 @@ fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 # Aliases
 alias ls='colorls'
 alias la='colorls -A'
-
