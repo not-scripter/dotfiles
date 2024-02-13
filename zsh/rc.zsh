@@ -8,7 +8,13 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 #Plugins
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting fzf-tab)
+plugins=(
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  fzf-tab
+  you-should-use
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -19,5 +25,6 @@ source $(dirname $(gem which colorls))/tab_complete.sh
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 # Aliases
+alias sz='source .zshrc'
 alias ls='colorls'
 alias la='colorls -A'
