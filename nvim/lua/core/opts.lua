@@ -20,7 +20,7 @@ opt.pumblend = 10
 opt.pumheight = 10
 opt.relativenumber = true 
 opt.scrolloff = 999
-opt.showtabline= 2
+opt.showtabline= 0
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
 opt.shiftround = true 
 opt.shiftwidth = 2 
@@ -71,6 +71,6 @@ vim.cmd([[autocmd BufNewFile,BufRead *.mdx set filetype=markdown.mdx]])
 
 --UFO
 vim.o.foldcolumn = '0'
-vim.o.foldlevel = 99 
-vim.o.foldlevelstart = 99
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 1
 vim.o.foldenable = true
