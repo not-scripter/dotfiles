@@ -9,9 +9,16 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 ```
 git clone https://github.com/not-scripter/dotfiles.git
 ```
+### Navigate to /dotfiles/install
 ```
-cd dotfiles
+cd dotfiles/install
 ```
+### Run Installation Script
 ```
-stow .
+bash bootstrap.sh
+```
+### Install all Dependencies
+#### For Termux
+```
+bash termux-deps.sh
 ```
