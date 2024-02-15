@@ -7,6 +7,6 @@ return {
   config = function()
     local telescope = require("telescope")
     telescope.load_extension('zoxide')
-    vim.keymap.set("n", "<leader>zf", telescope.extensions.zoxide.list)
+    vim.keymap.set("n", "<leader>zf", telescope.extensions.zoxide.list, { desc = "Zoxide Find" })
   end
 }
