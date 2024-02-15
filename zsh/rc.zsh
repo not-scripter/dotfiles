@@ -25,14 +25,7 @@ source $(dirname $(gem which colorls))/tab_complete.sh
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 # Aliases
-alias sz='source .zshrc'
+alias sz='source ~/.zshrc'
 alias ls='colorls'
 alias la='colorls -A'
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# bun
-# export BUN_INSTALL="$HOME/.bun"
-# export PATH="$BUN_INSTALL/bin:$PATH"

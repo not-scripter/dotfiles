@@ -1,0 +1,9 @@
+ apt-get install neovim
+apt-get install tmux
+apt-get install git
+apt-get install curl
+apt-get install wget
+apt-get install lazygit
+apt-get install ruby
+apt-get install entr
+gem install colorls
