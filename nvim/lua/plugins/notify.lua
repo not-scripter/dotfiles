@@ -13,8 +13,8 @@ return {
   level = 2,
   minimum_width = 100,
   render = "compact",
-  stages = "fade_in_slide_out",
+  stages = "no_animation", --slide staric fade fade_in_slide_out no_animation
   timeout = 2000,
-  top_down = true,
+  top_down = false,
  },
 }

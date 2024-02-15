@@ -72,5 +72,5 @@ vim.cmd([[autocmd BufNewFile,BufRead *.mdx set filetype=markdown.mdx]])
 --UFO
 vim.o.foldcolumn = '0'
 vim.o.foldlevel = 99
-vim.o.foldlevelstart = 3 --1
+vim.o.foldlevelstart = 99 --1 3
 vim.o.foldenable = true
