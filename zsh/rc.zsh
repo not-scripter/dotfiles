@@ -24,6 +24,9 @@ source $ZSH/oh-my-zsh.sh
 source $(dirname $(gem which colorls))/tab_complete.sh
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
+#ZOXIDE
+eval "$(zoxide init zsh)"
+
 # Aliases
 alias sz='source ~/.zshrc'
 alias ls='colorls'

@@ -6,4 +6,5 @@ pkg install wget
 pkg install lazygit
 pkg install ruby
 pkg install entr
+pkg install zoxide
 gem install colorls
