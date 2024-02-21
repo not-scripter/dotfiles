@@ -46,21 +46,57 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       local lspconfig = require('lspconfig')
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local keymap = vim.keymap.set
+
+      local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+      for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+      end
+
+    lspconfig.html.setup({
+      capabilities = capabilities,
+    })
+
+    lspconfig.tsserver.setup({
+      capabilities = capabilities,
+    })
+
+    lspconfig.cssls.setup({
+      capabilities = capabilities,
+    })
+
+    lspconfig.tailwindcss.setup({
+      capabilities = capabilities,
+    })
 
       -- lspconfig.lua_ls.setup({
-        --capabilities = capabilities
+      --   capabilities = capabilities,
+      --   settings = { -- custom settings for lua
+      --     Lua = {
+      --       -- make the language server recognize "vim" global
+      --       diagnostics = {
+      --         globals = { "vim" },
+      --       },
+      --       workspace = {
+      --         -- make language server aware of runtime files
+      --         library = {
+      --           [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+      --           [vim.fn.stdpath("config") .. "/lua"] = true,
+      --         },
+      --       },
+      --     },
+      --   },
       -- })
-      lspconfig.tsserver.setup({
-        capabilities = capabilities
-      })
 
-      vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-      vim.keymap.set('n', 'gr', vim.lsp.buf.references, {})
-      vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {})
+      keymap('n', 'K', vim.lsp.buf.hover, {})
+      keymap('n', 'gd', vim.lsp.buf.definition, {})
+      keymap('n', 'gr', vim.lsp.buf.references, {})
+      keymap({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {})
     end
   }
 }

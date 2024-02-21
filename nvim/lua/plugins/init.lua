@@ -1,5 +1,11 @@
 return {
   {
+    "windwp/nvim-ts-autotag",
+    config = function()
+    require('nvim-ts-autotag').setup()
+    end
+  },
+  {
     'mg979/vim-visual-multi',
     branch = 'master'
   },

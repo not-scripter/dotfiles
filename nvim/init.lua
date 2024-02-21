@@ -1,7 +1,6 @@
-require("core.opts")
-require("core.vars")
-require("core.keys")
 require("core.lazy")
+require("core.opts")
+require("core.keys")
 
 -- #000000
 -- #9399b2

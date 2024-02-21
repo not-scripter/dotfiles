@@ -100,22 +100,23 @@ return {
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<CR>'] = cmp.mapping.confirm({
+          behavior = cmp.ConfirmBehavior.Insert,
+          select = true,
+        }),
       }),
       sources = cmp.config.sources {
-        { name = "cody", priority = 1250 },
-        { name = "luasnip", priority = 1000 },
-        { name = "nvim_lsp", priority = 750 },
-        { name = "buffer", priority = 500 },
-        { name = "path", priority = 250 },
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "path" },
       },
-      duplicates = {
-        luasnip = 0,
-        nvim_lsp = 0,
-        cmp_tabnine = 0,
-        buffer = 0,
-        path = 0,
-      },
+      -- duplicates = {
+      --   luasnip = 1,
+      --   nvim_lsp = 1,
+      --   buffer = 1,
+      --   path = 1,
+      -- },
     })
 
   -- Set configuration for specific filetype.
