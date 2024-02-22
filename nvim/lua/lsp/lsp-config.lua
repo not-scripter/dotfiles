@@ -37,6 +37,7 @@ return {
           "html",
           "cssls",
           "tailwindcss",
+          "emmet_ls",
         },
         automatic_installation = true,
       })
@@ -68,9 +69,9 @@ return {
     lspconfig.tailwindcss.setup({
       capabilities = capabilities,
     })
-    lspconfig.emmet_ls.setup({
-      capabilities = capabilities,
-    })
+    -- lspconfig.emmet_ls.setup({
+    --   capabilities = capabilities,
+    -- })
       -- lspconfig.lua_ls.setup({
       --   capabilities = capabilities,
       --   settings = { -- custom settings for lua
