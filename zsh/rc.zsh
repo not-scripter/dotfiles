@@ -33,11 +33,10 @@ alias ls='colorls'
 alias la='colorls -A'
 
 # Multiple Neovim Config
-alias nvim-vn06="NVIM_APPNAME=VikramNvim_0.6"
-alias nvim-cleanvim="NVIM_APPNAME=CleanVim"
+alias nvim-test="NVIM_APPNAME=TestVim nvim"
 
 function nvims() {
-  items=("default" "VikramNvim_0.6" "CleanVim")
+  items=("default" "TestVim")
   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
   if [[ -z $config ]]; then
     echo "Nothing selected"
