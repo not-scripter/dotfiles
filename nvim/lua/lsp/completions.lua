@@ -19,7 +19,7 @@ return {
 
     vscode.lazy_load()
     vscode.lazy_load({ paths = { "./lua/snippets" } })
-    luasnip.filetype_extend("javascript", { "javascriptreact" })
+    -- luasnip.filetype_extend("javascript", { "javascriptreact" })
     luasnip.filetype_extend("javascriptreact", { "html" })
     --
     vim.api.nvim_set_hl(0, "CmpItemAbbr", { fg = "#9399b2" })
@@ -28,7 +28,7 @@ return {
     vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#f38ba8" })
     vim.api.nvim_set_hl(0, "MyCursorLine", { fg = "#000000", bg = "#cba6f7", bold = true })
 
-    icons = {
+    local icons = {
       Text = "󰉿",
       Method = "󰆧",
       Function = "󰊕",
@@ -54,7 +54,7 @@ return {
       Event = "",
       Operator = "󰆕",
       TypeParameter = "",
-    },
+    }
 
     cmp.setup({
       -- completion = {

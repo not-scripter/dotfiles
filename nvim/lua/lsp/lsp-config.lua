@@ -1,10 +1,8 @@
 return {
   {
     "williamboman/mason.nvim",
-
     vim.lsp.set_log_level("off"),
-    -- vim.lsp.set_log_level("debug"),
-    
+    -- vim.lsp.set_log_level("debug"), 
     config = function()
       require("mason").setup({
         ui = {
@@ -61,19 +59,18 @@ return {
     lspconfig.html.setup({
       capabilities = capabilities,
     })
-
     lspconfig.tsserver.setup({
       capabilities = capabilities,
     })
-
     lspconfig.cssls.setup({
       capabilities = capabilities,
     })
-
     lspconfig.tailwindcss.setup({
       capabilities = capabilities,
     })
-
+    lspconfig.emmet_ls.setup({
+      capabilities = capabilities,
+    })
       -- lspconfig.lua_ls.setup({
       --   capabilities = capabilities,
       --   settings = { -- custom settings for lua
