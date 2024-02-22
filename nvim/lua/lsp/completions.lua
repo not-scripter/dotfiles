@@ -60,6 +60,18 @@ return {
       -- completion = {
       --   completeopt = "menu,menuone",
       -- },
+      sources = cmp.config.sources {
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "path" },
+      },
+      duplicates = {
+        luasnip = 1,
+        nvim_lsp = 1,
+        buffer = 1,
+        path = 1,
+      },
       formatting = {
         fields = { "kind", "abbr", "menu" },
         format = lspkind.cmp_format({
@@ -72,6 +84,7 @@ return {
             vim_item.menu = ({
               luasnip = "",
               nvim_lsp = "",
+              nvim_lua = "[Lua]",
               buffer = "",
               path = "",
               cmdline = "",
@@ -105,18 +118,6 @@ return {
           select = true,
         }),
       }),
-      sources = cmp.config.sources {
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "buffer" },
-        { name = "path" },
-      },
-      -- duplicates = {
-      --   luasnip = 1,
-      --   nvim_lsp = 1,
-      --   buffer = 1,
-      --   path = 1,
-      -- },
     })
 
   -- Set configuration for specific filetype.
