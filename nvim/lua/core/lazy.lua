@@ -29,5 +29,4 @@ require('lazy').setup({
 
 vim.cmd.colorscheme "catppuccin"
 
-
 require 'nvim-treesitter.install'.compilers = { "clang" }

@@ -19,7 +19,7 @@ return {
 
     vscode.lazy_load()
     vscode.lazy_load({ paths = { "./lua/snippets" } })
-    luasnip.filetype_extend("javascript", { "javascriptreact" })
+    -- luasnip.filetype_extend("javascript", { "javascriptreact" })
     luasnip.filetype_extend("javascriptreact", { "html" })
     --
     vim.api.nvim_set_hl(0, "CmpItemAbbr", { fg = "#9399b2" })
@@ -28,7 +28,7 @@ return {
     vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#f38ba8" })
     vim.api.nvim_set_hl(0, "MyCursorLine", { fg = "#000000", bg = "#cba6f7", bold = true })
 
-    icons = {
+    local icons = {
       Text = "󰉿",
       Method = "󰆧",
       Function = "󰊕",
@@ -54,12 +54,24 @@ return {
       Event = "",
       Operator = "󰆕",
       TypeParameter = "",
-    },
+    }
 
     cmp.setup({
       -- completion = {
       --   completeopt = "menu,menuone",
       -- },
+      sources = cmp.config.sources {
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "path" },
+      },
+      duplicates = {
+        luasnip = 1,
+        nvim_lsp = 1,
+        buffer = 1,
+        path = 1,
+      },
       formatting = {
         fields = { "kind", "abbr", "menu" },
         format = lspkind.cmp_format({
@@ -72,9 +84,10 @@ return {
             vim_item.menu = ({
               luasnip = "",
               nvim_lsp = "",
+              nvim_lua = "[Lua]",
               buffer = "",
               path = "",
-              cmdline = "",
+              cmdline = "",
             })[entry.source.name]
             vim_item.kind, vim_item.menu = vim_item.menu, vim_item.kind
             return vim_item
@@ -100,21 +113,11 @@ return {
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<CR>'] = cmp.mapping.confirm({
+          behavior = cmp.ConfirmBehavior.Insert,
+          select = true,
+        }),
       }),
-      sources = cmp.config.sources {
-        { name = "luasnip", priority = 1000 },
-        { name = "nvim_lsp", priority = 750 },
-        { name = "buffer", priority = 500 },
-        { name = "path", priority = 250 },
-      },
-      duplicates = {
-        luasnip = 0,
-        nvim_lsp = 0,
-        cmp_tabnine = 0,
-        buffer = 0,
-        path = 0,
-      },
     })
 
   -- Set configuration for specific filetype.

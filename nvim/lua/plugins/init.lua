@@ -1,17 +1,19 @@
 return {
   {
-    "numToStr/FTerm.nvim",
+    'mattn/emmet-vim',
   },
   {
-    "kdheepak/lazygit.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
+    "windwp/nvim-ts-autotag",
     config = function()
-      local keymap = vim.api.nvim_set_keymap
-      local default_opts = { noremap = true, silent = true }
-      keymap("n", "<leader>gg", "<cmd>LazyGit<CR>", default_opts)
+    require('nvim-ts-autotag').setup()
     end
+  },
+  {
+    'mg979/vim-visual-multi',
+    branch = 'master'
+  },
+  {
+    "numToStr/FTerm.nvim",
   },
   {
     'windwp/nvim-autopairs',
@@ -50,10 +52,9 @@ return {
   },
   {
     "aurum77/live-server.nvim",
-    run = function()
+    config = function()
       require"live_server.util".install()
     end,
     cmd = { "LiveServer", "LiveServerStart", "LiveServerStop" },
   },
-
 }
