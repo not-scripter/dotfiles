@@ -3,7 +3,6 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {},
   config = function()
-    vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
     -- require("oil").setup()
     require("oil").setup({
       default_file_explorer = true,
@@ -27,7 +26,7 @@ return {
         conceallevel = 3,
         concealcursor = "nvic",
       },
-      delete_to_trash = false,
+      delete_to_trash = true,
       skip_confirm_for_simple_edits = false,
       prompt_save_on_select_new_entry = true,
       cleanup_delay_ms = 2000,
@@ -49,7 +48,7 @@ return {
         ["gs"] = "actions.change_sort",
         ["gx"] = "actions.open_external",
         ["g."] = "actions.toggle_hidden",
-        ["g\\"] = "actions.toggle_trash",
+        ["g/"] = "actions.toggle_trash",
       },
       -- Set to false to disable all of the above keymaps
       use_default_keymaps = false,

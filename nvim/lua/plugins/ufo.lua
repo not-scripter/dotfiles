@@ -7,8 +7,5 @@ return {
         return {'treesitter', 'indent'}
       end
     })
-    --Keymaps
-    vim.keymap.set('n', 'zR', require('ufo').openAllFolds, {desc = "Open All Folds"})
-    vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, {desc = "Close All Folds"})
   end,
 }
