@@ -1,7 +1,13 @@
 return {
   'hrsh7th/nvim-cmp',
+  version = false,
+  event = "InsertEnter",
   dependencies = {
-    "L3MON4D3/LuaSnip",
+    {
+      "L3MON4D3/LuaSnip",
+      version = false,
+      build = "make install_jsregexp",
+    },
     "hrsh7th/cmp-nvim-lsp",
     "saadparwaiz1/cmp_luasnip",
     "rafamadriz/friendly-snippets",
@@ -10,23 +16,29 @@ return {
     'hrsh7th/cmp-cmdline',
     "onsails/lspkind.nvim",
   },
-  event = "InsertEnter",
   config = function(_, opts)
     local cmp = require'cmp'
-    local luasnip = require("luasnip")
+    local ls = require "luasnip"
+    local types = require "luasnip.util.types"
     local vscode = require("luasnip.loaders.from_vscode")
     local lspkind = require('lspkind')
 
     vscode.lazy_load()
     vscode.lazy_load({ paths = { "./lua/snippets" } })
-    -- luasnip.filetype_extend("javascript", { "javascriptreact" })
-    luasnip.filetype_extend("javascriptreact", { "html" })
-    --
-    vim.api.nvim_set_hl(0, "CmpItemAbbr", { fg = "#9399b2" })
-    vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#89dceb" })
-    vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#89b4fa" })
-    vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#f38ba8" })
-    vim.api.nvim_set_hl(0, "MyCursorLine", { fg = "#000000", bg = "#cba6f7", bold = true })
+    ls.filetype_extend("javascriptreact", { "html" })
+    ls.config.set_config {
+      history = true,
+      delete_check_events = "TextChanged",
+      updateevents = "TextChanged,TextChangedI",
+      enable_autosnippets = true,
+    }
+
+    vim.api.nvim_set_hl(0, "CmpItemAbbr", { fg = "#CDD6F4" })
+    vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#94E2D5" })
+    vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#89B4FA" })
+    vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#F38BA8" })
+    vim.api.nvim_set_hl(0, "MyCursorLine", { fg = "#000000", bg = "#F5C2E7", bold = true })
+    vim.api.nvim_set_hl(0, "CmpBorder", { fg = "#45475A" })
 
     local icons = {
       Text = "󰉿",
@@ -40,7 +52,7 @@ return {
       Module = "",
       Property = "󰜢",
       Unit = "󰑭",
-      Value = "󰎠",
+      Value = "",
       Enum = "",
       Keyword = "󰌋",
       Snippet = "󰈮",
@@ -57,9 +69,10 @@ return {
     }
 
     cmp.setup({
-      -- completion = {
-      --   completeopt = "menu,menuone",
-      -- },
+      completion = {
+        -- completeopt = "menu,menuone",
+        completeopt = "menu,menuone,noinsert",
+      },
       sources = cmp.config.sources {
         { name = "nvim_lsp" },
         { name = "luasnip" },
@@ -87,7 +100,7 @@ return {
               nvim_lua = "[Lua]",
               buffer = "",
               path = "",
-              cmdline = "",
+              cmdline = "",
             })[entry.source.name]
             vim_item.kind, vim_item.menu = vim_item.menu, vim_item.kind
             return vim_item
@@ -101,23 +114,37 @@ return {
       },
       window = {
         completion = cmp.config.window.bordered({
-          -- border = "none",
+          border = "rounded",
           side_padding = 0,
           col_offset = -3,
-          winhighlight = "Normal:None,FloatBorder:None,CursorLine:MyCursorLine,Search:None",
+          winhighlight = "Normal:None,FloatBorder:CmpBorder,CursorLine:MyCursorLine,Search:None",
         }),
-        documentation = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered({
+          border = "rounded",
+          winhighlight = "Normal:None,FloatBorder:CmpBorder,CursorLine:MyCursorLine,Search:None",
+        }),
       },
       mapping = cmp.mapping.preset.insert({
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({
-          behavior = cmp.ConfirmBehavior.Insert,
+        ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+        ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-e>"] = cmp.mapping.abort(),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }), 
+        ["<S-CR>"] = cmp.mapping.confirm({
+          behavior = cmp.ConfirmBehavior.Replace,
           select = true,
         }),
+        ["<C-CR>"] = function(fallback)
+          cmp.abort()
+          fallback()
+        end,
       }),
+      experimental = {
+        native_menu = false,
+        ghost_text = false,
+      },
     })
 
   -- Set configuration for specific filetype.
@@ -146,5 +173,4 @@ return {
   })
 
   end,
-
 }
