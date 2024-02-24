@@ -4,59 +4,59 @@ return {
    event = 'VimEnter',
    dependencies = {{'nvim-tree/nvim-web-devicons'}},
 
-   config = function()
-    require('dashboard').setup {
-     theme = 'hyper',
-     config = {
-      header = {
-       " 🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧",
-       " 🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧",
-       " 🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧",
-       " ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜",
-       " ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜🔵⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜",
-       " ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜",
-       " 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
-       " 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
-       " 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
-       "                                                       ",
-       "Ｖａｓｕｄｈａｉｖａ Ｋｕｔｕｍｂａｋａｍ",
-       "                                                       ",
-      },
-      -- week_header = {
-      --  enable = false,
-      -- },
-      shortcut = {
-       {
-        desc = '󰊳 Update',
-        group = '@property',
-        action = 'Lazy update',
-        key = 'u'
-       },
-       {
-        icon = ' ',
-        icon_hl = '@variable',
-        desc = 'Files',
-        group = 'Label',
-        action = 'Telescope find_files',
-        key = 'f',
-       },
-       {
-        desc = ' Apps',
-        group = 'DiagnosticHint',
-        action = 'Telescope app',
-        key = 'a',
-       },
-       {
-        desc = ' dotfiles',
-        group = 'Number',
-        action = 'Telescope dotfiles',
-        key = 'd',
-       },
-      },
-      footer = {}
-     },
-    }
-   end
+    config = function()
+      require('dashboard').setup {
+        theme = 'hyper',
+        config = {
+          header = {
+            " 🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧",
+            " 🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧",
+            " 🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧",
+            " ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜",
+            " ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜🔵⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜",
+            " ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜",
+            " 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+            " 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+            " 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+            "                                                       ",
+            "Ｖａｓｕｄｈａｉｖａ Ｋｕｔｕｍｂａｋａｍ",
+            "                                                       ",
+          },
+          -- week_header = {
+          --  enable = false,
+          -- },
+          shortcut = {
+            {
+              desc = '󰊳 Update',
+              group = '@property',
+              action = 'Lazy update',
+              key = 'u'
+            },
+            {
+              icon = ' ',
+              icon_hl = '@variable',
+              desc = 'Files',
+              group = 'Label',
+              action = 'Telescope find_files',
+              key = 'f',
+            },
+            {
+              desc = ' Apps',
+              group = 'DiagnosticHint',
+              action = 'Telescope app',
+              key = 'a',
+            },
+            {
+              desc = ' dotfiles',
+              group = 'Number',
+              action = 'Telescope dotfiles',
+              key = 'd',
+            },
+          },
+          footer = {}
+        },
+      }
+    end
   },
   --Greatest UI plugin for performance
   {
@@ -189,37 +189,59 @@ return {
     },
     config = function()
       local colors = {
-        black    = '#000000',
-        white    = '#9399b2',
-        blue     = '#89b4fa',
-        cyan     = '#89dceb',
-        darkblue = '#b4befe',
-        green    = '#98be65',
-        orange   = '#FF8800',
-        violet   = '#cba6f7',
-        magenta  = '#f5c2e7',
-        red      = '#f38ba8',
+        bg    = '#000000',
+        fg    = '#CDD6F4',
+        blue     = '#89B4FA',
+        cyan     = '#94E2D5',
+        green    = '#A6E3A1',
+        yellow   = '#F9E2AF',
+        magenta  = '#F5C2E7',
+        red      = '#F38BA8',
       }
-      local bubbles_theme = {
+      local custom = {
         normal = {
-          a = { fg = colors.black, bg = colors.violet },
-          b = { fg = colors.white, bg = colors.black },
-          c = { fg = colors.black, bg = colors.black },
-          x = { fg = colors.white, bg = colors.black },
-          y = { fg = colors.white, bg = colors.black },
-          z = { fg = colors.black, bg = colors.violet },
+          a = { fg = colors.fg, bg = colors.red },
+          b = { fg = colors.fg, bg = colors.red },
+          c = { fg = colors.fg, bg = colors.red },
+          x = { fg = colors.fg, bg = colors.red },
+          y = { fg = colors.fg, bg = colors.red },
+          z = { fg = colors.fg, bg = colors.red },
         },
 
-      insert = { a = { fg = colors.black, bg = colors.blue } },
-      visual = { a = { fg = colors.black, bg = colors.cyan } },
-      replace = { a = { fg = colors.black, bg = colors.red } },
+        insert = {
+          a = { fg = colors.bg, bg = colors.blue }, 
+          b = { fg = colors.bg, bg = colors.blue }, 
+          c = { fg = colors.bg, bg = colors.blue }, 
+          x = { fg = colors.bg, bg = colors.blue }, 
+          y = { fg = colors.bg, bg = colors.blue }, 
+          z = { fg = colors.bg, bg = colors.blue }, 
+        },
+        visual = {
+          a = { fg = colors.bg, bg = colors.green },
+          b = { fg = colors.bg, bg = colors.green },
+          c = { fg = colors.bg, bg = colors.green },
+          x = { fg = colors.bg, bg = colors.green }, 
+          y = { fg = colors.bg, bg = colors.green },
+          z = { fg = colors.bg, bg = colors.green },
+        },
+        replace = {
+          a = { fg = colors.bg, bg = colors.cyan },
+          b = { fg = colors.bg, bg = colors.cyan },
+          c = { fg = colors.bg, bg = colors.cyan },
+          x = { fg = colors.bg, bg = colors.cyan },
+          y = { fg = colors.bg, bg = colors.cyan },
+          z = { fg = colors.bg, bg = colors.cyan },
+        },
 
-  inactive = {
-    a = { fg = colors.white, bg = colors.black },
-    b = { fg = colors.white, bg = colors.black },
-    c = { fg = colors.black, bg = colors.black },
-  },
-}
+        inactive = {
+          a = { fg = colors.fg, bg = colors.bg },
+          b = { fg = colors.fg, bg = colors.bg },
+          c = { fg = colors.fg, bg = colors.bg },
+          x = { fg = colors.fg, bg = colors.bg },
+          y = { fg = colors.fg, bg = colors.bg },
+          z = { fg = colors.fg, bg = colors.bg },
+        },
+      }
 
     local function file_icon()
       return [[󰈮]]
@@ -228,81 +250,74 @@ return {
       return [[󰦨]]
     end
 
-    require('lualine').setup {
-      options = {
-        theme = "catppuccin", --tokyonight, catppuccin
-        -- component_separators = '|',
-        -- section_separators = { left = '', right = '' },
-      },
-      sections = {
-        lualine_a = {
-          -- {'branch', icon = {'', align='right', color={fg='green'}}}
-          { file_icon, separator = { left = '' }, right_padding = 2 },
+      require('lualine').setup {
+        options = {
+          -- theme = "catppuccin",
+          theme = custom,
+          component_separators = '',
+          section_separators = { left = '', right = '' },
         },
-        lualine_b = {
-          { 'filename', separator = { left = '' }, right_padding = 2 },
-          { 'filesize', separator = { left = '' }, right_padding = 2 },
+        sections = {
+          lualine_a = {
+            -- {'branch', icon = {'', align='right', color={fg='green'}}},
+            -- { file_icon, separator = { left = '' }, right_padding = 2 },
+            { file_icon },
+          },
+          lualine_b = {
+            { 'filename' },
+            { 'filesize' },
+          },
+          lualine_c = {
+            { 'diagnostics' },
+            { 'hostname' },
+          },
+          lualine_x = {
+            { 'diff' },
+            { 'branch' },
+          },
+          lualine_y = {
+            { 'selectioncount' },
+            { 'progress' },
+            { 'location' },
+          },
+          lualine_z = {
+            { line_icon, },
+          },
         },
-        lualine_c = {
-          { 'diagnostics', separator = { left = '' }, right_padding = 2 },
-          { 'hostname', separator = { left = '' }, right_padding = 2 },
+        inactive_sections = {
+          lualine_a = { 'filename' },
+          lualine_b = {},
+          lualine_c = {},
+          lualine_x = {},
+          lualine_y = {},
+          lualine_z = { 'location' },
         },
-        lualine_x = {
-          { 'diff', separator = { left = '' }, right_padding = 2 },
-          { 'branch', separator = { left = '' }, right_padding = 2 },
+        tabline = {
+          lualine_a = {'buffers'},
+          lualine_b = {},
+          lualine_c = {},
+          lualine_x = {},
+          lualine_y = {},
+          lualine_z = {'tabs'}
         },
-        lualine_y = {
-          { 'selectioncount', separator = { left = '' }, right_padding = 2 },
-          { 'progress', separator = { left = '' }, right_padding = 0 },
-          { 'location', separator = { left = '' }, right_padding = 0 },
+        winbar = {
+          lualine_a = {},
+          lualine_b = {},
+          lualine_c = {},
+          lualine_x = {},
+          lualine_y = {},
+          lualine_z = {}
         },
-        lualine_z = {
-          { line_icon, separator = { left = '' }, right_padding = 2 },
+        inactive_winbar = {
+          lualine_a = {},
+          lualine_b = {},
+          lualine_c = {},
+          lualine_x = {},
+          lualine_y = {},
+          lualine_z = {}
         },
-      },
-      inactive_sections = {
-        lualine_a = { 'filename' },
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = { 'location' },
-      },
-      tabline = {},
-      extensions = {},
-    }
-
+        extensions = { "lazy", "mason", "fzf", "oil", "neo-tree", "trouble", },
+      }
     end
-  },
-  {
-    -- 'akinsho/bufferline.nvim',
-    -- version = "*",
-    -- dependencies = 'nvim-tree/nvim-web-devicons',
-    -- config = function()
-    --   local buff = require('bufferline')
-    --   buff.setup({
-    --     options = {
-    --       style_preset = {
-    --         buff.style_preset.no_italic,
-    --         -- buff.style_preset.no_bold
-    --       },
-    --       hover = {
-    --         enabled = true,
-    --         delay = 200,
-    --         reveal = {'close'}
-    --       },
-    --       -- groups = {
-    --       --  items = {
-    --       --   require('bufferline.groups').builtin.pinned:with({ icon = "" })
-    --       --  }
-    --       -- },
-    --     }  
-    --   })
-    --   diagnostics_indicator = function(count, level)
-    --     local icon = level:match("error") and " " or ""
-    --     return " " .. icon .. count
-    --   end
-    --   return buff 
-    -- end
   },
 }
