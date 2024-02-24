@@ -76,7 +76,6 @@ function M.setup()
     ["X"] = { "<cmd>%bd|e#|bd#<CR>", "Close all Buffer" },
     ["/"] = { "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", "Comment  Toggle" },
 
-    ["F"] = { "", "Format" },
     ["<leader>"] = { "=ap", "Format" },
 
     --Terminal

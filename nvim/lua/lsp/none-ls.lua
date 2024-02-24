@@ -16,6 +16,6 @@ return {
         null_ls.builtins.completion.tags,
       },
     })
-    vim.keymap.set('n', '<leader>gf', vim.lsp.buf.format, {desc="Format Document"})
+    -- vim.keymap.set('n', '<leader>l', vim.lsp.buf.format, { desc="Format Document" })
   end
 }

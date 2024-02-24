@@ -5,7 +5,7 @@ return {
   dependencies = {
     {
       "L3MON4D3/LuaSnip",
-      version = "v2.*",
+      version = false,
       build = "make install_jsregexp",
     },
     "hrsh7th/cmp-nvim-lsp",
@@ -18,7 +18,6 @@ return {
   },
   config = function(_, opts)
     local cmp = require'cmp'
-    -- local luasnip = require("luasnip")
     local ls = require "luasnip"
     local types = require "luasnip.util.types"
     local vscode = require("luasnip.loaders.from_vscode")
@@ -30,16 +29,16 @@ return {
     ls.config.set_config {
       history = true,
       delete_check_events = "TextChanged",
-      -- history = false,
-      -- updateevents = "TextChanged,TextChangedI",
-      -- enable_autosnippets = true,
+      updateevents = "TextChanged,TextChangedI",
+      enable_autosnippets = true,
     }
 
-    vim.api.nvim_set_hl(0, "CmpItemAbbr", { fg = "#9399b2" })
-    vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#89dceb" })
-    vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#89b4fa" })
-    vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#f38ba8" })
-    vim.api.nvim_set_hl(0, "MyCursorLine", { fg = "#000000", bg = "#cba6f7", bold = true })
+    vim.api.nvim_set_hl(0, "CmpItemAbbr", { fg = "#CDD6F4" })
+    vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#94E2D5" })
+    vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#89B4FA" })
+    vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#F38BA8" })
+    vim.api.nvim_set_hl(0, "MyCursorLine", { fg = "#000000", bg = "#F5C2E7", bold = true })
+    vim.api.nvim_set_hl(0, "CmpBorder", { fg = "#45475A" })
 
     local icons = {
       Text = "󰉿",
@@ -72,7 +71,7 @@ return {
     cmp.setup({
       completion = {
         -- completeopt = "menu,menuone",
-        -- completeopt = "menu,menuone,noinsert",
+        completeopt = "menu,menuone,noinsert",
       },
       sources = cmp.config.sources {
         { name = "nvim_lsp" },
@@ -101,7 +100,7 @@ return {
               nvim_lua = "[Lua]",
               buffer = "",
               path = "",
-              cmdline = "",
+              cmdline = "",
             })[entry.source.name]
             vim_item.kind, vim_item.menu = vim_item.menu, vim_item.kind
             return vim_item
@@ -115,10 +114,10 @@ return {
       },
       window = {
         completion = cmp.config.window.bordered({
-          -- border = "none",
+          border = "rounded",
           side_padding = 0,
           col_offset = -3,
-          winhighlight = "Normal:None,FloatBorder:None,CursorLine:MyCursorLine,Search:None",
+          winhighlight = "Normal:None,FloatBorder:CmpBorder,CursorLine:MyCursorLine,Search:None",
         }),
         -- documentation = cmp.config.window.bordered(),
       },
@@ -129,28 +128,18 @@ return {
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.abort(),
-        ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ["<CR>"] = cmp.mapping.confirm({ select = true }), 
         ["<S-CR>"] = cmp.mapping.confirm({
           behavior = cmp.ConfirmBehavior.Replace,
           select = true,
-        }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        }),
         ["<C-CR>"] = function(fallback)
           cmp.abort()
           fallback()
         end,
-        -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        -- ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-        -- ['<C-Space>'] = cmp.mapping.complete(),
-        -- ['<C-e>'] = cmp.mapping.abort(),
-        -- ['<CR>'] = cmp.mapping.confirm({
-        --   behavior = cmp.ConfirmBehavior.Insert,
-        --   select = true,
-        -- }),
       }),
       experimental = {
-        -- I like the new menu better! Nice work hrsh7th
         native_menu = false,
-        -- Let's play with this for a day or two
         ghost_text = false,
       },
     })
