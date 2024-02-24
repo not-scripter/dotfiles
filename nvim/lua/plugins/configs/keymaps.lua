@@ -55,14 +55,14 @@ function M.setup()
     },
  }
 
- local opts = {
-  mode = {'n', 'v'},
-  prefix = "<leader>",
-  buffer = nil,
-  silent = true,
-  noremap = true,
-  nowait = false,
- }
+  local opts = {
+    mode = {'n', 'v'},
+    prefix = "<leader>",
+    buffer = nil,
+    silent = true,
+    noremap = true,
+    nowait = false,
+  }
 
   local mappings = {
     ["D"] = { "<cmd>Dashboard<CR>", "Dashboard" },
@@ -107,10 +107,14 @@ function M.setup()
       r = { "<cmd>Lazy restore<cr>", "Restore" },
     },
 
+    --Telescope
     f = {
       name = "Telescope",
-      b = { "<cmd>Telescope<CR>", "Telescope Builtins" },
+      b = { "<cmd>Telescope buffers<CR>", "Buffers" },
       f = { "<cmd>Telescope find_files prompt_prefix=🔍<CR>", "Find Files" },
+      g = { "<cmd>Telescope live_grep<CR>", "Live Grep" },
+      h = { "<cmd>Telescope help_tags<CR>", "Help Tags" },
+      c = { "<cmd>Telescope colorscheme<CR>", "Colorscheme" },
     },
 
     o = {
