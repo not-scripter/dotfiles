@@ -119,7 +119,10 @@ return {
           col_offset = -3,
           winhighlight = "Normal:None,FloatBorder:CmpBorder,CursorLine:MyCursorLine,Search:None",
         }),
-        -- documentation = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered({
+          border = "rounded",
+          winhighlight = "Normal:None,FloatBorder:CmpBorder,CursorLine:MyCursorLine,Search:None",
+        }),
       },
       mapping = cmp.mapping.preset.insert({
         ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
