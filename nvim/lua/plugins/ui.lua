@@ -96,6 +96,20 @@ return {
     },
   },
   {
+    'stevearc/dressing.nvim',
+    lazy = true,
+  init = function()
+    vim.ui.select = function(...)
+      require("lazy").load({ plugins = { "dressing.nvim" } })
+      return vim.ui.select(...)
+    end
+    vim.ui.input = function(...)
+      require("lazy").load({ plugins = { "dressing.nvim" } })
+      return vim.ui.input(...)
+    end
+  end,
+  },
+  {
     'rcarriga/nvim-notify',
     opts = {
       background_colour = "NotifyBackground",
@@ -200,36 +214,24 @@ return {
       }
       local custom = {
         normal = {
-          a = { fg = colors.fg, bg = colors.red },
-          b = { fg = colors.fg, bg = colors.red },
-          c = { fg = colors.fg, bg = colors.red },
-          x = { fg = colors.fg, bg = colors.red },
-          y = { fg = colors.fg, bg = colors.red },
-          z = { fg = colors.fg, bg = colors.red },
+          a = { fg = colors.bg, bg = colors.red, gui = 'bold' },
+          b = { fg = colors.fg, bg = colors.bg },
+          c = { fg = colors.fg, bg = colors.bg },
+          x = { fg = colors.fg, bg = colors.bg },
+          y = { fg = colors.fg, bg = colors.bg },
+          z = { fg = colors.bg, bg = colors.red },
         },
 
         insert = {
           a = { fg = colors.bg, bg = colors.blue }, 
-          b = { fg = colors.bg, bg = colors.blue }, 
-          c = { fg = colors.bg, bg = colors.blue }, 
-          x = { fg = colors.bg, bg = colors.blue }, 
-          y = { fg = colors.bg, bg = colors.blue }, 
           z = { fg = colors.bg, bg = colors.blue }, 
         },
         visual = {
           a = { fg = colors.bg, bg = colors.green },
-          b = { fg = colors.bg, bg = colors.green },
-          c = { fg = colors.bg, bg = colors.green },
-          x = { fg = colors.bg, bg = colors.green }, 
-          y = { fg = colors.bg, bg = colors.green },
           z = { fg = colors.bg, bg = colors.green },
         },
         replace = {
           a = { fg = colors.bg, bg = colors.cyan },
-          b = { fg = colors.bg, bg = colors.cyan },
-          c = { fg = colors.bg, bg = colors.cyan },
-          x = { fg = colors.bg, bg = colors.cyan },
-          y = { fg = colors.bg, bg = colors.cyan },
           z = { fg = colors.bg, bg = colors.cyan },
         },
 
@@ -242,63 +244,54 @@ return {
           z = { fg = colors.fg, bg = colors.bg },
         },
       }
-
-    local function file_icon()
-      return [[󰈮]]
-    end
-    local function line_icon()
-      return [[󰦨]]
-    end
-
       require('lualine').setup {
         options = {
           -- theme = "catppuccin",
           theme = custom,
-          component_separators = '',
-          section_separators = { left = '', right = '' },
+          component_separators = { left = '█▓▒░  ', right = '  ░▒▓█' },
+          section_separators = { left = '█▓▒░  ', right = '  ░▒▓█' },
         },
         sections = {
           lualine_a = {
-            -- {'branch', icon = {'', align='right', color={fg='green'}}},
-            -- { file_icon, separator = { left = '' }, right_padding = 2 },
-            { file_icon },
+            { 'hostname', icon = {"󰙄", align="left",}, separator = { left = '  ░▒▓█', right = '█▓▒░  ' }, },
           },
           lualine_b = {
-            { 'filename' },
-            { 'filesize' },
+            { 'branch', icon = {"󰊢", align="left",}, separator = { left = '  ░▒▓█', right = '█▓▒░  ' },},
           },
           lualine_c = {
-            { 'diagnostics' },
-            { 'hostname' },
+            { 'filesize', icon = {"󰈔", align="left",}, separator = { left = '  ░▒▓█', right = '█▓▒░  ' }, },
+            { 'diagnostics', separator = { left = '  ░▒▓█', right = '█▓▒░  ' }, },
           },
           lualine_x = {
             { 'diff' },
-            { 'branch' },
           },
           lualine_y = {
             { 'selectioncount' },
             { 'progress' },
-            { 'location' },
           },
           lualine_z = {
-            { line_icon, },
+            { 'location', icon = {"󰦨", align="right",}, separator = { left = '  ░▒▓█', right = '█▓▒░  ' }, },
           },
         },
         inactive_sections = {
-          lualine_a = { 'filename' },
+          lualine_a = {},
           lualine_b = {},
           lualine_c = {},
           lualine_x = {},
           lualine_y = {},
-          lualine_z = { 'location' },
+          lualine_z = {},
         },
         tabline = {
-          lualine_a = {'buffers'},
+          lualine_a = {
+            { 'buffers', separator = { left = '  ░▒▓█', right = '█▓▒░  ' },},
+          },
           lualine_b = {},
           lualine_c = {},
           lualine_x = {},
           lualine_y = {},
-          lualine_z = {'tabs'}
+          lualine_z = {
+            { 'tabs', separator = { left = '  ░▒▓█', right = '█▓▒░  ' },},
+          }
         },
         winbar = {
           lualine_a = {},
