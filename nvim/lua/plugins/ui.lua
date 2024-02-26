@@ -129,6 +129,9 @@ return {
       top_down = false,
     },
   },
+  {
+    "RRethy/vim-illuminate",
+  },
   --FileManager
   { 
     "nvim-neo-tree/neo-tree.nvim",
@@ -248,8 +251,10 @@ return {
         options = {
           -- theme = "catppuccin", --         
           theme = custom,
+          globalstatus = true,
           component_separators = { left = '', right = '' },
           section_separators = { left = '', right = '' },
+          disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
         },
         sections = {
           lualine_a = {
