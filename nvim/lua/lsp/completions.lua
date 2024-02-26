@@ -15,6 +15,7 @@ return {
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
     "onsails/lspkind.nvim",
+    "roobert/tailwindcss-colorizer-cmp.nvim",
   },
   config = function(_, opts)
     local cmp = require'cmp'
@@ -37,7 +38,7 @@ return {
     vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#94E2D5" })
     vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#89B4FA" })
     vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#F38BA8" })
-    vim.api.nvim_set_hl(0, "MyCursorLine", { fg = "#000000", bg = "#F5C2E7", bold = true })
+    vim.api.nvim_set_hl(0, "MyCursorLine", { bg = "#45475A", bold = true })
     vim.api.nvim_set_hl(0, "CmpBorder", { fg = "#45475A" })
 
     local icons = {
@@ -70,8 +71,8 @@ return {
 
     cmp.setup({
       completion = {
-        -- completeopt = "menu,menuone",
-        completeopt = "menu,menuone,noinsert",
+        completeopt = "menu,menuone",
+        -- completeopt = "menu,menuone,noinsert",
       },
       sources = cmp.config.sources {
         { name = "nvim_lsp" },
@@ -86,7 +87,8 @@ return {
         path = 1,
       },
       formatting = {
-        fields = { "kind", "abbr", "menu" },
+        -- fields = { "kind", "abbr", "menu" },
+        fields = { "menu", "abbr", "kind" },
         format = lspkind.cmp_format({
           mode = 'symbol_text',
           maxwidth = 50,
@@ -102,7 +104,8 @@ return {
               path = "",
               cmdline = "",
             })[entry.source.name]
-            vim_item.kind, vim_item.menu = vim_item.menu, vim_item.kind
+            -- vim_item.kind, vim_item.menu = vim_item.menu, vim_item.kind
+            require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)
             return vim_item
           end
         })
@@ -115,7 +118,7 @@ return {
       window = {
         completion = cmp.config.window.bordered({
           border = "rounded",
-          side_padding = 0,
+          side_padding = 1,
           col_offset = -3,
           winhighlight = "Normal:None,FloatBorder:CmpBorder,CursorLine:MyCursorLine,Search:None",
         }),
