@@ -214,7 +214,7 @@ return {
       }
       local custom = {
         normal = {
-          a = { fg = colors.bg, bg = colors.red, gui = 'bold' },
+          a = { fg = colors.bg, bg = colors.red}, -- gui = 'bold'
           b = { fg = colors.fg, bg = colors.bg },
           c = { fg = colors.fg, bg = colors.bg },
           x = { fg = colors.fg, bg = colors.bg },
@@ -246,21 +246,21 @@ return {
       }
       require('lualine').setup {
         options = {
-          -- theme = "catppuccin",
+          -- theme = "catppuccin", --         
           theme = custom,
-          component_separators = { left = '█▓▒░  ', right = '  ░▒▓█' },
-          section_separators = { left = '█▓▒░  ', right = '  ░▒▓█' },
+          component_separators = { left = '', right = '' },
+          section_separators = { left = '', right = '' },
         },
         sections = {
           lualine_a = {
-            { 'hostname', icon = {"󰙄", align="left",}, separator = { left = '  ░▒▓█', right = '█▓▒░  ' }, },
+            { 'hostname', icon = {"󰙄", align="left",}, separator = { left = '  ', right = '' }, },
           },
           lualine_b = {
-            { 'branch', icon = {"󰊢", align="left",}, separator = { left = '  ░▒▓█', right = '█▓▒░  ' },},
+            { 'branch', icon = {"󰊢", align="left",}},
           },
           lualine_c = {
-            { 'filesize', icon = {"󰈔", align="left",}, separator = { left = '  ░▒▓█', right = '█▓▒░  ' }, },
-            { 'diagnostics', separator = { left = '  ░▒▓█', right = '█▓▒░  ' }, },
+            { 'filesize', icon = {"󰈔", align="left",}},
+            { 'diagnostics', separator = { left = '', right = '  ' }, },
           },
           lualine_x = {
             { 'diff' },
@@ -270,7 +270,7 @@ return {
             { 'progress' },
           },
           lualine_z = {
-            { 'location', icon = {"󰦨", align="right",}, separator = { left = '  ░▒▓█', right = '█▓▒░  ' }, },
+            { 'location', icon = {"󰦨", align="right",}, separator = { left = '  ', right = '  ' }, },
           },
         },
         inactive_sections = {
@@ -283,14 +283,14 @@ return {
         },
         tabline = {
           lualine_a = {
-            { 'buffers', separator = { left = '  ░▒▓█', right = '█▓▒░  ' },},
+            { 'buffers', separator = { left = '  ', right = '' },},
           },
           lualine_b = {},
           lualine_c = {},
           lualine_x = {},
           lualine_y = {},
           lualine_z = {
-            { 'tabs', separator = { left = '  ░▒▓█', right = '█▓▒░  ' },},
+            { 'tabs', separator = { left = '', right = '  ' },},
           }
         },
         winbar = {
