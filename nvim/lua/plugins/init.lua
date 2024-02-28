@@ -1,6 +1,5 @@
 return {
   {
-
     'mattn/emmet-vim',
   },
   {
