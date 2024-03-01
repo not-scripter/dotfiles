@@ -249,7 +249,7 @@ return {
       }
       require('lualine').setup {
         options = {
-          -- theme = "catppuccin", --         
+          -- theme = "catppuccin", --           
           theme = custom,
           globalstatus = true,
           component_separators = { left = '', right = '' },

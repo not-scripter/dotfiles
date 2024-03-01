@@ -109,11 +109,19 @@ function M.setup()
     --Telescope
     f = {
       name = "Telescope",
-      b = { "<cmd>Telescope buffers<CR>", "Buffers" },
-      f = { "<cmd>Telescope find_files prompt_prefix=🔍<CR>", "Find Files" },
-      g = { "<cmd>Telescope live_grep<CR>", "Live Grep" },
-      h = { "<cmd>Telescope help_tags<CR>", "Help Tags" },
+      p = { "<cmd>Telescope planets<CR>", "Find Planets" },
       c = { "<cmd>Telescope colorscheme<CR>", "Colorscheme" },
+      h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+      k = { "<cmd>Telescope keymaps<cr>", "Find Keymaps" },
+      f = { "<cmd>Telescope find_files<cr>", "Find Files" },
+      s = { "<cmd>Telescope builtin<cr>", "Find Select Telescope" },
+      w = { "<cmd>Telescope grep_string<cr>", "Find Current Word" },
+      g = { "<cmd>Telescope live_grep<cr>", "Find by Grep" },
+      d = { "<cmd>Telescope diagnostics<cr>", "Find Diagonostics" },
+      r = { "<cmd>Telescope resume<cr>", "Find Resume" },
+      u = { "<cmd>Telescope oldfiles<cr>", "Find Recent Files" },
+      b = { "<cmd>Telescope buffers<cr>", "Find Existing Buffers" },
+      m = { "<cmd>Telescope media_files<CR>", "Find Media Files" },
     },
 
     o = {

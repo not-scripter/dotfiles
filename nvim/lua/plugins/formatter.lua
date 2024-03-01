@@ -28,17 +28,17 @@ return {
           css = { "prettier" },
           scss = { "prettier" },
         },
-        --   format_on_save = {
-        --   lsp_fallback = true,
-        --   async = false,
-        --   timeout_ms = 500,
-        -- },
+          format_on_save = {
+          lsp_fallback = true,
+          async = false,
+          timeout_ms = 2000,
+        },
       })
       vim.keymap.set({ "n", "v" }, "<leader>l", function()
         conform.format({
           lsp_fallback = true,
           async = false,
-          timeout_ms = 500,
+          timeout_ms = 2000,
         })
       end, { desc = "Format file" })
     end,
