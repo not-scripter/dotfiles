@@ -131,6 +131,17 @@ function M.setup()
       e = { "<cmd>ChatGPTEditWithInstructions<CR>", "ChatGPT Edit w Ins" },
     },
 
+    d = {
+      name = "Debugger",
+      b = { "<cmd>DapToggleBreakpoint<CR>", "Toggle Breakpoint" },
+      c = { "<cmd>DapContinue<CR>", "Continue" },
+      o = { "<cmd>DapStepOver<CR>", "Step Over" },
+      i = { "<cmd>DapStepInto<CR>", "Step Into" },
+      s = { "<cmd>DapShowLog<CR>", "Log" },
+      t = { "<cmd>DapTerminate<CR>", "Terminate" },
+      u = { "<cmd>lua require('dapui').toggle()<CR>", "Toggle Dap UI" },
+    },
+
     h = {
       name = "Harpoon",
       m = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Mark" },
