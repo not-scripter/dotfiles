@@ -128,8 +128,8 @@ return {
         }),
       },
       mapping = cmp.mapping.preset.insert({
-        ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-        ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+        ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+        ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(),
@@ -150,30 +150,41 @@ return {
       },
     })
 
-  -- Set configuration for specific filetype.
-  cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
-      { name = 'git' },
-    }, {
-      { name = 'buffer' },
+    -- Set configuration for specific filetype.
+    cmp.setup.filetype('gitcommit', {
+      sources = cmp.config.sources({
+        { name = 'git' },
+      }, {
+          { name = 'buffer' },
+        })
     })
-  })
 
-  cmp.setup.cmdline({ '/', '?' }, {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-      { name = 'buffer' }
-    }
-  })
-
-  cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
+    cmp.setup.cmdline({ '/', '?' }, {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = 'buffer' }
+      },
     })
-  })
+
+    cmp.setup.cmdline(':', {
+      -- mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = 'path' }
+      }, {
+          { name = 'cmdline' }
+        }),
+      mapping = cmp.mapping({
+        ['<C-j>'] = cmp.mapping({
+          c = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+        }),
+        ['<C-k>'] = cmp.mapping({
+          c = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+        }),
+        ['<CR>'] = cmp.mapping({
+          c = cmp.mapping.confirm({ select = true }),
+        }),
+      })
+    })
 
   end,
 }
