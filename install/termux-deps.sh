@@ -8,3 +8,4 @@ pkg install ruby
 pkg install entr
 pkg install zoxide
 gem install colorls
+pkg install pass
