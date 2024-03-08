@@ -2,7 +2,6 @@ require("core.opts")
 require("core.keys")
 require("core.lazy")
 
---test
 -- background:     #000000
 -- foreground:     #CDD6F4
 --  
