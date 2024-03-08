@@ -3,7 +3,7 @@ return {
     "folke/which-key.nvim",
     event = "VeryLazy",
     config = function()
-      require("plugins.configs.keymaps").setup()
+      require("plugins.configs.which-key").setup()
     end,
   },
   {
@@ -20,27 +20,53 @@ return {
   },
   --Telescope
   {
-    "nvim-telescope/telescope-ui-select.nvim",
-  },
-  {
     "nvim-telescope/telescope.nvim",
     -- tag = "0.1.x",
     branch = "0.1.x",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = {
+      'nvim-lua/popup.nvim',
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-ui-select.nvim",
+      'nvim-telescope/telescope-media-files.nvim',
+    },
     config = function()
       require("telescope").setup({
-        pickers = {
-          find_files = {
-            theme = "dropdown", -- cursor, ivy, dropdown
-          }
+        defaults = {
+          thene = "custom", 
+          results_title = false,
+          sorting_strategy = "ascending",
+          layout_strategy = "center", --center, cursor, bottom_pane
+          layout_config = {
+            preview_cutoff = 1, -- Preview should always show (unless previewer = false)
+            width = function(_, max_columns, _)
+              return math.min(max_columns, 80)
+            end,
+            height = function(_, _, max_lines)
+              return math.min(max_lines, 15)
+            end,
+          },
+          border = true,
+          borderchars = {
+            prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
+            results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
+            preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+          },
         },
+        -- pickers = {
+        --   find_files = {
+        --     theme = "dropdown", -- cursor, ivy, dropdown
+        --   }
+        -- },
         extensions = {
           ["ui-select"] = {
-            require("telescope.themes").get_dropdown({}),
+            require("telescope.themes").get_cursor(),
           },
         },
       })
+      -- require("telescope").load_extension("fzf")
+      -- require("telescope").load_extension("fzy_native")
       require("telescope").load_extension("ui-select")
+      require('telescope').load_extension('media_files')
     end,
   },
   {
@@ -83,7 +109,8 @@ return {
         skip_confirm_for_simple_edits = false,
         prompt_save_on_select_new_entry = true,
         cleanup_delay_ms = 2000,
-        lsp_rename_autosave = false,
+        -- lsp_rename_autosave = false,
+        -- lsp_file_methods.autosave_changes,
         constrain_cursor = "editable",
         keymaps = {
           ["g?"] = "actions.show_help",

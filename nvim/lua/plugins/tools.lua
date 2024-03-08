@@ -26,8 +26,19 @@ return {
   },
   {
     'numToStr/Comment.nvim',
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      'JoosepAlviste/nvim-ts-context-commentstring',
+    },
     event = {"BufReadPre", "BufNewFile"},
-    config = true
+    config = function()
+      vim.g.skip_ts_context_commentstring_module = true
+      require('Comment').setup {
+        pre_hook = function()
+          return vim.bo.commentstring
+        end,
+      }
+    end,
   },
   {
     'rmagatti/auto-session',
@@ -60,5 +71,63 @@ return {
   {
     "kdheepak/lazygit.nvim",
     dependencies = "nvim-lua/plenary.nvim",
+  },
+  {
+    'mfussenegger/nvim-dap',
+    dependencies = {
+      {
+        'rcarriga/nvim-dap-ui',
+        config = function()
+          require("dapui").setup()
+        end
+      },
+      -- {
+      --   "microsoft/vscode-js-debug",
+      --   opt = true,
+      --   build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+      -- }
+      {
+        "mxsdev/nvim-dap-vscode-js",
+        config = function()
+          require("dap-vscode-js").setup({
+            adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' },
+          })
+
+          for _, language in ipairs({ "typescript", "javascript" }) do
+            require("dap").configurations[language] = {
+              {
+                type = "pwa-node",
+                request = "launch",
+                name = "Launch file",
+                program = "${file}",
+                cwd = "${workspaceFolder}",
+              },
+              {
+                type = "pwa-node",
+                request = "attach",
+                name = "Attach",
+                processId = require'dap.utils'.pick_process,
+                cwd = "${workspaceFolder}",
+              }
+            }
+          end
+        end
+      }
+    },
+    config = function()
+      local dap, dapui = require("dap"), require("dapui")
+      dap.listeners.before.attach.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.launch.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated.dapui_config = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited.dapui_config = function()
+        dapui.close()
+      end
+    end
   },
 }

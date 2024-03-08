@@ -109,11 +109,19 @@ function M.setup()
     --Telescope
     f = {
       name = "Telescope",
-      b = { "<cmd>Telescope buffers<CR>", "Buffers" },
-      f = { "<cmd>Telescope find_files prompt_prefix=🔍<CR>", "Find Files" },
-      g = { "<cmd>Telescope live_grep<CR>", "Live Grep" },
-      h = { "<cmd>Telescope help_tags<CR>", "Help Tags" },
+      p = { "<cmd>Telescope planets<CR>", "Find Planets" },
       c = { "<cmd>Telescope colorscheme<CR>", "Colorscheme" },
+      h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+      k = { "<cmd>Telescope keymaps<cr>", "Find Keymaps" },
+      f = { "<cmd>Telescope find_files<cr>", "Find Files" },
+      s = { "<cmd>Telescope builtin<cr>", "Find Select Telescope" },
+      w = { "<cmd>Telescope grep_string<cr>", "Find Current Word" },
+      g = { "<cmd>Telescope live_grep<cr>", "Find by Grep" },
+      d = { "<cmd>Telescope diagnostics<cr>", "Find Diagonostics" },
+      r = { "<cmd>Telescope resume<cr>", "Find Resume" },
+      u = { "<cmd>Telescope oldfiles<cr>", "Find Recent Files" },
+      b = { "<cmd>Telescope buffers<cr>", "Find Existing Buffers" },
+      m = { "<cmd>Telescope media_files<CR>", "Find Media Files" },
     },
 
     o = {
@@ -121,6 +129,17 @@ function M.setup()
       o = { "<cmd>ChatGPT<CR>", "ChatGPT Open" },
       a = { "<cmd>ChatGPTActAs<CR>", "ChatGPT ActAs" },
       e = { "<cmd>ChatGPTEditWithInstructions<CR>", "ChatGPT Edit w Ins" },
+    },
+
+    d = {
+      name = "Debugger",
+      b = { "<cmd>DapToggleBreakpoint<CR>", "Toggle Breakpoint" },
+      c = { "<cmd>DapContinue<CR>", "Continue" },
+      o = { "<cmd>DapStepOver<CR>", "Step Over" },
+      i = { "<cmd>DapStepInto<CR>", "Step Into" },
+      s = { "<cmd>DapShowLog<CR>", "Log" },
+      t = { "<cmd>DapTerminate<CR>", "Terminate" },
+      u = { "<cmd>lua require('dapui').toggle()<CR>", "Toggle Dap UI" },
     },
 
     h = {
