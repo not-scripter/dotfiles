@@ -81,10 +81,10 @@ return {
         { name = "path" },
       },
       duplicates = {
-        luasnip = 1,
-        nvim_lsp = 1,
-        buffer = 1,
-        path = 1,
+        luasnip = 0,
+        nvim_lsp = 0,
+        buffer = 0,
+        path = 0,
       },
       formatting = {
         -- fields = { "kind", "abbr", "menu" },
@@ -167,21 +167,21 @@ return {
     })
 
     cmp.setup.cmdline(':', {
-      -- mapping = cmp.mapping.preset.cmdline(),
+      completion = {
+        completeopt = "noselect",
+      },
       sources = cmp.config.sources({
         { name = 'path' }
       }, {
           { name = 'cmdline' }
         }),
+      -- mapping = cmp.mapping.preset.cmdline(),
       mapping = cmp.mapping({
         ['<C-j>'] = cmp.mapping({
           c = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
         }),
         ['<C-k>'] = cmp.mapping({
           c = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-        }),
-        ['<CR>'] = cmp.mapping({
-          c = cmp.mapping.confirm({ select = true }),
         }),
       })
     })
