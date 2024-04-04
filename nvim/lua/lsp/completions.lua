@@ -81,10 +81,10 @@ return {
         { name = "path" },
       },
       duplicates = {
-        luasnip = 0,
-        nvim_lsp = 0,
-        buffer = 0,
-        path = 0,
+        luasnip = 1,
+        nvim_lsp = 1,
+        buffer = 1,
+        path = 1,
       },
       formatting = {
         -- fields = { "kind", "abbr", "menu" },
@@ -103,6 +103,13 @@ return {
               buffer = "",
               path = "",
               cmdline = "",
+            })[entry.source.name]
+            
+            vim_item.dup = ({
+              nvim_lsp = 0,
+              luasnip = 0,
+              buffer = 0,
+              path = 0,
             })[entry.source.name]
             -- vim_item.kind, vim_item.menu = vim_item.menu, vim_item.kind
             require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)

@@ -22,12 +22,15 @@ return {
     'laytan/tailwind-sorter.nvim',
     dependencies = {'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim'},
     build = 'cd formatter && npm i && npm run build',
-    config = true,
-    -- opts = {
-    --   on_save_enabled = true,
-    -- }
+    config = function()
+      require('tailwind-sorter').setup({
+        on_save_enabled = false,
+        on_save_pattern = { '*.html', '*.js', '*.jsx', '*.tsx', '*.twig', '*.hbs', '*.php', '*.heex', '*.astro' },
+        node_path = 'node',
+      })
+    end
   },
-  --Note Taking witb Neorg
+  --Note Taking with Neorg
   {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
