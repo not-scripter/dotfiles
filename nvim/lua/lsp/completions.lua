@@ -80,12 +80,12 @@ return {
         { name = "buffer" },
         { name = "path" },
       },
-      duplicates = {
-        luasnip = 1,
-        nvim_lsp = 1,
-        buffer = 1,
-        path = 1,
-      },
+      -- duplicates = {
+      --   luasnip = 1,
+      --   nvim_lsp = 1,
+      --   buffer = 1,
+      --   path = 1,
+      -- },
       formatting = {
         -- fields = { "kind", "abbr", "menu" },
         fields = { "menu", "abbr", "kind" },
