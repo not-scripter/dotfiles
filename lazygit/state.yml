@@ -1,13 +1,16 @@
 lastupdatecheck: 0
 recentrepos:
 - /data/data/com.termux/files/home/dotfiles
+- /data/data/com.termux/files/home/dotfiles/nvim
 - /data/data/com.termux/files/home/chai-aur-react
 - /data/data/com.termux/files/home/notes
-- /data/data/com.termux/files/home/dotfiles/nvim
+- /data/data/com.termux/files/home/chai-aur-react/tpd2
+- /data/data/com.termux/files/home/chai-aur-react/starter
 - /data/data/com.termux/files/home/.config/nvim
 - /data/data/com.termux/files/home
 startuppopupversion: 5
 customcommandshistory:
 - git tag v2
+- Z ..
 hidecommandlog: false
 ignorewhitespaceindiffview: false

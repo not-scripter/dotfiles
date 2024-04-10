@@ -1,7 +1,7 @@
 return {
   {
     "williamboman/mason.nvim",
-    -- vim.lsp.set_log_level("off"),
+    vim.lsp.set_log_level("off"),
     -- vim.lsp.set_log_level("debug"), 
     config = function()
       require("mason").setup({
