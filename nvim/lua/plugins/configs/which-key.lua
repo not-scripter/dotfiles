@@ -150,6 +150,20 @@ function M.setup()
       n = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "Next" },
       f = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "First" },
     },
+
+    t = {
+      name = "TSTools",
+      o = { "<cmd>TSToolsOrganizeImports<cr>", "Organize" },
+      s = { "<cmd>TSToolsSortImports<cr>", "Sort" },
+      r = { "<cmd>TSToolsRemoveUnusedImports<cr>", "Remove Unused" },
+      R = { "<cmd>TSToolsRemoveUnused<cr>", "Remove Unused Statement" },
+      a = { "<cmd>TSToolsAddMissingImports<cr>", "Add Missing Imports" },
+      f = { "<cmd>TSToolsFixAll<cr>", "Fix Errors" },
+      d = { "<cmd>TSToolsGoToSourceDefinition<cr>", "Source Definition" },
+      r = { "<cmd>TSToolsRenameFile<cr>", "Rename File" },
+      R = { "<cmd>TSToolsFileReferences<cr>", "Find File References" },
+    },
+
   }
 
   whichkey.setup(conf)

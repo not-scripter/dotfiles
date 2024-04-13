@@ -43,6 +43,12 @@ return {
       })
     end
   },
+  { 
+    "folke/neodev.nvim", 
+    config = function()
+      require("neodev").setup()
+    end
+  },
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
@@ -57,21 +63,26 @@ return {
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
       end
 
-    lspconfig.html.setup({
-      capabilities = capabilities,
-    })
-    lspconfig.tsserver.setup({
-      capabilities = capabilities,
-    })
-    lspconfig.cssls.setup({
-      capabilities = capabilities,
-    })
-    lspconfig.tailwindcss.setup({
-      capabilities = capabilities,
-    })
-    -- lspconfig.emmet_ls.setup({
-    --   capabilities = capabilities,
-    -- })
+      lspconfig.html.setup({
+        capabilities = capabilities,
+      })
+      -- lspconfig.tsserver.setup({
+      --   capabilities = capabilities,
+      --   -- init_options = {
+      --   --   preferences = {
+      --   --     disableSuggestions = true,
+      --   --   }
+      --   -- },
+      -- })
+      lspconfig.cssls.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.tailwindcss.setup({
+        capabilities = capabilities,
+      })
+      -- lspconfig.emmet_ls.setup({
+      --   capabilities = capabilities,
+      -- })
       -- lspconfig.lua_ls.setup({
       --   capabilities = capabilities,
       --   settings = { -- custom settings for lua
@@ -96,5 +107,11 @@ return {
       keymap('n', 'gr', vim.lsp.buf.references, {})
       keymap({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {})
     end
-  }
+  },
+  -- Test
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
+  },
 }

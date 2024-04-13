@@ -31,14 +31,14 @@ return {
           format_on_save = {
           lsp_fallback = true,
           async = false,
-          timeout_ms = 2000,
+          timeout_ms = 5000,
         },
       })
       vim.keymap.set({ "n", "v" }, "<leader>l", function()
         conform.format({
           lsp_fallback = true,
           async = false,
-          timeout_ms = 2000,
+          timeout_ms = 5000,
         })
       end, { desc = "Format file" })
     end,
