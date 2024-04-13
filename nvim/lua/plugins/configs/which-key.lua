@@ -124,7 +124,7 @@ function M.setup()
       m = { "<cmd>Telescope media_files<CR>", "Find Media Files" },
     },
 
-    o = {
+    a = {
       name = "ChatGPT",
       o = { "<cmd>ChatGPT<CR>", "ChatGPT Open" },
       a = { "<cmd>ChatGPTActAs<CR>", "ChatGPT ActAs" },
@@ -164,6 +164,28 @@ function M.setup()
       R = { "<cmd>TSToolsFileReferences<cr>", "Find File References" },
     },
 
+    o = {
+      name = "Obsodian",
+      n = { "<cmd>ObsidianNew<CR>", "Create New <Create>" },
+      o = { "<cmd>ObsidianOpen<CR>", "Open <Title>" },
+      s = { "<cmd>ObsidianQuickSwitch<CR>", "Quick Switch" },
+      S = { "<cmd>ObsidianSearch<CR>", "Search <Name>" },
+      c = { "<cmd>ObsidianToggleCheckbox<CR>", "Toggle Checkbox" },
+      f = { "<cmd>ObsidianFollowLink<CR>", "Follow Link" },
+      b = { "<cmd>ObsidianBacklinks<CR>", "Back Links" },
+      t = { "<cmd>ObsidianTags<CR>", "Tag [Tag]" },
+      T = { "<cmd>ObsidianToday<CR>", "Today <Day>" },
+      y = { "<cmd>ObsidianYesterday<CR>", "Yesterday" },
+      Y = { "<cmd>ObsidianTomorrow<CR>", "Tomorrow" },
+      x = { "<cmd>ObsidianTemplate<CR>", "Template <Name>" },
+      l = { "<cmd>ObsidianLink<CR>", "Link <Name>" },
+      L = { "<cmd>ObsidianLinkNew<CR>", "New Link <Name>" },
+      v = { "<cmd>ObsidianLinks<CR>", "Links" },
+      r = { "<cmd>ObsidianRename<CR>", "Rename <New Name>" },
+      e = { "<cmd>ObsidianExtractNote<CR>", "Extract Selected to New" },
+      w = { "<cmd>ObsidianWorkspace<CR>", "Switch Workspace <Name>" },
+      p = { "<cmd>ObsidianPasteImg<CR>", "Pase Img <Img Name>" },
+    },
   }
 
   whichkey.setup(conf)

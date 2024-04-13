@@ -66,4 +66,26 @@ return {
   --   version = "*",
   --   config = true,
   -- },
+
+  -- Note Taking with Obsidian
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*",
+    lazy = true,
+    ft = "markdown",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    opts = {
+      workspaces = {
+        {
+          path = "~/notes",
+        },
+        {
+          name = "work",
+          path = "~/notes/work",
+        },
+      }
+    }
+  },
 }
