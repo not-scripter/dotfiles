@@ -31,25 +31,61 @@ return {
     end
   },
   --Note Taking with Neorg
+  -- {
+  --   "nvim-neorg/neorg",
+  --   build = ":Neorg sync-parsers",
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --   config = function()
+  --     require("neorg").setup {
+  --       load = {
+  --         ["core.defaults"] = {},
+  --         ["core.concealer"] = {},
+  --         ["core.dirman"] = {
+  --           config = {
+  --             workspaces = {
+  --               notes = "~/notes",
+  --             },
+  --             default_workspace = "notes",
+  --           },
+  --         },
+  --       },
+  --     }
+  --   end
+  -- },
+  -- {
+  --   "vhyrro/luarocks.nvim", 
+  --   priority = 1000,
+  --   config = true,
+  -- },
+  -- {
+  --   "nvim-neorg/neorg",
+  --   dependencies = {
+  --     "luarocks.nvim",
+  --   },
+  --   lazy = false,
+  --   version = "*",
+  --   config = true,
+  -- },
+
+  -- Note Taking with Obsidian
   {
-    "nvim-neorg/neorg",
-    build = ":Neorg sync-parsers",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("neorg").setup {
-        load = {
-          ["core.defaults"] = {},
-          ["core.concealer"] = {},
-          ["core.dirman"] = {
-            config = {
-              workspaces = {
-                notes = "~/notes",
-              },
-              default_workspace = "notes",
-            },
-          },
+    "epwalsh/obsidian.nvim",
+    version = "*",
+    lazy = true,
+    ft = "markdown",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    opts = {
+      workspaces = {
+        {
+          path = "~/notes",
+        },
+        {
+          name = "work",
+          path = "~/notes/work",
         },
       }
-    end
+    }
   },
 }
