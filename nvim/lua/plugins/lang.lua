@@ -1,4 +1,10 @@
 return {
+  --HTML 
+  {
+    'mattn/emmet-vim',
+    enabled = false
+  },
+
   --Tailwind
   {
     {
@@ -9,6 +15,7 @@ return {
         },
       },
     },
+
     {
       "NvChad/nvim-colorizer.lua",
       opts = {
@@ -17,7 +24,9 @@ return {
         },
       },
     },
+
   },
+
   {
     'laytan/tailwind-sorter.nvim',
     dependencies = {'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim'},
@@ -30,42 +39,38 @@ return {
       })
     end
   },
-  --Note Taking with Neorg
+
+  -- Javascript / Typescript
   -- {
-  --   "nvim-neorg/neorg",
-  --   build = ":Neorg sync-parsers",
-  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --   "windwp/nvim-ts-autotag",
   --   config = function()
-  --     require("neorg").setup {
-  --       load = {
-  --         ["core.defaults"] = {},
-  --         ["core.concealer"] = {},
-  --         ["core.dirman"] = {
-  --           config = {
-  --             workspaces = {
-  --               notes = "~/notes",
-  --             },
-  --             default_workspace = "notes",
-  --           },
-  --         },
-  --       },
-  --     }
-  --   end
+  --     require("nvim-ts-autotag").setup()
+  --   end,
   -- },
-  -- {
-  --   "vhyrro/luarocks.nvim", 
-  --   priority = 1000,
-  --   config = true,
-  -- },
-  -- {
-  --   "nvim-neorg/neorg",
-  --   dependencies = {
-  --     "luarocks.nvim",
-  --   },
-  --   lazy = false,
-  --   version = "*",
-  --   config = true,
-  -- },
+
+  --Note Taking with Neorg
+  {
+    "nvim-neorg/neorg",
+    enabled = false,
+    lazy = false,
+    version = "*",
+    build = ":Neorg sync-parsers",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      load = {
+        ["core.defaults"] = {},
+        ["core.concealer"] = {},
+        ["core.dirman"] = {
+          config = {
+            workspaces = {
+              notes = "~/notes",
+            },
+            default_workspace = "notes",
+          },
+        },
+      },
+    }
+  },
 
   -- Note Taking with Obsidian
   {
@@ -88,4 +93,7 @@ return {
       }
     }
   },
+
+  --Markdown
+
 }

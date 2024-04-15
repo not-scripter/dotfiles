@@ -28,3 +28,6 @@ require("core.lazy")
 --
 -- color7:         #BAC2DE
 -- color15:        #A6ADC8
+
+
+

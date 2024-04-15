@@ -27,13 +27,35 @@ return {
       'nvim-lua/popup.nvim',
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-ui-select.nvim",
-      'nvim-telescope/telescope-media-files.nvim',
+      "nvim-telescope/telescope-media-files.nvim",
+      "nvim-telescope/telescope-github.nvim",
     },
     config = function()
+
+      --Test 
+      local actions = require("telescope.actions")
+      local actions_state = require("telescope.actions.state")
+
+      function enter(prompt_bufnr)
+        local selection = actions_state.get_selected_entry()
+        local cmd = 'colorscheme ' .. selection[1]
+        vim.cmd(cmd)
+
+        local init = vim.fn.expand("~/.config/nvim/init.lua")
+        local job_cmd = "sed -i '$d' " .. init .. " && echo '".. cmd .. "' >> " .. init 
+        vim.cmd('!echo "testing2" >> ~/.config/nvim/init.lua')
+        -- vim.fn.jobstart(job_cmd)
+        actions.close(prompt_bufnr)
+      end
+
       require("telescope").setup({
         defaults = {
           thene = "custom", 
           results_title = false,
+          prompt_prefix = "   ",
+          selection_caret = "  ",
+          entry_prefix = "  ",
+          initial_mode = "insert",
           sorting_strategy = "ascending",
           layout_strategy = "center", --center, cursor, bottom_pane
           layout_config = {
@@ -52,23 +74,33 @@ return {
             preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
           },
         },
-        -- pickers = {
-        --   find_files = {
-        --     theme = "dropdown", -- cursor, ivy, dropdown
-        --   }
-        -- },
+        pickers = {
+          colorscheme = {
+            enable_preview = true
+          },
+          find_files = {
+            theme = "dropdown", -- cursor, ivy, dropdown
+          }
+        },
         extensions = {
           ["ui-select"] = {
             require("telescope.themes").get_cursor(),
           },
         },
+        mappings = {
+          n = { ["q"] = require("telescope.actions").close },
+        },
       })
+      -- require('telescope').load_extension('colorscheme')
       -- require("telescope").load_extension("fzf")
       -- require("telescope").load_extension("fzy_native")
       require("telescope").load_extension("ui-select")
       require('telescope').load_extension('media_files')
+      -- require('telescope').load_extension('dap')
+
     end,
   },
+
   {
     'ThePrimeagen/harpoon',
     config = function()
@@ -77,113 +109,95 @@ return {
       }
     end
   },
+
   {
     'stevearc/oil.nvim',
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {},
-    config = function()
-      -- require("oil").setup()
-      require("oil").setup({
-        default_file_explorer = true,
-        columns = {
-          "icon",
-          -- "permissions",
-          -- "size",
-          -- "mtime",
+    opts = {
+      default_file_explorer = true,
+      columns = {
+        "icon",
+        -- "permissions",
+        -- "size",
+        -- "mtime",
+      },
+      delete_to_trash = true,
+      skip_confirm_for_simple_edits = false,
+      prompt_save_on_select_new_entry = true,
+      cleanup_delay_ms = 2000,
+      -- lsp_rename_autosave = false,
+      -- lsp_file_methods.autosave_changes,
+      keymaps = {
+        ["g?"] = "actions.show_help",
+        ["<CR>"] = "actions.select",
+        ["<C-s>"] = "actions.select_vsplit",
+        ["<C-h>"] = "actions.select_split",
+        ["<C-t>"] = "actions.select_tab",
+        ["<C-p>"] = "actions.preview",
+        ["<C-c>"] = "actions.close",
+        ["<C-l>"] = "actions.refresh",
+        ["-"] = "actions.parent",
+        ["_"] = "actions.open_cwd",
+        ["`"] = "actions.cd",
+        ["~"] = "actions.tcd",
+        ["gs"] = "actions.change_sort",
+        ["gx"] = "actions.open_external",
+        ["g."] = "actions.toggle_hidden",
+        ["g/"] = "actions.toggle_trash",
+      },
+      -- Set to false to disable all of the above keymaps
+      use_default_keymaps = false,
+      view_options = {
+        show_hidden = false,
+        is_hidden_file = function(name, bufnr)
+          return vim.startswith(name, ".")
+        end,
+        is_always_hidden = function(name, bufnr)
+          return false
+        end,
+        sort = {
+          { "type", "asc" },
+          { "name", "asc" },
         },
-        buf_options = {
-          buflisted = false,
-          bufhidden = "hide",
-        },
+      },
+      float = {
+        padding = 2,
+        max_width = 0,
+        max_height = 0,
+        border = "rounded",
         win_options = {
-          wrap = false,
-          signcolumn = "no",
-          cursorcolumn = false,
-          foldcolumn = "0",
-          spell = false,
-          list = false,
-          conceallevel = 3,
-          concealcursor = "nvic",
+          winblend = 0,
         },
-        delete_to_trash = true,
-        skip_confirm_for_simple_edits = false,
-        prompt_save_on_select_new_entry = true,
-        cleanup_delay_ms = 2000,
-        -- lsp_rename_autosave = false,
-        -- lsp_file_methods.autosave_changes,
-        constrain_cursor = "editable",
-        keymaps = {
-          ["g?"] = "actions.show_help",
-          ["<CR>"] = "actions.select",
-          ["<C-s>"] = "actions.select_vsplit",
-          ["<C-h>"] = "actions.select_split",
-          ["<C-t>"] = "actions.select_tab",
-          ["<C-p>"] = "actions.preview",
-          ["<C-c>"] = "actions.close",
-          ["<C-l>"] = "actions.refresh",
-          ["-"] = "actions.parent",
-          ["_"] = "actions.open_cwd",
-          ["`"] = "actions.cd",
-          ["~"] = "actions.tcd",
-          ["gs"] = "actions.change_sort",
-          ["gx"] = "actions.open_external",
-          ["g."] = "actions.toggle_hidden",
-          ["g/"] = "actions.toggle_trash",
+        override = function(conf)
+          return conf
+        end,
+      },
+      preview = {
+        max_width = 0.9,
+        min_width = { 40, 0.4 },
+        width = nil,
+        max_height = 0.9,
+        min_height = { 5, 0.1 },
+        height = nil,
+        border = "rounded",
+        win_options = {
+          winblend = 0,
         },
-        -- Set to false to disable all of the above keymaps
-        use_default_keymaps = false,
-        view_options = {
-          show_hidden = false,
-          is_hidden_file = function(name, bufnr)
-            return vim.startswith(name, ".")
-          end,
-          is_always_hidden = function(name, bufnr)
-            return false
-          end,
-          sort = {
-            { "type", "asc" },
-            { "name", "asc" },
-          },
-        },
-        float = {
-          padding = 2,
-          max_width = 0,
-          max_height = 0,
-          border = "rounded",
-          win_options = {
-            winblend = 0,
-          },
-          override = function(conf)
-            return conf
-          end,
-        },
-        preview = {
-          max_width = 0.9,
-          min_width = { 40, 0.4 },
-          width = nil,
-          max_height = 0.9,
-          min_height = { 5, 0.1 },
-          height = nil,
-          border = "rounded",
-          win_options = {
-            winblend = 0,
-          },
-          update_on_cursor_moved = true,
-        },
-        progress = {
-          max_width = 0.9,
-          min_width = { 40, 0.4 },
-          width = nil,
-          max_height = { 10, 0.9 },
-          min_height = { 5, 0.1 },
-          height = nil,
-          border = "rounded",
-          minimized_border = "none",
-          win_options = {
-            winblend = 0,
-          },
-        },
-      })
-    end
+        update_on_cursor_moved = true,
+      },
+      progress = {
+        max_width = 0.9,
+        min_width = { 40, 0.4 },
+        width = nil,
+        max_height = { 10, 0.9 },
+        min_height = { 5, 0.1 },
+        height = nil,
+        border = "rounded",
+        minimized_border = "none",
+        win_options = {
+          winblend = 0,
+        }
+      }
+    }
   },
 }

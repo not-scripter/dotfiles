@@ -3,7 +3,6 @@ return {
    'glepnir/dashboard-nvim',
    event = 'VimEnter',
    dependencies = {{'nvim-tree/nvim-web-devicons'}},
-
     config = function()
       require('dashboard').setup {
         theme = 'hyper',
@@ -58,6 +57,7 @@ return {
       }
     end
   },
+
   --Greatest UI plugin for performance
   {
     "folke/noice.nvim",
@@ -95,20 +95,22 @@ return {
       },
     },
   },
+
   {
     'stevearc/dressing.nvim',
     lazy = true,
-  init = function()
-    vim.ui.select = function(...)
-      require("lazy").load({ plugins = { "dressing.nvim" } })
-      return vim.ui.select(...)
-    end
-    vim.ui.input = function(...)
-      require("lazy").load({ plugins = { "dressing.nvim" } })
-      return vim.ui.input(...)
-    end
-  end,
+    init = function()
+      vim.ui.select = function(...)
+        require("lazy").load({ plugins = { "dressing.nvim" } })
+        return vim.ui.select(...)
+      end
+      vim.ui.input = function(...)
+        require("lazy").load({ plugins = { "dressing.nvim" } })
+        return vim.ui.input(...)
+      end
+    end,
   },
+
   {
     'rcarriga/nvim-notify',
     opts = {
@@ -129,9 +131,11 @@ return {
       top_down = false,
     },
   },
+
   {
     "RRethy/vim-illuminate",
   },
+
   --FileManager
   { 
     "nvim-neo-tree/neo-tree.nvim",
@@ -143,6 +147,7 @@ return {
     },
     -- vim.keymap.set('n', '<leader>e', '<cmd>Neotree focus<CR>', {})
   },
+
   --Indenting
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -170,6 +175,7 @@ return {
       }
     },
   },
+
   {
     "echasnovski/mini.indentscope",
     version = false,
@@ -201,8 +207,9 @@ return {
   },
   {
     'nvim-lualine/lualine.nvim',
+    lazy = false,
     dependencies = {
-      'nvim-tree/nvim-web-devicons', opt = true
+      'nvim-tree/nvim-web-devicons',
     },
     config = function()
       local colors = {
@@ -250,7 +257,7 @@ return {
       require('lualine').setup {
         options = {
           -- theme = "catppuccin", --           
-          theme = custom,
+          -- theme = custom,
           globalstatus = true,
           component_separators = { left = '', right = '' },
           section_separators = { left = '', right = '' },
@@ -264,6 +271,7 @@ return {
             { 'branch', icon = {"󰊢", align="left",}},
           },
           lualine_c = {
+            {require('auto-session.lib').current_session_name},
             { 'filesize', icon = {"󰈔", align="left",}},
             { 'diagnostics', separator = { left = '', right = '  ' }, },
           },
@@ -277,14 +285,6 @@ return {
           lualine_z = {
             { 'location', icon = {"󰦨", align="right",}, separator = { left = '  ', right = '  ' }, },
           },
-        },
-        inactive_sections = {
-          lualine_a = {},
-          lualine_b = {},
-          lualine_c = {},
-          lualine_x = {},
-          lualine_y = {},
-          lualine_z = {},
         },
         tabline = {
           lualine_a = {
@@ -314,8 +314,45 @@ return {
           lualine_y = {},
           lualine_z = {}
         },
-        extensions = { "lazy", "mason", "fzf", "oil", "neo-tree", "trouble", },
+        extensions = {
+          "lazy",
+          "mason",
+          "fzf",
+          "oil",
+          "neo-tree",
+          "trouble",
+        },
       }
     end
   },
+
+  {
+    "karb94/neoscroll.nvim",
+    event = "WinScrolled",
+    config = function()
+      require('neoscroll').setup({
+        mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
+          '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
+        hide_cursor = true, 
+        stop_eof = true,   
+        use_local_scrolloff = false,
+        respect_scrolloff = false, 
+        cursor_scrolls_alone = true,
+        easing_function = nil,     
+        pre_hook = nil,           
+        post_hook = nil,         
+      })
+    end
+  },
+
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {}
+  },
+
+  {
+    'stevearc/dressing.nvim',
+    opts = {},
+  },
+
 }
