@@ -200,12 +200,21 @@ function M.setup()
     },
 
     S = {
-      name = "Trouble",
+      name = "Sessions",
       s = { "<cmd>SessionSave<cr>", "Save" },
       r = { "<cmd>SessionRestore<cr>", "Restore" },
       d = { "<cmd>SessionDelete<cr>", "Delete" },
       f = { "<cmd>Autosession search<cr>", "Find" },
       D = { "<cmd>Autosession delete<cr>", "Find and Delete" },
+    },
+
+    l = {
+      name = "Lsp",
+      k = { vim.lsp.buf.hover, "Hover" },
+      r = { vim.lsp.buf.rename, "Rename" },
+      d = { vim.lsp.buf.definition, "Definition" },
+      f = { vim.lsp.buf.references, "References" },
+      c = { vim.lsp.buf.code_action, "Code Action" },
     },
 
   }

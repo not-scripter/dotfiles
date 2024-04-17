@@ -107,10 +107,11 @@ return {
       --   },
       -- })
 
-      keymap('n', 'K', vim.lsp.buf.hover, {})
-      keymap('n', 'gd', vim.lsp.buf.definition, {})
-      keymap('n', 'gr', vim.lsp.buf.references, {})
-      keymap({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {})
+      keymap('n', 'K', vim.lsp.buf.hover, {desc = "Hover"})
+      keymap('n', 'gd', vim.lsp.buf.definition, {desc = "Definition"})
+      keymap('n', 'gr', vim.lsp.buf.references, {desc = "Reference"})
+      keymap('n', 'rn', vim.lsp.buf.rename, {desc = "Rename"})
+      -- keymap({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {desc = "Code Action"})
 
     end
   },

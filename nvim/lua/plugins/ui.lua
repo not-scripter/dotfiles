@@ -271,7 +271,7 @@ return {
             { 'branch', icon = {"󰊢", align="left",}},
           },
           lualine_c = {
-            {require('auto-session.lib').current_session_name},
+            -- {require('auto-session.lib').current_session_name},
             { 'filesize', icon = {"󰈔", align="left",}},
             { 'diagnostics', separator = { left = '', right = '  ' }, },
           },

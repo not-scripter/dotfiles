@@ -31,8 +31,6 @@ return {
       "nvim-telescope/telescope-github.nvim",
     },
     config = function()
-
-      --Test 
       local actions = require("telescope.actions")
       local actions_state = require("telescope.actions.state")
 
@@ -59,19 +57,13 @@ return {
           sorting_strategy = "ascending",
           layout_strategy = "center", --center, cursor, bottom_pane
           layout_config = {
-            preview_cutoff = 1, -- Preview should always show (unless previewer = false)
+            preview_cutoff = 1,
             width = function(_, max_columns, _)
               return math.min(max_columns, 80)
             end,
             height = function(_, _, max_lines)
               return math.min(max_lines, 15)
             end,
-          },
-          border = true,
-          borderchars = {
-            prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
-            results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
-            preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
           },
         },
         pickers = {
