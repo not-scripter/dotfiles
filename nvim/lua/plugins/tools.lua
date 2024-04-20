@@ -10,6 +10,11 @@ return {
         auto_install = true,
         highlight = { enable = true },
         indent = { enable = true },
+
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = false
+        },
       })
     end
   },
@@ -181,13 +186,12 @@ return {
     end
   },
 
+  --NOTE: Live edit html css javascript
   {
-    "Pocco81/auto-save.nvim",
-    enabled = false,
-    config = function()
-      require("auto-save").setup()
-    end,
-  },  
+    "turbio/bracey.vim",
+    cmd = {"Bracey", "BracyStop", "BraceyReload", "BraceyEval"},
+    build = "npm install --prefix server",
+  },
 
   {
     "aurum77/live-server.nvim",
@@ -225,6 +229,14 @@ return {
         }
       })
     end
+  },
+
+  {
+    "folke/todo-comments.nvim",
+    event = "BufRead",
+    config = function()
+      require("todo-comments").setup()
+    end,
   },
 
 }

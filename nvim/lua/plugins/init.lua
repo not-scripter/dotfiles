@@ -2,51 +2,11 @@ return {
   {
    'ThePrimeagen/vim-be-good'
   },
-  -- {
-  --   "turbio/bracey.vim",
-  --   build = "npm install --prefix server"
-  -- },
 
-  --Test
-  {
-    "folke/todo-comments.nvim",
-    event = "BufRead",
-    config = function()
-      require("todo-comments").setup()
-    end,
-  },
-
-  {
-    "felipec/vim-sanegx",
-    event = "BufRead",
-  },
-
-  {
-    "turbio/bracey.vim",
-    cmd = {"Bracey", "BracyStop", "BraceyReload", "BraceyEval"},
-    build = "npm install --prefix server",
-  },
-
-  {
-    "folke/lsp-colors.nvim",
-    event = "BufRead",
-  },
-
-  --Search and Replace
-  {
-    "nvim-pack/nvim-spectre",
-    event = "BufRead",
-    config = function()
-      require("spectre").setup()
-    end,
-  },
-
-  {
-    "mrjones2014/nvim-ts-rainbow",
-  },
-
+  --TEST:
   {
     "romgrk/nvim-treesitter-context",
+    enabled = false,
     config = function()
       require("treesitter-context").setup{
         enable = true, 
@@ -69,6 +29,26 @@ return {
     setup = function()
       vim.cmd [[packadd telescope.nvim]]
     end,
+  },
+
+  --TEST: replacing null-ls
+  {
+    'mfussenegger/nvim-lint',
+    enabled = false,
+    config = function()
+      local lint = require("lint")
+      lint.linters_by_ft = {
+        markdown = {'vale',},
+        -- javascript = {"eslint"}
+      }
+
+      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+        callback = function()
+          lint.try_lint()
+          lint.try_lint("cspell")
+        end,
+      })
+    end
   },
 
 }

@@ -1,10 +1,9 @@
 return {
   {
     "catppuccin/nvim",
-    lazy = false,
     name = "catppuccin",
-    priority = 1000,
     opts = {
+      default_integrations = true,
       term_colors = true,
       transparent_background = false,
       styles = {
@@ -23,8 +22,8 @@ return {
       color_overrides = {
         mocha = {
           base = "#000000",
-          mantle = "#000000",
-          crust = "#000000",
+          -- mantle = "#000000",
+          -- crust = "#000000",
         },
       },
       integrations = {
@@ -69,37 +68,22 @@ return {
         },
       },
     },
-    -- config = function()
-    -- vim.cmd.colorscheme "catppuccin"
-    -- end,
   },
 
   {
     "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
-    -- config = function()
-    --   vim.cmd.colorscheme "tokyonight"
-    -- end
   },
 
   {
     "baliestri/aura-theme",
-    lazy = false,
-    priority = 1000,
-    -- config = function(plugin)
-    --   vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
-    --   vim.cmd.colorscheme "aura-dark"
-    -- end
   },
 
   {
     "EdenEast/nightfox.nvim",
-    lazy = false,
-    priority = 1000,
-    -- config = function()
-    --   vim.cmd.colorscheme "nightfox"
-    -- end
   },
+
+  {
+    'projekt0n/github-nvim-theme',
+  },
+
 }

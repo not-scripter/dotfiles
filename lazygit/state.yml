@@ -2,9 +2,9 @@ lastupdatecheck: 0
 recentrepos:
 - /data/data/com.termux/files/home/dotfiles
 - /data/data/com.termux/files/home/dotfiles/nvim
-- /data/data/com.termux/files/home/chai-aur-next/nextjs-mystery-message
 - /data/data/com.termux/files/home/notes
 - /data/data/com.termux/files/home/chai-aur-react/tpd2
+- /data/data/com.termux/files/home/chai-aur-next/nextjs-mystery-message
 - /data/data/com.termux/files/home/chai-aur-next/nextjs-music-academy
 - /data/data/com.termux/files/home/chai-aur-next
 - /data/data/com.termux/files/home/chai-aur-react

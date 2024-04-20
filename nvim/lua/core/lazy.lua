@@ -38,4 +38,4 @@ require 'nvim-treesitter.install'.compilers = { "clang" }
 
 
 
-vim.cmd.colorscheme "catppuccin"
+-- vim.cmd.colorscheme "catppuccin"

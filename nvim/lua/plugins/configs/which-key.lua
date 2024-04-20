@@ -65,36 +65,41 @@ function M.setup()
   }
 
   local mappings = {
+    --NOTE: Dashboard
     ["D"] = { "<cmd>Dashboard<CR>", "Dashboard" },
+
+    --NOTE: Actions
     ["w"] = { "<cmd>update!<CR>", "Save" },
     ["q"] = { "<cmd>q!<CR>", "Quit" },
-
-    --Neotree
-    ["e"] = { "<cmd>Neotree focus<CR>", "NeoTree" },
-    ["c"] = { "<cmd>Neotree close<CR>", "Neotree Close" },
-    -- ["c"] = { "<cmd>Ex<CR>", "" },
-  
     ["x"] = { "<cmd>bd!<CR>", "Close Buffer" },
     ["X"] = { "<cmd>%bd|e#|bd#<CR>", "Close all Buffer" },
     ["/"] = { "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", "Comment  Toggle" },
 
     ["<leader>"] = { "=ap", "Format" },
 
-    --Terminal
+
+    --NOTE: Neotree
+    ["e"] = { "<cmd>Neotree focus<CR>", "NeoTree" },
+    ["c"] = { "<cmd>Neotree close<CR>", "Neotree Close" },
+    -- ["c"] = { "<cmd>Ex<CR>", "" },
+    --NOTE: Terminal
     ["<A-t>"] = { '<CMD>lua require("FTerm").toggle()<CR>', "Terminal" },
     ["<A-t>"] = { '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', "Terminal" },
-    --Oil File Browser
+    --NOTE: Oil File Browser
     ["-"] = { "<CMD>Oil<CR>", "Files" },
 
-    --Ufo Folds
+    --NOTE: Ufo Folds
     ["a"] = { "za", "Toggle Fold" },
     ["A"] = { "zA", "Toggle Folds" },
 
-    --LazyGit
+    --NOTE: LazyGit
     ["g"] = { "<cmd>LazyGit<CR>", "LazyGit" },
 
-    --TreeJS
+    --NOTE: TreeJS
     ["m"] = { "<cmd>lua require('treesj').toggle()<CR>", "TSJ Toggle" },
+
+    --NOTE: Spell 
+    ["="] = { "z=", "Spelling Suggestions" },
 
     z = {
       name = "Lazy",
@@ -108,11 +113,11 @@ function M.setup()
       r = { "<cmd>Lazy restore<cr>", "Restore" },
     },
 
-    --Telescope
+    --NOTE: Telescope
     f = {
       name = "Telescope",
       p = { "<cmd>Telescope planets<CR>", "Find Planets" },
-      c = { "<cmd>Telescope colorscheme<CR>", "Colorscheme" },
+      t = { "<cmd>Telescope themes<CR>", "Themes" },
       h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
       k = { "<cmd>Telescope keymaps<cr>", "Find Keymaps" },
       f = { "<cmd>Telescope find_files<cr>", "Find Files" },

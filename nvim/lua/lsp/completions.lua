@@ -96,7 +96,7 @@ return {
           mode = 'symbol_text',
           maxwidth = 50,
           ellipsis_char = '...',
-          show_labelDetails = true,
+          show_labelDetails = false,
           before = function (entry, vim_item)
             vim_item.kind = (icons[vim_item.kind] or "foo") --.. " " .. vim_item.kind
             vim_item.menu = ({

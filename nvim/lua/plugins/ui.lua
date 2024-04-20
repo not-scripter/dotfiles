@@ -355,4 +355,13 @@ return {
     opts = {},
   },
 
+  { 
+    'gen740/SmoothCursor.nvim',
+    opts = {
+      type = "default",
+      cursor = "",
+      texthl = "@text.environment",
+    }
+  },
+
 }

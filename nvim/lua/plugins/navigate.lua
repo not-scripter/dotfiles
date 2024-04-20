@@ -18,7 +18,8 @@ return {
       { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
     },
   },
-  --Telescope
+
+  --NOTE: Telescope
   {
     "nvim-telescope/telescope.nvim",
     -- tag = "0.1.x",
@@ -29,26 +30,17 @@ return {
       "nvim-telescope/telescope-ui-select.nvim",
       "nvim-telescope/telescope-media-files.nvim",
       "nvim-telescope/telescope-github.nvim",
+      'andrew-george/telescope-themes',
     },
     config = function()
-      local actions = require("telescope.actions")
-      local actions_state = require("telescope.actions.state")
+      local ts = require("telescope")
+      local lx = require("telescope").load_extension
+      local themes = require("telescope.themes")
+      local action = require("telescope.actions")
 
-      function enter(prompt_bufnr)
-        local selection = actions_state.get_selected_entry()
-        local cmd = 'colorscheme ' .. selection[1]
-        vim.cmd(cmd)
-
-        local init = vim.fn.expand("~/.config/nvim/init.lua")
-        local job_cmd = "sed -i '$d' " .. init .. " && echo '".. cmd .. "' >> " .. init 
-        vim.cmd('!echo "testing2" >> ~/.config/nvim/init.lua')
-        -- vim.fn.jobstart(job_cmd)
-        actions.close(prompt_bufnr)
-      end
-
-      require("telescope").setup({
+      ts.setup({
         defaults = {
-          thene = "custom", 
+          theme = "custom", 
           results_title = false,
           prompt_prefix = "   ",
           selection_caret = "  ",
@@ -75,21 +67,33 @@ return {
           }
         },
         extensions = {
-          ["ui-select"] = {
-            require("telescope.themes").get_cursor(),
+          themes = {
+            layout_config = {
+              horizontal = {
+                width = 0.8,
+                height = 0.7,
+              },
+            },
+            enable_previewer = true, 
+            enable_live_preview = true,
+            persist = {
+              enabled = true, 
+              path = vim.fn.stdpath("config") .. "/lua/core/theme.lua" 
+            }
           },
         },
         mappings = {
-          n = { ["q"] = require("telescope.actions").close },
+          n = { ["q"] = action.close },
         },
       })
-      -- require('telescope').load_extension('colorscheme')
-      -- require("telescope").load_extension("fzf")
-      -- require("telescope").load_extension("fzy_native")
-      require("telescope").load_extension("ui-select")
-      require('telescope').load_extension('media_files')
-      -- require('telescope').load_extension('dap')
-
+      lx("ui-select")
+      lx('media_files')
+      lx('project')
+      lx('themes')
+      -- lx('colorscheme')
+      -- lx("fzf")
+      -- lx("fzy_native")
+      -- lx('dap')
     end,
   },
 
@@ -117,8 +121,8 @@ return {
       skip_confirm_for_simple_edits = false,
       prompt_save_on_select_new_entry = true,
       cleanup_delay_ms = 2000,
-      -- lsp_rename_autosave = false,
-      -- lsp_file_methods.autosave_changes,
+      -- lsp_rename_autosave = true,
+      -- lsp_file_methods.autosave_changes = true,
       keymaps = {
         ["g?"] = "actions.show_help",
         ["<CR>"] = "actions.select",
@@ -137,7 +141,6 @@ return {
         ["g."] = "actions.toggle_hidden",
         ["g/"] = "actions.toggle_trash",
       },
-      -- Set to false to disable all of the above keymaps
       use_default_keymaps = false,
       view_options = {
         show_hidden = false,
