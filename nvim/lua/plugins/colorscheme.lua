@@ -71,19 +71,24 @@ return {
   },
 
   {
-    "folke/tokyonight.nvim",
-  },
-
-  {
     "baliestri/aura-theme",
+    config = function(plugin)
+      vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
+    end
   },
 
   {
+    "folke/tokyonight.nvim",
     "EdenEast/nightfox.nvim",
-  },
-
-  {
     'projekt0n/github-nvim-theme',
+    "rebelot/kanagawa.nvim",
+    "rose-pine/neovim",
+    "scottmckendry/cyberdream.nvim",
+    "sainnhe/everforest",
+    "navarasu/onedark.nvim",
+    "sainnhe/gruvbox-material",
+    "sainnhe/sonokai",
+    "Mofiqul/dracula.nvim",
   },
 
 }
