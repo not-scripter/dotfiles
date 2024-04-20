@@ -23,10 +23,13 @@ return {
     local types = require "luasnip.util.types"
     local vscode = require("luasnip.loaders.from_vscode")
     local lspkind = require('lspkind')
+    local hl = vim.api.nvim_set_hl
 
-    vscode.lazy_load()
-    vscode.lazy_load({ paths = { "./lua/snippets" } })
     ls.filetype_extend("javascriptreact", { "html" })
+    ls.filetype_extend("typescriptreact", { "html" })
+    vscode.lazy_load({ paths = { "./lua/snippets" } })
+    vscode.lazy_load()
+
     ls.config.set_config {
       history = true,
       delete_check_events = "TextChanged",
@@ -34,12 +37,12 @@ return {
       enable_autosnippets = true,
     }
 
-    vim.api.nvim_set_hl(0, "CmpItemAbbr", { fg = "#CDD6F4" })
-    vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#94E2D5" })
-    vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#89B4FA" })
-    vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#F38BA8" })
-    vim.api.nvim_set_hl(0, "MyCursorLine", { bg = "#45475A", bold = true })
-    vim.api.nvim_set_hl(0, "CmpBorder", { fg = "#45475A" })
+    -- hl(0, "CmpItemAbbr", { fg = "#CDD6F4" })
+    -- hl(0, "CmpItemAbbrMatch", { fg = "#94E2D5" })
+    -- hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#89B4FA" })
+    -- hl(0, "CmpItemMenu", { fg = "#F38BA8" })
+    -- hl(0, "MyCursorLine", { bg = "#45475A", bold = true })
+    -- hl(0, "CmpBorder", { fg = "#45475A" })
 
     local icons = {
       Text = "󰉿",
@@ -71,8 +74,8 @@ return {
 
     cmp.setup({
       completion = {
-        completeopt = "menu,menuone",
-        -- completeopt = "menu,menuone,noinsert",
+        -- completeopt = "menu,menuone",
+        completeopt = "menu,menuone,noinsert",
       },
       sources = cmp.config.sources {
         { name = "nvim_lsp" },
@@ -81,10 +84,10 @@ return {
         { name = "path" },
       },
       -- duplicates = {
-      --   luasnip = 1,
-      --   nvim_lsp = 1,
-      --   buffer = 1,
-      --   path = 1,
+      --   luasnip = 0,
+      --   nvim_lsp = 0,
+      --   buffer = 0,
+      --   path = 0,
       -- },
       formatting = {
         -- fields = { "kind", "abbr", "menu" },
@@ -93,7 +96,7 @@ return {
           mode = 'symbol_text',
           maxwidth = 50,
           ellipsis_char = '...',
-          show_labelDetails = true,
+          show_labelDetails = false,
           before = function (entry, vim_item)
             vim_item.kind = (icons[vim_item.kind] or "foo") --.. " " .. vim_item.kind
             vim_item.menu = ({
@@ -127,11 +130,11 @@ return {
           border = "rounded",
           side_padding = 1,
           col_offset = -3,
-          winhighlight = "Normal:None,FloatBorder:CmpBorder,CursorLine:MyCursorLine,Search:None",
+          -- winhighlight = "Normal:None,FloatBorder:CmpBorder,CursorLine:MyCursorLine,Search:None",
         }),
         documentation = cmp.config.window.bordered({
           border = "rounded",
-          winhighlight = "Normal:None,FloatBorder:CmpBorder,CursorLine:MyCursorLine,Search:None",
+          -- winhighlight = "Normal:None,FloatBorder:CmpBorder,CursorLine:MyCursorLine,Search:None",
         }),
       },
       mapping = cmp.mapping.preset.insert({

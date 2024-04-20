@@ -1,20 +1,13 @@
 {
- "use client": {
-  "prefix": "useclient",
-  "body": ["\"use client\""],
-  "description": ""
- },
+  "use client": {
+    "prefix": "useclient",
+    "body": ["\"use client\""],
+    "description": ""
+  },
 
- "suppressHydrationWarning": {
-  "prefix": "suppressHydrationWarning",
-  "body": ["suppressHydrationWarning"],
-  "description": ""
- },
-
-  "<></>": {
-  "prefix": "<",
-  "body": ["<>",	"$1", "</>"],
-  "description": ""
- }
-
+  "fregment": {
+    "prefix": "freg",
+    "body": ["\t<>", "\t\t$0", "\t</>"],
+    "description": ""
+  }
 }

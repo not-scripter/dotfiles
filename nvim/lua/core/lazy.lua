@@ -15,6 +15,9 @@ require('lazy').setup({
   {import = 'plugins'},
   {import = 'lsp'},
 }, {
+    defaults = {
+      lazy = false,
+    },
     install = {
       colorscheme = {
         "catppuccin",
@@ -30,8 +33,9 @@ require('lazy').setup({
     },
   })
 
-vim.cmd.colorscheme "catppuccin"
--- vim.cmd[[colorscheme tokyonight]]
-
-
 require 'nvim-treesitter.install'.compilers = { "clang" }
+
+
+
+
+-- vim.cmd.colorscheme "catppuccin"
