@@ -1,10 +1,11 @@
-![VikramVim](https://github.com/not-scripter/VikramNvim/assets/106903627/565c02ba-760c-4b29-91fe-187a73dba4ed)
+![VikramVim](./assets/banner.png)
 
 # Preview
 
-![Preview](https://private-user-images.githubusercontent.com/106903627/311765751-5f25cba6-9ec6-4d8e-8fd6-b49661a1a686.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTAxNzIwMDUsIm5iZiI6MTcxMDE3MTcwNSwicGF0aCI6Ii8xMDY5MDM2MjcvMzExNzY1NzUxLTVmMjVjYmE2LTllYzYtNGQ4ZS04ZmQ2LWI0OTY2MWExYTY4Ni5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzExJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMxMVQxNTQxNDVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mOGM1MWEyNTIxZjcxZGVkNTJlZGVlZjdhNjEwOWY0MzI4NWMwM2MxM2U1MGIxZDg2ZTJhZWUyNmY4NTk1NjJkJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.Lw8aXp484syss4hPSiOjM-7fsZ-iLJqHA_j6IwlIw7U)
+![Preview](./assets/preview.jpg)
 
 # Installations
+
 ```bash
-git clone https://github.com/VikramNvim/VikramNvim ~/.config/nvim
+git clone https://github.com/Vikram-Nvim/Vikram-Nvim ~/.config/nvim
 ```
