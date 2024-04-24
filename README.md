@@ -25,5 +25,5 @@ bash ~/dotfiles/install/termux-deps.sh
 #### Linux (Debian, Uvuntu, etc)
 
 ```bash
-bash ~/dotfiles/install/termux-deps.sh
+bash ~/dotfiles/install/debian-deps.sh
 ```
