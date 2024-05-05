@@ -6,6 +6,7 @@ return {
       require("plugins.configs.which-key").setup()
     end,
   },
+
   {
     "folke/flash.nvim",
     event = "VeryLazy",
@@ -108,6 +109,7 @@ return {
 
   {
     'stevearc/oil.nvim',
+    enabled = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
       default_file_explorer = true,
@@ -195,4 +197,12 @@ return {
       }
     }
   },
+
+  --NOTE: replacement for oil.nvim
+  { 
+    'echasnovski/mini.files', 
+    version = '*',
+    opts = {},
+  },
+
 }

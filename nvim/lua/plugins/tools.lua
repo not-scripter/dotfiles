@@ -53,9 +53,7 @@ return {
   },
   {
     "windwp/nvim-ts-autotag",
-    config = function()
-      require('nvim-ts-autotag').setup()
-    end
+    opts = {},
   },
   {
     'mg979/vim-visual-multi',
@@ -86,9 +84,7 @@ return {
     "kylechui/nvim-surround",
     version = "*",
     event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup()
-    end
+    opts = {},
   },
 
   {
@@ -132,9 +128,7 @@ return {
       {
         'rcarriga/nvim-dap-ui',
         dependencies = "nvim-neotest/nvim-nio",
-        config = function()
-          require("dapui").setup()
-        end
+    opts = {},
       },
       {
         "microsoft/vscode-js-debug",
@@ -234,9 +228,7 @@ return {
   {
     "folke/todo-comments.nvim",
     event = "BufRead",
-    config = function()
-      require("todo-comments").setup()
-    end,
+    opts = {},
   },
 
 }

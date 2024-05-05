@@ -86,7 +86,8 @@ function M.setup()
     ["<A-t>"] = { '<CMD>lua require("FTerm").toggle()<CR>', "Terminal" },
     ["<A-t>"] = { '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', "Terminal" },
     --NOTE: Oil File Browser
-    ["-"] = { "<CMD>Oil<CR>", "Files" },
+    -- ["-"] = { "<CMD>Oil<CR>", "Files" },
+    ["-"] = { "<CMD>lua MiniFiles.open()<CR>", "Files" },
 
     --NOTE: Ufo Folds
     ["a"] = { "za", "Toggle Fold" },
@@ -100,6 +101,9 @@ function M.setup()
 
     --NOTE: Spell 
     ["="] = { "z=", "Spelling Suggestions" },
+
+    --NOTE: Navbiddy 
+    ["₹"] = { "<CMD>Navbuddy<CR>", "Spelling Suggestions" },
 
     z = {
       name = "Lazy",
