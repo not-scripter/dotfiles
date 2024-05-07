@@ -32,24 +32,24 @@ return {
   },
 
   --TEST: replacing null-ls
-  {
-    'mfussenegger/nvim-lint',
-    enabled = false,
-    config = function()
-      local lint = require("lint")
-      lint.linters_by_ft = {
-        markdown = {'vale',},
-        -- javascript = {"eslint"}
-      }
-
-      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-        callback = function()
-          lint.try_lint()
-          lint.try_lint("cspell")
-        end,
-      })
-    end
-  },
+  -- {
+  --   'mfussenegger/nvim-lint',
+  --   enabled = false,
+  --   config = function()
+  --     local lint = require("lint")
+  --     lint.linters_by_ft = {
+  --       markdown = {'vale',},
+  --       -- javascript = {"eslint"}
+  --     }
+  --
+  --     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  --       callback = function()
+  --         lint.try_lint()
+  --         lint.try_lint("cspell")
+  --       end,
+  --     })
+  --   end
+  -- },
 
   --TEST: Floating win bar
   {
@@ -57,53 +57,56 @@ return {
     event = 'VeryLazy',
     config = function()
       local helpers = require 'incline.helpers'
-local navic = require 'nvim-navic'
-local devicons = require 'nvim-web-devicons'
-require('incline').setup {
-  window = {
-    padding = 0,
-    margin = { horizontal = 0, vertical = 0 },
-  },
-  render = function(props)
-    local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
-    if filename == '' then
-      filename = '[No Name]'
-    end
-    local ft_icon, ft_color = devicons.get_icon_color(filename)
-    local modified = vim.bo[props.buf].modified
-    local res = {
-      ft_icon and { ' ', ft_icon, ' ', guibg = ft_color, guifg = helpers.contrast_color(ft_color) } or '',
-      ' ',
-      { filename, gui = modified and 'bold,italic' or 'bold' },
-      guibg = '#44406e',
-    }
-    if props.focused then
-      for _, item in ipairs(navic.get_data(props.buf) or {}) do
-        table.insert(res, {
-          { ' > ', group = 'NavicSeparator' },
-          { item.icon, group = 'NavicIcons' .. item.type },
-          { item.name, group = 'NavicText' },
-        })
-      end
-    end
-    table.insert(res, ' ')
-    return res
-  end,
-}
+      local navic = require 'nvim-navic'
+      local devicons = require 'nvim-web-devicons'
+      require('incline').setup {
+        window = {
+          padding = 0,
+          margin = { horizontal = 0, vertical = 0 },
+        },
+        render = function(props)
+          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
+          if filename == '' then
+            filename = '[No Name]'
+          end
+          local ft_icon, ft_color = devicons.get_icon_color(filename)
+          local modified = vim.bo[props.buf].modified
+          local res = {
+            ft_icon and { ' ', ft_icon, ' ', guibg = ft_color, guifg = helpers.contrast_color(ft_color) } or '',
+            ' ',
+            { filename, gui = modified and 'bold,italic' or 'bold' },
+            guibg = '#44406e',
+          }
+          if props.focused then
+            for _, item in ipairs(navic.get_data(props.buf) or {}) do
+              table.insert(res, {
+                { ' > ', group = 'NavicSeparator' },
+                { item.icon, group = 'NavicIcons' .. item.type },
+                { item.name, group = 'NavicText' },
+              })
+            end
+          end
+          table.insert(res, ' ')
+          return res
+        end,
+      }
     end,
   },
-
-  --NOTE: navic and navbuddy
   {
     "SmiteshP/nvim-navic",
     dependencies = "neovim/nvim-lspconfig",
     config = function()
       local navic = require("nvim-navic")
-      require("lspconfig").clangd.setup({
-        on_attach = function(client, bufnr)
-          navic.attach(client, bufnr)
-        end
+      navic.setup({
+        lsp = {
+          auto_attach = true,
+        },
       })
+      -- require("lspconfig").clangd.setup({
+      --   on_attach = function(client, bufnr)
+      --     navic.attach(client, bufnr)
+      --   end
+      -- })
     end
   },
   {
@@ -112,9 +115,10 @@ require('incline').setup {
       "SmiteshP/nvim-navic",
       "MunifTanjim/nui.nvim"
     },
-    opts = { lsp = { auto_attach = true } }
+    opts = { lsp = { auto_attach = true } },
   },
 
   --TEST: music player 
+  --TEST: color picker
 
 }

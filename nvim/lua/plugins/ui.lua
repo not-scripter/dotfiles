@@ -55,16 +55,17 @@ return {
           footer = {}
         },
       })
-    end
+    end,
   },
 
-  --Greatest UI plugin for performance
+  --NOTE: Greatest UI plugin for performance
   {
     "folke/noice.nvim",
     event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
+      "nvim-treesitter/nvim-treesitter",
     },
     opts = {
       lsp = {
@@ -91,7 +92,8 @@ return {
         bottom_search = true,
         command_palette = true,
         long_message_to_split = true,
-        inc_rename = true,
+        inc_rename = false,
+        lsp_doc_border = false,
       },
     },
   },
@@ -145,7 +147,6 @@ return {
       "nvim-tree/nvim-web-devicons", 
       "MunifTanjim/nui.nvim",
     },
-    -- vim.keymap.set('n', '<leader>e', '<cmd>Neotree focus<CR>', {})
   },
 
   --Indenting
@@ -255,8 +256,9 @@ return {
         },
       }
       require('lualine').setup({
+          --NOTE: Uniqe separators           
         options = {
-          -- theme = "catppuccin", --           
+          -- theme = "catppuccin", 
           -- theme = custom,
           globalstatus = true,
           component_separators = { left = '', right = '' },

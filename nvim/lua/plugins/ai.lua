@@ -7,9 +7,7 @@ return {
       "nvim-lua/plenary.nvim",
       "hrsh7th/nvim-cmp",
     },
-    config = function()
-      require("codeium").setup()
-    end
+    opts = {},
   },
   -- ChatGPT
   -- {
@@ -31,8 +29,6 @@ return {
   -- {
   --   'kiddos/gemini.nvim',
   --   build = { 'pip install -r requirements.txt', ':UpdateRemotePlugins' },
-  --   config = function()
-  --     require('gemini').setup()
-  --   end
+  --   opts = {},
   -- },
 }
