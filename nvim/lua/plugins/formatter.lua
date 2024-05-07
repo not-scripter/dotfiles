@@ -34,20 +34,19 @@ return {
           timeout_ms = 5000,
         },
       })
-      vim.keymap.set({ "n", "v" }, "<leader>l", function()
+      vim.keymap.set({ "n", "v" }, "<leader>L", function()
         conform.format({
           lsp_fallback = true,
-          async = false,
+          async = true,
           timeout_ms = 5000,
         })
-      end, { desc = "Format file" })
+      end, { desc = "Format Buffer" })
     end,
   },
   {
     'Wansmer/treesj',
     dependencies = 'nvim-treesitter/nvim-treesitter',
-    config = function()
-      require('treesj').setup({})
-    end,
+    opts = {},
   },
+
 }

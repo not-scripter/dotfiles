@@ -65,5 +65,30 @@
       "",
       "export const authService = new AuthService()"
     ]
+  },
+
+  "TODO": {
+    "prefix": "todo",
+    "body": ["TODO: "]
+  },
+  "TODO NOTE": {
+    "prefix": "note",
+    "body": ["NOTE: "]
+  },
+  "TODO WARNING": {
+    "prefix": "warn",
+    "body": ["WARN: "]
+  },
+  "TODO PERF": {
+    "prefix": "perf",
+    "body": ["PERF: "]
+  },
+  "TODO HACK": {
+    "prefix": "hack",
+    "body": ["HACK: "]
+  },
+  "TODO TEST": {
+    "prefix": "test",
+    "body": ["TEST: "]
   }
 }

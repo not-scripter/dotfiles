@@ -32,23 +32,60 @@ return {
   },
 
   --TEST: replacing null-ls
-  {
-    'mfussenegger/nvim-lint',
-    enabled = false,
-    config = function()
-      local lint = require("lint")
-      lint.linters_by_ft = {
-        markdown = {'vale',},
-        -- javascript = {"eslint"}
-      }
+  -- {
+  --   'mfussenegger/nvim-lint',
+  --   enabled = false,
+  --   config = function()
+  --     local lint = require("lint")
+  --     lint.linters_by_ft = {
+  --       markdown = {'vale',},
+  --       -- javascript = {"eslint"}
+  --     }
+  --
+  --     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  --       callback = function()
+  --         lint.try_lint()
+  --         lint.try_lint("cspell")
+  --       end,
+  --     })
+  --   end
+  -- },
 
-      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-        callback = function()
-          lint.try_lint()
-          lint.try_lint("cspell")
-        end,
+  --TEST: Floating win bar
+  {
+    'b0o/incline.nvim',
+    enabled = false,
+    event = 'VeryLazy',
+    config = function()
+      local helpers = require 'incline.helpers'
+      local navic = require 'nvim-navic'
+      local devicons = require 'nvim-web-devicons'
+      require('incline').setup({
+      })
+    end,
+  },
+  {
+    "SmiteshP/nvim-navic",
+    dependencies = "neovim/nvim-lspconfig",
+    config = function()
+      local navic = require("nvim-navic")
+      navic.setup({
+        lsp = {
+          auto_attach = true,
+        },
       })
     end
   },
+  {
+    "SmiteshP/nvim-navbuddy",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "MunifTanjim/nui.nvim"
+    },
+    opts = { lsp = { auto_attach = true } },
+  },
+
+  --TEST: music player 
+  --TEST: color picker
 
 }

@@ -6,10 +6,13 @@ return {
     config = function()
       local config = require("nvim-treesitter.configs")
       config.setup({
-        ensure_installed = { "lua", "vim", "html", "css", "javascript",  "typescript", "tsx", "norg", "json", "python", "gitignore", "git_config", "jsonc" },
+        ensure_installed = {
+          "lua", "vim", "regex", "bash", "markdown", "markdown_inline", "html", "css", "javascript",  "typescript", "tsx", "norg", "json", "python", "gitignore", "git_config", "jsonc"
+        },
         auto_install = true,
         highlight = { enable = true },
-        indent = { enable = true },
+        --BUG: THIS OPTION ALSO COUSES "STACK CORRUPTION ERROR"
+        -- indent = { enable = true },
 
         highlight = {
           enable = true,
@@ -53,9 +56,7 @@ return {
   },
   {
     "windwp/nvim-ts-autotag",
-    config = function()
-      require('nvim-ts-autotag').setup()
-    end
+    opts = {},
   },
   {
     'mg979/vim-visual-multi',
@@ -67,14 +68,7 @@ return {
 
   {
     "kdheepak/lazygit.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    config = function()
-      local keymap = vim.api.nvim_set_keymap
-      local default_opts = { noremap = true, silent = true }
-      keymap("n", "<leader>gg", "<cmd>LazyGit<CR>", default_opts)
-    end
+    dependencies = "nvim-lua/plenary.nvim",
   },
 
   {
@@ -86,9 +80,7 @@ return {
     "kylechui/nvim-surround",
     version = "*",
     event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup()
-    end
+    opts = {},
   },
 
   {
@@ -97,11 +89,10 @@ return {
       require("auto-session").setup({
         log_level = "error",
         auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/"},
+        auto_session_enable_last_session = true,
         session_lens = {
           buftypes_to_ignore = {},
           load_on_setup = true,
-          theme_conf = { border = true },
-          previewer = true,
         }
       })
       vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
@@ -114,81 +105,13 @@ return {
       'nanotee/zoxide.vim',
       'nvim-lua/popup.nvim',
     },
-    config = function()
-      local telescope = require("telescope")
-      telescope.load_extension('zoxide')
-      vim.keymap.set("n", "<leader>zf", telescope.extensions.zoxide.list, { desc = "Zoxide Find" })
-    end
-  },
-
-  {
-    "kdheepak/lazygit.nvim",
-    dependencies = "nvim-lua/plenary.nvim",
-  },
-
-  {
-    'mfussenegger/nvim-dap',
-    dependencies = {
-      {
-        'rcarriga/nvim-dap-ui',
-        dependencies = "nvim-neotest/nvim-nio",
-        config = function()
-          require("dapui").setup()
-        end
-      },
-      {
-        "microsoft/vscode-js-debug",
-        opts = true,
-        build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
-      },
-      {
-        "mxsdev/nvim-dap-vscode-js",
-        config = function()
-          require("dap-vscode-js").setup({
-            adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' },
-          })
-
-          for _, language in ipairs({ "typescript", "javascript", "typescriptreact", "javascriptreact" }) do
-            require("dap").configurations[language] = {
-              {
-                type = "pwa-node",
-                request = "launch",
-                name = "Launch file",
-                program = "${file}",
-                cwd = "${workspaceFolder}",
-              },
-              {
-                type = "pwa-node",
-                request = "attach",
-                name = "Attach",
-                processId = require'dap.utils'.pick_process,
-                cwd = "${workspaceFolder}",
-              }
-            }
-          end
-        end
-      }
-    },
-    config = function()
-      local dap, dapui = require("dap"), require("dapui")
-      dap.listeners.before.attach.dapui_config = function()
-        dapui.open()
-      end
-      dap.listeners.before.launch.dapui_config = function()
-        dapui.open()
-      end
-      dap.listeners.before.event_terminated.dapui_config = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited.dapui_config = function()
-        dapui.close()
-      end
-    end
+    opts = {},
   },
 
   --NOTE: Live edit html css javascript
   {
     "turbio/bracey.vim",
+    enabled = false,
     cmd = {"Bracey", "BracyStop", "BraceyReload", "BraceyEval"},
     build = "npm install --prefix server",
   },
@@ -201,9 +124,10 @@ return {
     end,
     cmd = { "LiveServer", "LiveServerStart", "LiveServerStop" },
   },
-
+   
   {
     "max397574/colortils.nvim",
+    enabled = false,
     cmd = "Colortils",
     config = function()
       require("colortils").setup({
@@ -230,13 +154,15 @@ return {
       })
     end
   },
+  {
+    "ziontee113/color-picker.nvim",
+    opts = {},
+  },
 
   {
     "folke/todo-comments.nvim",
     event = "BufRead",
-    config = function()
-      require("todo-comments").setup()
-    end,
+    opts = {},
   },
 
 }

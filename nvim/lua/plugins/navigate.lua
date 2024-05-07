@@ -6,17 +6,11 @@ return {
       require("plugins.configs.which-key").setup()
     end,
   },
+
   {
     "folke/flash.nvim",
     event = "VeryLazy",
     opts = {},
-    keys = {
-      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-    },
   },
 
   --NOTE: Telescope
@@ -86,10 +80,12 @@ return {
           n = { ["q"] = action.close },
         },
       })
+      lx("noice")
       lx("ui-select")
       lx('media_files')
       lx('project')
       lx('themes')
+      lx('zoxide')
       -- lx('colorscheme')
       -- lx("fzf")
       -- lx("fzy_native")
@@ -108,6 +104,7 @@ return {
 
   {
     'stevearc/oil.nvim',
+    enabled = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
       default_file_explorer = true,
@@ -195,4 +192,12 @@ return {
       }
     }
   },
+
+  --NOTE: replacement for oil.nvim
+  { 
+    'echasnovski/mini.files', 
+    version = '*',
+    opts = {},
+  },
+
 }

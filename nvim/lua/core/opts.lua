@@ -105,6 +105,9 @@ vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
 --TEST: 
-vim.opt.spelllang = 'en_us'
-vim.opt.spell = true
+-- vim.opt.spelllang = 'en_us'
+-- vim.opt.spell = true
+
+--NOTE: Change cursor style in insert mode
+-- vim.o.guicursor = 'n-v-c-sm-i-ci-ve:block,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor'
 

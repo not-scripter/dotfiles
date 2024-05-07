@@ -7,10 +7,10 @@ function M.setup()
     plugins = {
       marks = true, 
       registers = true, 
-      spelling = {
-        enabled = true,
-        suggestions = 20,
-      },
+      -- spelling = {
+      --   enabled = true,
+      --   suggestions = 20,
+      -- },
       presets = {
         operators = true,    
         motions = true,     
@@ -66,14 +66,14 @@ function M.setup()
 
   local mappings = {
     --NOTE: Dashboard
-    ["D"] = { "<cmd>Dashboard<CR>", "Dashboard" },
+    -- ["D"] = { "<cmd>Dashboard<CR>", "Dashboard" },
 
     --NOTE: Actions
     ["w"] = { "<cmd>update!<CR>", "Save" },
     ["q"] = { "<cmd>q!<CR>", "Quit" },
     ["x"] = { "<cmd>bd!<CR>", "Close Buffer" },
     ["X"] = { "<cmd>%bd|e#|bd#<CR>", "Close all Buffer" },
-    ["/"] = { "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", "Comment  Toggle" },
+    ["/"] = { "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", "Comment Toggle" },
 
     ["<leader>"] = { "=ap", "Format" },
 
@@ -81,12 +81,15 @@ function M.setup()
     --NOTE: Neotree
     ["e"] = { "<cmd>Neotree focus<CR>", "NeoTree" },
     ["c"] = { "<cmd>Neotree close<CR>", "Neotree Close" },
-    -- ["c"] = { "<cmd>Ex<CR>", "" },
+    ["c"] = { "<cmd>Ex<CR>", "" },
+    --
     --NOTE: Terminal
     ["<A-t>"] = { '<CMD>lua require("FTerm").toggle()<CR>', "Terminal" },
     ["<A-t>"] = { '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', "Terminal" },
-    --NOTE: Oil File Browser
-    ["-"] = { "<CMD>Oil<CR>", "Files" },
+
+    --NOTE: File Browser
+    -- ["-"] = { "<CMD>Oil<CR>", "Files" },
+    ["-"] = { "<CMD>lua MiniFiles.open()<CR>", "Files" },
 
     --NOTE: Ufo Folds
     ["a"] = { "za", "Toggle Fold" },
@@ -99,7 +102,16 @@ function M.setup()
     ["m"] = { "<cmd>lua require('treesj').toggle()<CR>", "TSJ Toggle" },
 
     --NOTE: Spell 
-    ["="] = { "z=", "Spelling Suggestions" },
+    -- ["="] = { "z=", "Spelling Suggestions" },
+
+    --NOTE: Nav Buddy 
+    ["N"] = { "<CMD>Navbuddy<CR>", "Nav Buddy" },
+
+    --NOTE: Zoxide
+    ["Z"] = { require("telescope").extensions.zoxide.list, "zoxide find" },
+
+    --NOTE: Pick Color 
+    ["C"] = { "<CMD>PickColor<CR>", "Pick Color" },
 
     z = {
       name = "Lazy",
@@ -116,7 +128,8 @@ function M.setup()
     --NOTE: Telescope
     f = {
       name = "Telescope",
-      p = { "<cmd>Telescope planets<CR>", "Find Planets" },
+      p = { "<cmd>Telescope project<CR>", "Find Projects" },
+      P = { "<cmd>Telescope planets<CR>", "Find Planets" },
       t = { "<cmd>Telescope themes<CR>", "Themes" },
       h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
       k = { "<cmd>Telescope keymaps<cr>", "Find Keymaps" },
@@ -221,6 +234,16 @@ function M.setup()
       f = { vim.lsp.buf.references, "References" },
       c = { vim.lsp.buf.code_action, "Code Action" },
     },
+
+    -- C = {
+    --   name = "Colortils",
+    --   p = { "<CMD>Colortils picker<CR>", "Picker" },
+    --   l = { "<CMD>Colortils lighten<CR>", "Lighten" },
+    --   d = { "<CMD>Colortils darken<CR>", "Darken" },
+    --   g = { "<CMD>Colortils greyscale<CR>", "Greyscale" },
+    --   G = { "<CMD>Colortils gradient<CR>", "Gradient" },
+    --   L = { "<CMD>Colortils css list<CR>", "List CSS Colors" },
+    -- },
 
   }
 

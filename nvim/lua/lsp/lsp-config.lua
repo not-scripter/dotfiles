@@ -49,20 +49,23 @@ return {
 
   { 
     "folke/neodev.nvim", 
-    config = function()
-      require("neodev").setup()
-    end
+    opts = {},
   },
 
   {
     "neovim/nvim-lspconfig",
-    -- event = { "BufReadPre", "BufNewFile" },
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       local lspconfig = require('lspconfig')
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       local keymap = vim.keymap.set
 
-      local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+      local signs = {
+        Error = " ",
+        Warn = " ",
+        Hint = "󰠠 ",
+        Info = " " 
+      }
       for type, icon in pairs(signs) do
         local hl = "DiagnosticSign" .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
@@ -113,13 +116,16 @@ return {
       keymap('n', 'rn', vim.lsp.buf.rename, {desc = "Rename"})
       -- keymap({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {desc = "Code Action"})
 
-    end
+    end,
   },
     
   -- Test
   {
     "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    dependencies = { 
+      "nvim-lua/plenary.nvim",
+      "neovim/nvim-lspconfig" 
+    },
     opts = {},
   },
 
