@@ -65,9 +65,12 @@ return {
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
+    enabled = false,
       "nvim-treesitter/nvim-treesitter",
+    enabled = false,
     },
     opts = {
+    enabled = false,
       lsp = {
         override = {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -211,6 +214,7 @@ return {
     lazy = false,
     dependencies = {
       'nvim-tree/nvim-web-devicons',
+      'arkav/lualine-lsp-progress',
     },
     config = function()
       local colors = {
@@ -256,7 +260,7 @@ return {
         },
       }
       require('lualine').setup({
-          --NOTE: Uniqe separators           
+        --NOTE: Uniqe separators           
         options = {
           -- theme = "catppuccin", 
           -- theme = custom,
@@ -290,19 +294,42 @@ return {
         },
         tabline = {
           lualine_a = {
-            { 'buffers', separator = { left = '  ', right = '' },},
+            {
+              'buffers', 
+              separator = { left = '  ', right = '' },
+              symbols = {
+                modified = ' ●',
+                alternate_file = '',
+                directory =  '',
+              },
+            },
           },
           lualine_b = {},
           lualine_c = {},
           lualine_x = {},
           lualine_y = {},
           lualine_z = {
-            { 'tabs', separator = { left = '', right = '  ' },},
+            { 
+              'tabs',
+              separator = { left = '', right = '  ' },
+              symbols = {
+                modified = ' ●',
+                alternate_file = '',
+                directory =  '',
+              },
+            },
           }
         },
         winbar = {
           lualine_a = {},
-          lualine_b = {},
+          lualine_b = {
+            {
+                "navic",
+                color_correction = nil,
+                navic_opts = nil,
+                separator = { left = '   ', right = '   ' },
+            }
+          },
           lualine_c = {},
           lualine_x = {},
           lualine_y = {},
