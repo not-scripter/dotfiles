@@ -11,7 +11,8 @@ return {
         },
         auto_install = true,
         highlight = { enable = true },
-        indent = { enable = true },
+        --BUG: THIS OPTION ALSO COUSES "STACK CORRUPTION ERROR"
+        -- indent = { enable = true },
 
         highlight = {
           enable = true,
