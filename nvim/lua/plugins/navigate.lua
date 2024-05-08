@@ -2,10 +2,13 @@ return {
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
-    config = function()
-      require("plugins.configs.which-key").setup()
-    end,
-  },
+      config = function()
+          require("plugins.configs.mappings").setup()
+        end,
+      -- config = function()
+        --   require("plugins.configs.which-key").setup()
+        -- end,
+      },
 
   {
     "folke/flash.nvim",
@@ -198,6 +201,12 @@ return {
     'echasnovski/mini.files', 
     version = '*',
     opts = {},
+  },
+
+  --NOTE: Move Nvim
+  { 
+    'fedepujol/move.nvim',
+    opts = {}
   },
 
 }
