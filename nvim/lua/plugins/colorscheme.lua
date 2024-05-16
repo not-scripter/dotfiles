@@ -5,7 +5,7 @@ return {
     opts = {
       default_integrations = true,
       term_colors = true,
-      transparent_background = false,
+      transparent_background = true,
       styles = {
         comments = {},
         conditionals = {},
