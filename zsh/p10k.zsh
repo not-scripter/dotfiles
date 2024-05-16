@@ -167,27 +167,27 @@
   fi
 
   # Default background color.
-  typeset -g POWERLEVEL9K_BACKGROUND=234
+  typeset -g POWERLEVEL9K_BACKGROUND="#11111b"
 
   # Separator between same-color segments on the left.
-  typeset -g POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='%242F\uE0B5'
+  typeset -g POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=''
   # Separator between same-color segments on the right.
-  typeset -g POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR='%242F\uE0B7'
+  typeset -g POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=''
   # Separator between different-color segments on the left.
-  typeset -g POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0B4'
+  typeset -g POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=''
   # Separator between different-color segments on the right.
-  typeset -g POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\uE0B6'
+  typeset -g POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=''
   # To remove a separator between two segments, add "_joined" to the second segment name.
   # For example: POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(os_icon context_joined)
 
   # The right end of left prompt.
-  typeset -g POWERLEVEL9K_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL='\uE0B4'
-  # The left end of right prompt.
-  typeset -g POWERLEVEL9K_RIGHT_PROMPT_FIRST_SEGMENT_START_SYMBOL='\uE0B6'
+  typeset -g POWERLEVEL9K_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL='█ '
+  # The left end of right prompt.7
+  typeset -g POWERLEVEL9K_RIGHT_PROMPT_FIRST_SEGMENT_START_SYMBOL=' █'
   # The left end of left prompt.
-  typeset -g POWERLEVEL9K_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL='\uE0B6'
+  typeset -g POWERLEVEL9K_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL=' █'
   # The right end of right prompt.
-  typeset -g POWERLEVEL9K_RIGHT_PROMPT_LAST_SEGMENT_END_SYMBOL='\uE0B4'
+  typeset -g POWERLEVEL9K_RIGHT_PROMPT_LAST_SEGMENT_END_SYMBOL='█ '
   # Left prompt terminator for lines without any segments.
   typeset -g POWERLEVEL9K_EMPTY_LINE_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL=
 
@@ -201,9 +201,9 @@
   # Transparent background.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_BACKGROUND=
   # Green prompt symbol if the last command succeeded.
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=76
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND="#a6e3a1"
   # Red prompt symbol if the last command failed.
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=196
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND="#f38ba8"
   # Default prompt symbol.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIINS_CONTENT_EXPANSION='❯'
   # Prompt symbol in command vi mode.
@@ -382,18 +382,18 @@
 
     if (( $1 )); then
       # Styling for up-to-date Git status.
-      local       meta='%244F'  # grey foreground
-      local      clean='%76F'   # green foreground
-      local   modified='%178F'  # yellow foreground
-      local  untracked='%39F'   # blue foreground
-      local conflicted='%196F'  # red foreground
+      local       meta='#a6adc8'  # grey foreground
+      local      clean='#a6e3a1'  # green foreground
+      local   modified='#f9e2af'  # yellow foreground
+      local  untracked='#89b4fa'  # blue foreground
+      local conflicted='#f38ba8'  # red foreground
     else
       # Styling for incomplete and stale Git status.
-      local       meta='%244F'  # grey foreground
-      local      clean='%244F'  # grey foreground
-      local   modified='%244F'  # grey foreground
-      local  untracked='%244F'  # grey foreground
-      local conflicted='%244F'  # grey foreground
+      local       meta='#a6adc8'  # grey foreground
+      local      clean='#a6adc8'  # grey foreground
+      local   modified='#a6adc8'  # grey foreground
+      local  untracked='#a6adc8'  # grey foreground
+      local conflicted='#a6adc8'  # grey foreground
     fi
 
     local res
