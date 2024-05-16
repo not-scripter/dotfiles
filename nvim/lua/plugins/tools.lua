@@ -10,9 +10,8 @@ return {
           "lua", "vim", "regex", "bash", "markdown", "markdown_inline", "html", "css", "javascript",  "typescript", "tsx", "norg", "json", "python", "gitignore", "git_config", "jsonc"
         },
         auto_install = true,
-        highlight = { enable = true },
-        --BUG: THIS OPTION ALSO COUSES "STACK CORRUPTION ERROR"
-        -- indent = { enable = true },
+        highlight = { enable = true }, 
+        -- indent = { enable = true },--BUG: THIS OPTION ALSO COUSES "STACK CORRUPTION ERROR"
 
         highlight = {
           enable = true,
@@ -64,6 +63,14 @@ return {
   },
   {
     "numToStr/FTerm.nvim",
+    opts = {
+      dimensions = {
+        height = 0.8, 
+        width = 0.8,
+        x = 0.5, 
+        y = 0.5, 
+    },
+    }
   },
 
   {
@@ -71,11 +78,18 @@ return {
     dependencies = "nvim-lua/plenary.nvim",
   },
 
+  -- {
+  --   'windwp/nvim-autopairs',
+  --   event = "InsertEnter",
+  --   opts = {},
+  -- },
   {
-    'windwp/nvim-autopairs',
-    event = "InsertEnter",
-    opts = {},
+    'altermo/ultimate-autopair.nvim',
+    event={'InsertEnter','CmdlineEnter'},
+    branch='v0.6',
+    opts={},
   },
+  
   {
     "kylechui/nvim-surround",
     version = "*",
@@ -164,5 +178,27 @@ return {
     event = "BufRead",
     opts = {},
   },
+
+  {
+    "vuki656/package-info.nvim",
+    dependencies = "MunifTanjim/nui.nvim",
+    opts = {}
+ },
+
+ --TEST:
+ -- {
+ --   "cshuaimin/ssr.nvim",
+ -- },
+ 
+ --NOTE: Nerd Icon Picker
+ {
+   "ziontee113/icon-picker.nvim",
+   opts = {}
+ },
+
+ --NOTE: CommentBox
+ {
+   "LudoPinelli/comment-box.nvim",
+ },
 
 }

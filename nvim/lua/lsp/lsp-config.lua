@@ -88,6 +88,15 @@ return {
       lspconfig.tailwindcss.setup({
         capabilities = capabilities,
       })
+      lspconfig.jsonls.setup({
+        settings = {
+          json = {
+            schemas = require('schemastore').json.schemas(),
+            validate = { enable = true },
+          },
+        },
+      })
+
       -- lspconfig.emmet_ls.setup({
       --   capabilities = capabilities,
       -- })

@@ -5,18 +5,17 @@ function M.setup()
   --NOTE: Keymaps for Normal Mode without Prefix
   wk.register({
     [";"] = { ":", "Cmd" },
-    ["<Tab>"] = { "<cmd>bnext<ce>", "Next Buffer" },
-    ["<S-Tab>"] = { "<cmd>bprevious<ce>", "Previous Buffer" },
-    ["-"] = { "<cmd>lua MiniFiles.open()<cr>", "Files" },
+    ["<Tab>"] = { "<cmd>bnext<cr>", "Next Buffer" },
+    ["<S-Tab>"] = { "<cmd>bprevious<cr>", "Previous Buffer" },
+    ["-"] = { "<cmd>Oil<cr>", "Files" },
+    -- ["-"] = { "<cmd>lua MiniFiles.open()<cr>", "Files" },
     -- map("n", "<C-d>", "<C-d>zz", default_opts)
     -- map("n", "<C-u>", "<C-u>zz", default_opts)
     -- map("n", "n", "nzzzv", default_opts)
     -- map("n", "N", "Nzzzv", default_opts)
-    -- map("n", "-", "<CMD>Oil<CR>", { desc = "Files" })
     ["<A-t>"] = { '<cmd>lua require("FTerm").toggle()<cr>', "Terminal" },
-    ["<A-v>"] = { "<cmd>vsplit<ce>", "Split Vertically" },
-    ["<A-h>"] = { "<cmd>split<ce>", "Split Horizontally" },
-
+    ["<A-v>"] = { "<cmd>vsplit<cr>", "Split Vertically" },
+    ["<A-h>"] = { "<cmd>split<cr>", "Split Horizontally" },
   }, { mode = "n" })
 
   --NOTE: Keymaps for Insert Mode without Prefix
@@ -26,9 +25,10 @@ function M.setup()
     ["<C-j>"] = { "<Down>", "Down" },
     ["<C-k>"] = { "<Up>", "Up" },
     ["<C-l>"] = { "<Right>", "Right" },
+    ["<C-i>"] = { "<cmd>IconPickerInsert<cr>", "Pick Icon" },
   }, { mode = "i" })
 
-  --NOTE: Keymaps for Normal, Insert  and Visual Mode without Prefix
+  --NOTE: Keymaps for Normal, Insert and Visual Mode without Prefix
   wk.register({
     ["<A-h>"] = { "<cmd>MoveHChar(-1)<cr>", "Move Char Left" },
     ["<A-j>"] = { "<cmd>MoveLine(1)<cr>", "Move Line Down" },
@@ -58,7 +58,7 @@ function M.setup()
       ["/"] = { "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", "Comment Toggle" },
        --NOTE: Neotree
       ["e"] = { "<cmd>Neotree focus<CR>", "NeoTree" },
-      ["c"] = { "<cmd>Neotree close<CR>", "Neotree Close" },
+      ["E"] = { "<cmd>Neotree close<CR>", "Neotree Close" },
       -- ["c"] = { "<cmd>Ex<CR>", "" },
       -- ["leader>"] = { "=ap", "Format" },
       --NOTE: Ufo Folds
@@ -74,11 +74,16 @@ function M.setup()
       ["Z"] = { require("telescope").extensions.zoxide.list, "zoxide find" },
       --NOTE: Pick Color 
       ["C"] = { "<CMD>PickColor<CR>", "Pick Color" },
-
+      --NOTE: Twilight
+      ["h"] = { "<CMD>Twilight<CR>", "Toggle Twilight" },
+      --NOTE: Barbecue 
+      -- ["B"] = { "<CMD>Barbecue<CR>", "Barbecue" },
+      -- NOTE: Icon Picker
+      ["i"] = { "<cmd>IconPickerNormal<cr>", "Pick Icon" },
       --NOTE: Keybind Groups
-
+      
       z = {
-        name = "Lazy",
+        name = "💤 Lazy",
         z = { "<cmd>Lazy<cr>", "Lazy" },
         c = { "<cmd>Lazy check<cr>", "Check" },
         C = { "<cmd>Lazy clean<cr>", "Clean" },
@@ -91,7 +96,7 @@ function M.setup()
 
       --NOTE: Telescope
       f = {
-        name = "Telescope",
+        name = " Telescope",
         p = { "<cmd>Telescope project<CR>", "Find Projects" },
         P = { "<cmd>Telescope planets<CR>", "Find Planets" },
         t = { "<cmd>Telescope themes<CR>", "Themes" },
@@ -106,17 +111,19 @@ function M.setup()
         u = { "<cmd>Telescope oldfiles<cr>", "Find Recent Files" },
         b = { "<cmd>Telescope buffers<cr>", "Find Existing Buffers" },
         m = { "<cmd>Telescope media_files<CR>", "Find Media Files" },
+        i = { "<cmd>Telescope package_info<CR>", "Package Info" },
+        z = { "<cmd>Telescope lazy_plugins<CR>", "Lazy Plugins" },
       },
 
       a = {
-        name = "ChatGPT",
+        name = "󰚩 ChatGPT",
         o = { "<cmd>ChatGPT<CR>", "ChatGPT Open" },
         a = { "<cmd>ChatGPTActAs<CR>", "ChatGPT ActAs" },
         e = { "<cmd>ChatGPTEditWithInstructions<CR>", "ChatGPT Edit w Ins" },
       },
 
       d = {
-        name = "Debugger",
+        name = " Debugger",
         b = { "<cmd>DapToggleBreakpoint<CR>", "Toggle Breakpoint" },
         c = { "<cmd>DapContinue<CR>", "Continue" },
         o = { "<cmd>DapStepOver<CR>", "Step Over" },
@@ -127,7 +134,7 @@ function M.setup()
       },
 
       h = {
-        name = "Harpoon",
+        name = "󱤙 Harpoon",
         m = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Mark" },
         o = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Open" },
         p = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", "Previos" },
@@ -136,7 +143,7 @@ function M.setup()
       },
 
       t = {
-        name = "TSTools",
+        name = "󰛦 TSTools",
         o = { "<cmd>TSToolsOrganizeImports<cr>", "Organize" },
         s = { "<cmd>TSToolsSortImports<cr>", "Sort" },
         r = { "<cmd>TSToolsRemoveUnusedImports<cr>", "Remove Unused" },
@@ -149,7 +156,7 @@ function M.setup()
       },
 
       o = {
-        name = "Obsodian",
+        name = "󰠮 Obsodian",
         n = { "<cmd>ObsidianNew<CR>", "Create New <Create>" },
         o = { "<cmd>ObsidianOpen<CR>", "Open <Title>" },
         s = { "<cmd>ObsidianQuickSwitch<CR>", "Quick Switch" },
@@ -172,7 +179,7 @@ function M.setup()
       },
 
       T = {
-        name = "Trouble",
+        name = " Trouble",
         d = { "<cmd>Trouble diagnostics toggle<cr>", "Diagonostics" },
         b = { "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Buffer Diagonostics" },
         s = { "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols" },
@@ -182,7 +189,7 @@ function M.setup()
       },
 
       S = {
-        name = "Sessions",
+        name = " Sessions",
         s = { "<cmd>SessionSave<cr>", "Save" },
         r = { "<cmd>SessionRestore<cr>", "Restore" },
         d = { "<cmd>SessionDelete<cr>", "Delete" },
@@ -191,7 +198,7 @@ function M.setup()
       },
 
       l = {
-        name = "Lsp",
+        name = "󰛥 Lsp",
         k = { vim.lsp.buf.hover, "Hover" },
         r = { vim.lsp.buf.rename, "Rename" },
         d = { vim.lsp.buf.definition, "Definition" },
@@ -199,8 +206,26 @@ function M.setup()
         c = { vim.lsp.buf.code_action, "Code Action" },
       },
 
+      n = {
+        name = "󰏓 Manage Packages",
+        t = { require("package-info").toggle, "Toggle" },
+        u = { require("package-info").update, "Update" },
+        d = { require("package-info").delete, "Delete" },
+        i = { require("package-info").install, "Install" },
+        c = { require("package-info").change_version, "Change Version" },
+      },
+
+      c = {
+        name = "◫ Boxes",
+        b = { "<Cmd>CBccbox<CR>", "Box Title" },
+        t = { "<Cmd>CBllline<CR>", "Titled Line" },
+        l = { "<Cmd>CBline<CR>", "Simple Line" },
+        m = { "<Cmd>CBllbox14<CR>", "Marked" },
+        d = { "<Cmd>CBd<CR>", "Remove a box" },
+      },
+
       -- C = {
-        --   name = "Colortils",
+        --   name = "󰌁 Colortils",
         --   p = { "<CMD>Colortils picker<CR>", "Picker" },
         --   l = { "<CMD>Colortils lighten<CR>", "Lighten" },
         --   d = { "<CMD>Colortils darken<CR>", "Darken" },
@@ -211,6 +236,16 @@ function M.setup()
 
       }, {
         prefix = "<leader>",
+        mode = { "n", "v" },
+      })
+
+      --NOTE: Extra Mappings
+      wk.register({
+      --NOTE: MarkdownPreview
+      ["p"] = { "<CMD>MarkdownPreviewToggle<CR>", "Markdown Preview" },
+      }, {
+        name = " Extra Mappings",
+        prefix = "<leader><leader>",
         mode = { "n", "v" },
       })
 
@@ -244,12 +279,12 @@ function M.setup()
         },
         icons = {
           breadcrumb = "»",
-          separator = "➜", 
-          group = "+", 
+          separator = "", 
+          group = "", 
         },
         popup_mappings = {
-          scroll_down = "<C-d>",
           scroll_up = "<C-u>", 
+          scroll_down = "<C-d>",
         },
         window = {
           border = "single",       

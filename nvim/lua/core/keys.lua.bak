@@ -32,8 +32,8 @@ map('n', '<A-t>', '<CMD>lua require("FTerm").toggle()<CR>', default_opts)
 map('t', '<A-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', default_opts)
 
 --NOTE: Files
-map("n", "-", "<CMD>lua MiniFiles.open()<CR>", { desc = "Files" })
--- map("n", "-", "<CMD>Oil<CR>", { desc = "Files" })
+map("n", "-", "<cmd>Oil<cr>", { desc = "Files" })
+-- map("n", "-", "<CMD>lua MiniFiles.open()<CR>", { desc = "Files" })
 --
 --
 --NOTE: Which Key Config
@@ -71,8 +71,8 @@ local mappings = {
   ["<A-t>"] = { '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', "Terminal" },
 
   --NOTE: File Browser
-  -- ["-"] = { "<CMD>Oil<CR>", "Files" },
-  ["-"] = { "<CMD>lua MiniFiles.open()<CR>", "Files" },
+  ["-"] = { "<cmd>Oil<cr>", "Files" },
+  -- ["-"] = { "<CMD>lua MiniFiles.open()<CR>", "Files" },
 
   --NOTE: Ufo Folds
   ["a"] = { "za", "Toggle Fold" },

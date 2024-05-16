@@ -24,6 +24,10 @@ g.markdown_fenced_languages = {
 opt.laststatus = 3 -- global statusline
 opt.showmode = false
 
+ --NOTE: Barbecue
+-- opt.winbar = true
+-- opt.winbarpaddingleft = " "
+
 -- opt.clipboard = "unnamedplus"
 
 opt.completeopt = "menu,menuone,noselect"

@@ -65,12 +65,9 @@ return {
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
-    enabled = false,
       "nvim-treesitter/nvim-treesitter",
-    enabled = false,
     },
     opts = {
-    enabled = false,
       lsp = {
         override = {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -95,7 +92,7 @@ return {
         bottom_search = true,
         command_palette = true,
         long_message_to_split = true,
-        inc_rename = false,
+        inc_rename = true,
         lsp_doc_border = false,
       },
     },
@@ -264,6 +261,7 @@ return {
         options = {
           -- theme = "catppuccin", 
           -- theme = custom,
+          theme = "auto",
           globalstatus = true,
           component_separators = { left = '', right = '' },
           section_separators = { left = '', right = '' },
@@ -325,9 +323,10 @@ return {
           lualine_b = {
             {
                 "navic",
-                color_correction = nil,
-                navic_opts = nil,
-                separator = { left = '   ', right = '   ' },
+                -- color_correction = nil,
+                -- navic_opts = nil,
+                separator = { left = "", right = "" },
+                padding = { left = 4 },
             }
           },
           lualine_c = {},
@@ -401,6 +400,178 @@ return {
       cursor = "",
       texthl = "@text.environment",
     }
+  },
+  
+  --NOTE: Dim Inactive Code
+  {
+    "folke/twilight.nvim",
+    opts = {}
+  },
+
+  --NOTE: winbar
+  -- {
+  --   "utilyre/barbecue.nvim",
+  --   name = "barbecue",
+  --   version = "*",
+  --   dependencies = {
+  --     "SmiteshP/nvim-navic",
+  --     "nvim-tree/nvim-web-devicons",
+  --   },
+  --   opts = {}
+  -- },
+
+  --NOTE: ScrollBar
+  {
+    'Xuyuanp/scrollbar.nvim',
+    config = function()
+      vim.api.nvim_create_augroup("ScrollbarInit", { clear = true })
+      vim.api.nvim_create_autocmd({
+        "WinScrolled",
+        "VimResized",
+        "QuitPre",
+        "WinEnter",
+        "FocusGained"
+      }, {
+        pattern = "*",
+        callback = function()
+          require("scrollbar").show()
+        end,
+      })
+      vim.api.nvim_create_autocmd({
+        "WinLeave",
+        "BufLeave",
+        "BufWinLeave",
+        "FocusLost",
+      },{
+        pattern = "*",
+        callback = function()
+          require("scrollbar").clear()
+        end,
+      })
+    end
+  },
+
+  --NOTE: Smart Splits
+  -- {
+  --   'mrjones2014/smart-splits.nvim' 
+  -- },
+
+  --TEST: 
+  {
+    "uga-rosa/ccc.nvim",
+    config = function()
+      local ccc = require("ccc")
+      local mapping = ccc.mapping
+      ccc.setup({
+        highlighter = {
+          auto_enable = true,
+        },
+        mappings = {
+          -- h = mapping.decrease5(),
+          -- l = mapping.increase5(),
+        },
+      })
+    end
+  },
+
+  --NOTE: LightBulb
+  {
+    'kosayoda/nvim-lightbulb',
+    opts = {
+      sign = {
+        enabled = false,
+        hl = "LightBulbSign",
+      },
+      virtual_text = {
+        enabled = true,
+      },
+    }
+  },
+  -- --NOTE: Movement suggestions
+  {
+    "m4xshen/hardtime.nvim",
+    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    opts = {}
+  },
+
+  {
+    "SmiteshP/nvim-navic",
+    dependencies = "neovim/nvim-lspconfig",
+    lazy = false,
+    config = function()
+      local navic = require("nvim-navic")
+      navic.setup({
+        icons = {
+          File          = "󰈙 ",
+          Module        = " ",
+          Namespace     = "󰌗 ",
+          Package       = " ",
+          Class         = "󰌗 ",
+          Method        = "󰆧 ",
+          Property      = " ",
+          Field         = " ",
+          Constructor   = " ",
+          Enum          = "󰕘 ",
+          Interface     = "󰕘 ",
+          Function      = "󰊕 ",
+          Variable      = "󰆧 ",
+          Constant      = "󰏿 ",
+          String        = "󰀬 ",
+          Number        = "󰎠 ",
+          Boolean       = "◩ ",
+          Array         = "󰅪 ",
+          Object        = "󰅩 ",
+          Key           = "󰌋 ",
+          Null          = "󰟢 ",
+          EnumMember    = " ",
+          Struct        = "󰌗 ",
+          Event         = " ",
+          Operator      = "󰆕 ",
+          TypeParameter = "󰊄 ",
+        },
+        lsp = {
+          auto_attach = true,
+          preference = nil,
+        },
+        highlight = true,
+        separator = "  ",
+        depth_limit = 0,
+        depth_limit_indicator = "..",
+        safe_output = true,
+        lazy_update_context = false,
+        click = true,
+        format_text = function(text)
+          return text
+        end,
+      })
+    end
+  },
+  {
+    "SmiteshP/nvim-navbuddy",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "MunifTanjim/nui.nvim"
+    },
+    opts = { lsp = { auto_attach = true } },
+  },
+  {
+    "xiyaowong/transparent.nvim",
+    opts = {
+      groups = { -- table: default groups
+    'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
+    'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
+    'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
+    'SignColumn', 'CursorLine', 'CursorLineNr', 'StatusLine', 'StatusLineNC',
+    'EndOfBuffer',
+  },
+  extra_groups = {}, 
+  exclude_groups = {},
+    }
+  },
+
+  --NOTE: Rainbow Delimiters
+  {
+    "HiPhish/rainbow-delimiters.nvim"
   },
 
 }
