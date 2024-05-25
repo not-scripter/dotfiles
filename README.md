@@ -1,4 +1,4 @@
-# Installation tezt
+# Installation
 
 ### Set zsh as default Terminal
 
