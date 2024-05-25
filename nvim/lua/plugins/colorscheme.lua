@@ -5,7 +5,7 @@ return {
     opts = {
       default_integrations = true,
       term_colors = true,
-      transparent_background = false,
+      transparent_background = true,
       styles = {
         comments = {},
         conditionals = {},
@@ -21,7 +21,7 @@ return {
       },
       color_overrides = {
         mocha = {
-          base = "#000000",
+          -- base = "#000000",
           -- mantle = "#000000",
           -- crust = "#000000",
         },

@@ -64,26 +64,6 @@ return {
       })
     end,
   },
-  {
-    "SmiteshP/nvim-navic",
-    dependencies = "neovim/nvim-lspconfig",
-    config = function()
-      local navic = require("nvim-navic")
-      navic.setup({
-        lsp = {
-          auto_attach = true,
-        },
-      })
-    end
-  },
-  {
-    "SmiteshP/nvim-navbuddy",
-    dependencies = {
-      "SmiteshP/nvim-navic",
-      "MunifTanjim/nui.nvim"
-    },
-    opts = { lsp = { auto_attach = true } },
-  },
 
   --TEST: music player 
   --TEST: color picker

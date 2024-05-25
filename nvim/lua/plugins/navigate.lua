@@ -2,15 +2,25 @@ return {
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
-    config = function()
-      require("plugins.configs.which-key").setup()
-    end,
-  },
+      config = function()
+          require("plugins.configs.mappings").setup()
+        end,
+      -- config = function()
+        --   require("plugins.configs.which-key").setup()
+        -- end,
+      },
 
   {
     "folke/flash.nvim",
     event = "VeryLazy",
     opts = {},
+    keys = {
+      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+    },
   },
 
   --NOTE: Telescope
@@ -25,6 +35,7 @@ return {
       "nvim-telescope/telescope-media-files.nvim",
       "nvim-telescope/telescope-github.nvim",
       'andrew-george/telescope-themes',
+      "polirritmico/telescope-lazy-plugins.nvim",
     },
     config = function()
       local ts = require("telescope")
@@ -33,23 +44,42 @@ return {
       local action = require("telescope.actions")
 
       ts.setup({
+        --NOTE: Old Layout
+        -- defaults = {
+        --   theme = "custom", 
+        --   results_title = false,
+        --   prompt_prefix = "   ",
+        --   selection_caret = "  ",
+        --   entry_prefix = "  ",
+        --   initial_mode = "insert",
+        --   sorting_strategy = "ascending",
+        --   layout_strategy = "center", --center, cursor, bottom_pane
+        --   layout_config = {
+        --     preview_cutoff = 1,
+        --     width = function(_, max_columns, _)
+        --       return math.min(max_columns, 80)
+        --     end,
+        --     height = function(_, _, max_lines)
+        --       return math.min(max_lines, 15)
+        --     end,
+        --   },
+        -- },
+        --NOTE: New Layout
         defaults = {
-          theme = "custom", 
-          results_title = false,
-          prompt_prefix = "   ",
+          prompt_prefix = " 🔭 ",
           selection_caret = "  ",
           entry_prefix = "  ",
           initial_mode = "insert",
-          sorting_strategy = "ascending",
-          layout_strategy = "center", --center, cursor, bottom_pane
+          results_title = false,
+          sorting_strategy = 'ascending',
+          preview = { hide_on_startup = true },
+          layout_strategy = 'vertical', -- HORIZONTAL, VERTICAL, FLEX
           layout_config = {
-            preview_cutoff = 1,
-            width = function(_, max_columns, _)
-              return math.min(max_columns, 80)
-            end,
-            height = function(_, _, max_lines)
-              return math.min(max_lines, 15)
-            end,
+            vertical = {
+              prompt_position = 'top',
+              preview_cutoff = 10,
+              preview_height = 0.4,
+            },
           },
         },
         pickers = {
@@ -57,17 +87,17 @@ return {
             enable_preview = true
           },
           find_files = {
-            theme = "dropdown", -- cursor, ivy, dropdown
+            -- theme = "dropdown", -- cursor, ivy, dropdown
           }
         },
         extensions = {
           themes = {
-            layout_config = {
-              horizontal = {
-                width = 0.8,
-                height = 0.7,
-              },
-            },
+            -- layout_config = {
+            --   horizontal = {
+            --     width = 0.8,
+            --     height = 0.7,
+            --   },
+            -- },
             enable_previewer = true, 
             enable_live_preview = true,
             persist = {
@@ -75,9 +105,19 @@ return {
               path = vim.fn.stdpath("config") .. "/lua/core/theme.lua" 
             }
           },
+          package_info = {
+            theme = "ivy",
+          },
         },
         mappings = {
-          n = { ["q"] = action.close },
+          n = {
+            ["q"] = action.close,
+						['o'] = require('telescope.actions.layout').toggle_preview,
+						['<C-q>'] = require('telescope.actions').close,
+					},
+					i = {
+						['<C-o>'] = require('telescope.actions.layout').toggle_preview,
+					},
         },
       })
       lx("noice")
@@ -86,6 +126,8 @@ return {
       lx('project')
       lx('themes')
       lx('zoxide')
+      lx('package_info')
+      lx("lazy_plugins")
       -- lx('colorscheme')
       -- lx("fzf")
       -- lx("fzy_native")
@@ -104,20 +146,19 @@ return {
 
   {
     'stevearc/oil.nvim',
-    enabled = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
       default_file_explorer = true,
       columns = {
         "icon",
         -- "permissions",
-        -- "size",
         -- "mtime",
       },
       delete_to_trash = true,
       skip_confirm_for_simple_edits = false,
       prompt_save_on_select_new_entry = true,
       cleanup_delay_ms = 2000,
+      -- "size",
       -- lsp_rename_autosave = true,
       -- lsp_file_methods.autosave_changes = true,
       keymaps = {
@@ -127,6 +168,7 @@ return {
         ["<C-h>"] = "actions.select_split",
         ["<C-t>"] = "actions.select_tab",
         ["<C-p>"] = "actions.preview",
+        ["q"] = "actions.close",
         ["<C-c>"] = "actions.close",
         ["<C-l>"] = "actions.refresh",
         ["-"] = "actions.parent",
@@ -194,10 +236,45 @@ return {
   },
 
   --NOTE: replacement for oil.nvim
+  -- { 
+  --   'echasnovski/mini.files', 
+  --   version = '*',
+  --   opts = {},
+  -- },
+
+  --NOTE: Move Nvim
   { 
-    'echasnovski/mini.files', 
-    version = '*',
-    opts = {},
+    'fedepujol/move.nvim',
+    opts = {}
+  },
+
+--BUG: 
+--  {
+--    "ahmedkhalf/project.nvim",
+--    opts = {},
+--  },
+
+  --NOTE: Replace w, e, b motion
+  {
+    "chrisgrieser/nvim-spider",
+    lazy = true,
+    keys = {
+      {
+        "w",
+        "<cmd>lua require('spider').motion('w')<CR>",
+        mode = { "n", "o", "x" },
+      },
+      {
+        "e",
+        "<cmd>lua require('spider').motion('e')<CR>",
+        mode = { "n", "o", "x" },
+      },
+      {
+        "b",
+        "<cmd>lua require('spider').motion('b')<CR>",
+        mode = { "n", "o", "x" },
+      },
+    },
   },
 
 }
