@@ -100,24 +100,25 @@ return {
       -- lspconfig.emmet_ls.setup({
       --   capabilities = capabilities,
       -- })
-      -- lspconfig.lua_ls.setup({
-      --   capabilities = capabilities,
-      --   settings = { -- custom settings for lua
-      --     Lua = {
-      --       -- make the language server recognize "vim" global
-      --       diagnostics = {
-      --         globals = { "vim" },
-      --       },
-      --       workspace = {
-      --         -- make language server aware of runtime files
-      --         library = {
-      --           [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-      --           [vim.fn.stdpath("config") .. "/lua"] = true,
-      --         },
-      --       },
-      --     },
-      --   },
-      -- })
+
+      lspconfig.lua_ls.setup({
+        capabilities = capabilities,
+        settings = { -- custom settings for lua
+          Lua = {
+            -- make the language server recognize "vim" global
+            diagnostics = {
+              globals = { "vim" },
+            },
+            workspace = {
+              -- make language server aware of runtime files
+              library = {
+                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                [vim.fn.stdpath("config") .. "/lua"] = true,
+              },
+            },
+          },
+        },
+      })
 
       keymap('n', 'K', vim.lsp.buf.hover, {desc = "Hover"})
       keymap('n', 'gd', vim.lsp.buf.definition, {desc = "Definition"})

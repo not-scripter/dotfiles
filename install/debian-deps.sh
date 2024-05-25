@@ -19,6 +19,8 @@ echo -e "${GREEN}...Installing NodeJS${ENDCOLOR}"
 plg install nodejs -y
 echo -e "${GREEN}...Installing Neovim${ENDCOLOR}"
 apt install neovim -y
+echo -e "${GREEN}...Installing Neovim Dependencies${ENDCOLOR}"
+apt install ripgrep
 echo -e "${GREEN}...Installing Tmux${ENDCOLOR}"
 apt install tmux
 echo -e "${GREEN}...Installing Tmux Dependencies${ENDCOLOR}"
