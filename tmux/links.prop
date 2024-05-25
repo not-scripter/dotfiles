@@ -1,3 +1,1 @@
-$DOTFILES/tmux/tmux.conf=$HOME/.tmux.conf
-$DOTFILES/tmux/tmux.reset.conf=$HOME/.tmux.reset.conf
-$DOTFILES/tmux/plugins/=$HOME/.tmux/plugins/
+$DOTFILES/tmux/=$HOME/.config/tmux
