@@ -16,9 +16,9 @@ dnf install curl
 echo -e "${GREEN}...Installing Wget${ENDCOLOR}"
 dnf install wget
 echo -e "${GREEN}...Installing NodeJS${ENDCOLOR}"
-plg install nodejs -y
+plg install nodejs
 echo -e "${GREEN}...Installing Neovim${ENDCOLOR}"
-dnf install neovim -y
+dnf install neovim
 echo -e "${GREEN}...Installing Neovim Dependencies${ENDCOLOR}"
 dnf install ripgrep
 echo -e "${GREEN}...Installing Tmux${ENDCOLOR}"
