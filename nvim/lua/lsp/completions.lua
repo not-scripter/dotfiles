@@ -16,6 +16,8 @@ return {
     'hrsh7th/cmp-cmdline',
     "onsails/lspkind.nvim",
     "roobert/tailwindcss-colorizer-cmp.nvim",
+    "lukas-reineke/cmp-under-comparator",
+    "SergioRibera/cmp-dotenv",
   },
   config = function(_, opts)
     local cmp = require'cmp'
@@ -78,6 +80,7 @@ return {
         completeopt = "menu,menuone,noinsert",
       },
       sources = cmp.config.sources {
+        { name = "dotenv" },
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "buffer" },
@@ -156,8 +159,22 @@ return {
       }),
       experimental = {
         native_menu = false,
-        ghost_text = false,
+        ghost_text = true,
       },
+      --NOTE: cmp-under-comparator
+      sorting = {
+        comparators = {
+          cmp.config.compare.offset,
+          cmp.config.compare.exact,
+          cmp.config.compare.score,
+          require "cmp-under-comparator".under,
+          cmp.config.compare.kind,
+          cmp.config.compare.sort_text,
+          cmp.config.compare.length,
+          cmp.config.compare.order,
+        },
+      },
+
     })
 
     -- Set configuration for specific filetype.

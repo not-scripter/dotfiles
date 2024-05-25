@@ -16,6 +16,7 @@ function M.setup()
     ["<A-t>"] = { '<cmd>lua require("FTerm").toggle()<cr>', "Terminal" },
     ["<A-v>"] = { "<cmd>vsplit<cr>", "Split Vertically" },
     ["<A-h>"] = { "<cmd>split<cr>", "Split Horizontally" },
+    --NOTE: Flash
   }, { mode = "n" })
 
   --NOTE: Keymaps for Insert Mode without Prefix
@@ -65,7 +66,7 @@ function M.setup()
       ["a"] = { "za", "Toggle Fold" },
       ["A"] = { "zA", "Toggle Folds" },
       --NOTE: LazyGit
-      ["g"] = { "<cmd>LazyGit<CR>", "LazyGit" },
+      -- ["g"] = { "<cmd>LazyGit<CR>", "LazyGit" },
       --NOTE: TreeJS
       ["m"] = { "<cmd>lua require('treesj').toggle()<CR>", "TSJ Toggle" },
       --NOTE: Nav Buddy 
@@ -246,6 +247,20 @@ function M.setup()
       }, {
         name = " Extra Mappings",
         prefix = "<leader><leader>",
+        mode = { "n", "v" },
+      })
+
+      --NOTE: Octo nvim
+      wk.register({
+        ["l"] = { "<cmd>LazyGit<CR>", "LazyGit" },
+        i = {
+          name = "issue",
+          c = { "<cmd>Octo issue close<CR>", "close" },
+          r = { "<cmd>Octo issue reopen<CR>", "reopen" },
+        },
+      }, {
+        name = " Git",
+        prefix = "<leader>g",
         mode = { "n", "v" },
       })
 

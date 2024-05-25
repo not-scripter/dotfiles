@@ -50,8 +50,4 @@ function nvims() {
   NVIM_APPNAME=$config nvim $@
 }
 
-#NOTE: Theme
-source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
-# now load zsh-syntax-highlighting plugin
-
 bindkey -s ^a "nvims\n"

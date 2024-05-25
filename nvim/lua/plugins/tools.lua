@@ -200,5 +200,17 @@ return {
  {
    "LudoPinelli/comment-box.nvim",
  },
+ --NOTE: Octo nvim
+ {
+   'pwntester/octo.nvim',
+   enabled = false,
+   dependencies = {
+     'nvim-lua/plenary.nvim',
+     'nvim-telescope/telescope.nvim',
+     -- OR 'ibhagwan/fzf-lua',
+     'nvim-tree/nvim-web-devicons',
+   },
+   opts = {}
+ },
 
 }

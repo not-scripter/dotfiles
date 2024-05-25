@@ -26,25 +26,33 @@ return {
     },
 
   },
-
-  {
-    'laytan/tailwind-sorter.nvim',
-    dependencies = {'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim'},
-    build = 'cd formatter && npm i && npm run build',
-    config = function()
-      require('tailwind-sorter').setup({
-        on_save_enabled = false,
-        on_save_pattern = { '*.html', '*.js', '*.jsx', '*.tsx', '*.twig', '*.hbs', '*.php', '*.heex', '*.astro' },
-        node_path = 'node',
-      })
-    end
-  },
+  -- {
+  --   'laytan/tailwind-sorter.nvim',
+  --   dependencies = {'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim'},
+  --   build = 'cd formatter && npm i && npm run build',
+  --   config = function()
+  --     require('tailwind-sorter').setup({
+  --       on_save_enabled = false,
+  --       on_save_pattern = { '*.html', '*.js', '*.jsx', '*.tsx', '*.twig', '*.hbs', '*.php', '*.heex', '*.astro' },
+  --       node_path = 'node',
+  --     })
+  --   end
+  -- },
   {
     'razak17/tailwind-fold.nvim',
     dependencies = 'nvim-treesitter/nvim-treesitter',
     ft = { 'html', 'svelte', 'astro', 'vue', 'typescriptreact', 'php', 'blade' },
     opts= {},
   },
+  -- {
+  --   "luckasRanarison/tailwind-tools.nvim",
+  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
+  --   opts = {
+  --     document_color = {
+  --       enabled = true,
+  --     }
+  --   }
+  -- },
 
   -- Javascript / Typescript
   -- {
