@@ -1,7 +1,7 @@
 pkg install zsh 
 chsh -s zsh 
 
-plg install nodejs -y
+pkg install nodejs -y
 pkg install neovim -y
 pkg install tmux
 pkg install git
