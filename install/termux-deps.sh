@@ -26,6 +26,7 @@ echo -e "${GREEN}...Installing Neovim${ENDCOLOR}"
 pkg install neovim -y
 echo -e "${GREEN}...Installing Neovim Dependencies${ENDCOLOR}"
 pkg install ripgrep
+pkg install lua-language-server
 echo -e "${GREEN}...Installing Tmux${ENDCOLOR}"
 pkg install tmux
 echo -e "${GREEN}...Installing Tmux Dependencies${ENDCOLOR}"
