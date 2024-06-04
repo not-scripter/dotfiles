@@ -38,6 +38,8 @@ echo -e "${GREEN}...Installing Cilorls${ENDCOLOR}"
 gem install colorls
 echo -e "${GREEN}...Installing Pass${ENDCOLOR}"
 pkg install pass -y
+echo -e "${GREEN}...Installing Node${ENDCOLOR}"
+pkg install nodejs -y
 
 echo -e "${GREEN}...Installing ZSH shell${ENDCOLOR}"
 pkg install zsh -y 
