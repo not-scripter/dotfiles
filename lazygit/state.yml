@@ -1,6 +1,8 @@
 lastupdatecheck: 0
 recentrepos:
     - /data/data/com.termux/files/home/dotfiles
+    - /data/data/com.termux/files/home/chai-aur-next/nextjs-fullstack-auth
+    - /data/data/com.termux/files/home/chai-aur-next/nextjs-music-academy
 startuppopupversion: 5
 lastversion: 0.42.0
 customcommandshistory:

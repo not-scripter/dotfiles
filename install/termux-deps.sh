@@ -40,6 +40,10 @@ echo -e "${GREEN}...Installing Pass${ENDCOLOR}"
 pkg install pass -y
 echo -e "${GREEN}...Installing Node${ENDCOLOR}"
 pkg install nodejs -y
+echo -e "${GREEN}...Installing Typescript${ENDCOLOR}"
+pkg install -g typescript
+echo -e "${GREEN}...Installing Python${ENDCOLOR}"
+pkg install python -y
 
 echo -e "${GREEN}...Installing ZSH shell${ENDCOLOR}"
 pkg install zsh -y 

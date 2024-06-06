@@ -20,7 +20,7 @@ return {
     "SergioRibera/cmp-dotenv",
   },
   config = function(_, opts)
-    local cmp = require'cmp'
+    local cmp = require 'cmp'
     local ls = require "luasnip"
     local types = require "luasnip.util.types"
     local vscode = require("luasnip.loaders.from_vscode")
@@ -80,11 +80,11 @@ return {
         completeopt = "menu,menuone,noinsert",
       },
       sources = cmp.config.sources {
-        { name = "dotenv" },
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
+        { name = "dotenv" },
       },
       -- duplicates = {
       --   luasnip = 0,
@@ -100,7 +100,7 @@ return {
           maxwidth = 50,
           ellipsis_char = '...',
           show_labelDetails = false,
-          before = function (entry, vim_item)
+          before = function(entry, vim_item)
             vim_item.kind = (icons[vim_item.kind] or "foo") --.. " " .. vim_item.kind
             vim_item.menu = ({
               luasnip = "",
@@ -125,7 +125,7 @@ return {
       },
       snippet = {
         expand = function(args)
-          require('luasnip').lsp_expand(args.body) 
+          require('luasnip').lsp_expand(args.body)
         end,
       },
       window = {
@@ -147,7 +147,7 @@ return {
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.abort(),
-        ["<CR>"] = cmp.mapping.confirm({ select = true }), 
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
         ["<S-CR>"] = cmp.mapping.confirm({
           behavior = cmp.ConfirmBehavior.Replace,
           select = true,
@@ -182,8 +182,8 @@ return {
       sources = cmp.config.sources({
         { name = 'git' },
       }, {
-          { name = 'buffer' },
-        })
+        { name = 'buffer' },
+      })
     })
 
     cmp.setup.cmdline({ '/', '?' }, {
@@ -200,8 +200,8 @@ return {
       sources = cmp.config.sources({
         { name = 'path' }
       }, {
-          { name = 'cmdline' }
-        }),
+        { name = 'cmdline' }
+      }),
       -- mapping = cmp.mapping.preset.cmdline(),
       mapping = cmp.mapping({
         ['<C-j>'] = cmp.mapping({
@@ -212,6 +212,5 @@ return {
         }),
       })
     })
-
   end,
 }
