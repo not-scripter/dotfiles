@@ -3,3 +3,9 @@
 	name = MRINMOY MONDAL
 [merge]
 	tool = merge-tool
+[credential "https://github.com"]
+	helper = 
+	helper = !/data/data/com.termux/files/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/data/data/com.termux/files/usr/bin/gh auth git-credential

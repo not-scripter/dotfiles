@@ -1,8 +1,8 @@
 return {
-{
-   'glepnir/dashboard-nvim',
-   event = 'VimEnter',
-   dependencies = 'nvim-tree/nvim-web-devicons',
+  {
+    'glepnir/dashboard-nvim',
+    event = 'VimEnter',
+    dependencies = 'nvim-tree/nvim-web-devicons',
     config = function()
       require('dashboard').setup({
         theme = 'hyper',
@@ -139,12 +139,12 @@ return {
   },
 
   --FileManager
-  { 
+  {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", 
+      "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     },
   },
@@ -215,18 +215,18 @@ return {
     },
     config = function()
       local colors = {
-        bg    = '#000000',
-        fg    = '#CDD6F4',
-        blue     = '#89B4FA',
-        cyan     = '#94E2D5',
-        green    = '#A6E3A1',
-        yellow   = '#F9E2AF',
-        magenta  = '#F5C2E7',
-        red      = '#F38BA8',
+        bg      = '#000000',
+        fg      = '#CDD6F4',
+        blue    = '#89B4FA',
+        cyan    = '#94E2D5',
+        green   = '#A6E3A1',
+        yellow  = '#F9E2AF',
+        magenta = '#F5C2E7',
+        red     = '#F38BA8',
       }
       local custom = {
         normal = {
-          a = { fg = colors.bg, bg = colors.red}, -- gui = 'bold'
+          a = { fg = colors.bg, bg = colors.red }, -- gui = 'bold'
           b = { fg = colors.fg, bg = colors.bg },
           c = { fg = colors.fg, bg = colors.bg },
           x = { fg = colors.fg, bg = colors.bg },
@@ -235,8 +235,8 @@ return {
         },
 
         insert = {
-          a = { fg = colors.bg, bg = colors.blue }, 
-          z = { fg = colors.bg, bg = colors.blue }, 
+          a = { fg = colors.bg, bg = colors.blue },
+          z = { fg = colors.bg, bg = colors.blue },
         },
         visual = {
           a = { fg = colors.bg, bg = colors.green },
@@ -259,7 +259,7 @@ return {
       require('lualine').setup({
         --NOTE: Uniqe separators           
         options = {
-          -- theme = "catppuccin", 
+          -- theme = "catppuccin",
           -- theme = custom,
           theme = "auto",
           globalstatus = true,
@@ -269,14 +269,14 @@ return {
         },
         sections = {
           lualine_a = {
-            { 'hostname', icon = {"󰙄", align="left",}, separator = { left = '  ', right = '' }, },
+            { 'hostname', icon = { "󰙄", align = "left", }, separator = { left = '  ', right = '' }, },
           },
           lualine_b = {
-            { 'branch', icon = {"󰊢", align="left",}},
+            { 'branch', icon = { "󰊢", align = "left", } },
           },
           lualine_c = {
             -- {require('auto-session.lib').current_session_name},
-            { 'filesize', icon = {"󰈔", align="left",}},
+            { 'filesize', icon = { "󰈔", align = "left", } },
             { 'diagnostics', separator = { left = '', right = '  ' }, },
           },
           lualine_x = {
@@ -287,18 +287,18 @@ return {
             { 'progress' },
           },
           lualine_z = {
-            { 'location', icon = {"󰦨", align="right",}, separator = { left = '  ', right = '  ' }, },
+            { 'location', icon = { "󰦨", align = "right", }, separator = { left = '  ', right = '  ' }, },
           },
         },
         tabline = {
           lualine_a = {
             {
-              'buffers', 
+              'buffers',
               separator = { left = '  ', right = '' },
               symbols = {
                 modified = ' ●',
                 alternate_file = '',
-                directory =  '',
+                directory = '',
               },
             },
           },
@@ -307,13 +307,13 @@ return {
           lualine_x = {},
           lualine_y = {},
           lualine_z = {
-            { 
+            {
               'tabs',
               separator = { left = '', right = '  ' },
               symbols = {
                 modified = ' ●',
                 alternate_file = '',
-                directory =  '',
+                directory = '',
               },
             },
           }
@@ -322,11 +322,11 @@ return {
           lualine_a = {},
           lualine_b = {
             {
-                "navic",
-                -- color_correction = nil,
-                -- navic_opts = nil,
-                separator = { left = "", right = "" },
-                padding = { left = 4 },
+              "navic",
+              -- color_correction = nil,
+              -- navic_opts = nil,
+              separator = { left = "", right = "" },
+              padding = { left = 4 },
             }
           },
           lualine_c = {},
@@ -359,26 +359,26 @@ return {
     event = "WinScrolled",
     config = function()
       require('neoscroll').setup({
-        hide_cursor = true, 
-        stop_eof = true,   
+        hide_cursor = true,
+        stop_eof = true,
         use_local_scrolloff = false,
-        respect_scrolloff = false, 
+        respect_scrolloff = false,
         cursor_scrolls_alone = true,
-        easing_function = nil,     
-        pre_hook = nil,           
-        post_hook = nil,         
+        easing_function = nil,
+        pre_hook = nil,
+        post_hook = nil,
       })
 
-      local t = {}
-      t['<C-k>'] = {'scroll', {'-vim.wo.scroll', 'true', '250'}}
-      t['<C-j>'] = {'scroll', { 'vim.wo.scroll', 'true', '250'}}
-      t['<C-h>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '450'}}
-      t['<C-l>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '450'}}
-      t['<C-y>'] = {'scroll', {'-0.10', 'false', '100'}}
-      t['<C-e>'] = {'scroll', { '0.10', 'false', '100'}}
-      t['zt']    = {'zt', {'250'}}
-      t['zz']    = {'zz', {'250'}}
-      t['zb']    = {'zb', {'250'}}
+      local t    = {}
+      t['<C-k>'] = { 'scroll', { '-vim.wo.scroll', 'true', '250' } }
+      t['<C-j>'] = { 'scroll', { 'vim.wo.scroll', 'true', '250' } }
+      t['<C-h>'] = { 'scroll', { '-vim.api.nvim_win_get_height(0)', 'true', '450' } }
+      t['<C-l>'] = { 'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '450' } }
+      t['<C-y>'] = { 'scroll', { '-0.10', 'false', '100' } }
+      t['<C-e>'] = { 'scroll', { '0.10', 'false', '100' } }
+      t['zt']    = { 'zt', { '250' } }
+      t['zz']    = { 'zz', { '250' } }
+      t['zb']    = { 'zb', { '250' } }
       require('neoscroll.config').set_mappings(t)
     end
   },
@@ -393,7 +393,7 @@ return {
     opts = {},
   },
 
-  { 
+  {
     'gen740/SmoothCursor.nvim',
     opts = {
       type = "default",
@@ -401,7 +401,7 @@ return {
       texthl = "@text.environment",
     }
   },
-  
+
   --NOTE: Dim Inactive Code
   {
     "folke/twilight.nvim",
@@ -442,7 +442,7 @@ return {
         "BufLeave",
         "BufWinLeave",
         "FocusLost",
-      },{
+      }, {
         pattern = "*",
         callback = function()
           require("scrollbar").clear()
@@ -453,10 +453,10 @@ return {
 
   --NOTE: Smart Splits
   -- {
-  --   'mrjones2014/smart-splits.nvim' 
+  --   'mrjones2014/smart-splits.nvim'
   -- },
 
-  --TEST: 
+  --TEST:
   {
     "uga-rosa/ccc.nvim",
     config = function()
@@ -490,6 +490,7 @@ return {
   -- --NOTE: Movement suggestions
   {
     "m4xshen/hardtime.nvim",
+    enabled = false,
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
     opts = {}
   },
@@ -559,14 +560,14 @@ return {
     "xiyaowong/transparent.nvim",
     opts = {
       groups = { -- table: default groups
-    'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
-    'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
-    'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
-    'SignColumn', 'CursorLine', 'CursorLineNr', 'StatusLine', 'StatusLineNC',
-    'EndOfBuffer',
-  },
-  extra_groups = {}, 
-  exclude_groups = {},
+        'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
+        'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
+        'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
+        'SignColumn', 'CursorLine', 'CursorLineNr', 'StatusLine', 'StatusLineNC',
+        'EndOfBuffer',
+      },
+      extra_groups = {},
+      exclude_groups = {},
     }
   },
 
