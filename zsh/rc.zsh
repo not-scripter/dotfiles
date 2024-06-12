@@ -15,7 +15,13 @@ plugins=(
   zsh-syntax-highlighting
   fzf-tab
   you-should-use
+  node
+  zoxide
+  npm 
+  fzf
 )
+
+fpath+=$ZSH/custom/plugins/zsh-completions/src
 
 source $ZSH/oh-my-zsh.sh
 #ZOXIDE

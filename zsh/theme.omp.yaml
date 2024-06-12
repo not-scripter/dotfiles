@@ -65,6 +65,15 @@ blocks:
         properties:
           threshold: 5000
 
+  - type: status
+    foreground: p:color6
+    foreground_templates:
+      - "{{ if gt .Code 0 }}red{{ end }}"
+    properties:
+    always_enabled: true
+    style: plain
+    template: " {{ if gt .Code 0 }}{{else}}{{ end }} "
+
   - type: prompt
     alignment: left
     newline: true
