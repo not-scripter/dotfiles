@@ -9,6 +9,7 @@ fi
 
 #Plugins
 plugins=(
+  gh
   git
   zsh-autosuggestions
   zsh-syntax-highlighting
