@@ -1,11 +1,11 @@
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+eval "$(oh-my-posh init zsh --config ~/theme.omp.yaml)"
+fi
+
+# ZSH_THEME="theme"
 
 #Plugins
 plugins=(
@@ -17,20 +17,13 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-source $(dirname $(gem which colorls))/tab_complete.sh
-fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
-
 #ZOXIDE
 eval "$(zoxide init zsh)"
 
 # Aliases
 alias sz='source ~/.zshrc'
-alias ls='colorls'
-alias la='colorls -A'
+# alias ls='colorls'
+alias la='ls -A'
 
 # Multiple Neovim Config
 alias nvim-test="NVIM_APPNAME=TestVim nvim"
