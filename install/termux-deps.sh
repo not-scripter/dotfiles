@@ -38,10 +38,22 @@ echo -e "${GREEN}...Installing Cilorls${ENDCOLOR}"
 gem install colorls
 echo -e "${GREEN}...Installing Pass${ENDCOLOR}"
 pkg install pass -y
+echo -e "${GREEN}...Installing Node${ENDCOLOR}"
+pkg install nodejs -y
+echo -e "${GREEN}...Installing Typescript${ENDCOLOR}"
+pkg install -g typescript
+echo -e "${GREEN}...Installing Python${ENDCOLOR}"
+pkg install python -y
+echo -e "${GREEN}...Installing fzf${ENDCOLOR}"
+pkg install fzf
 
 echo -e "${GREEN}...Installing ZSH shell${ENDCOLOR}"
 pkg install zsh -y 
 echo -e "${GREEN}...Setting ZSH as default shell${ENDCOLOR}"
 chsh -s zsh 
+echo -e "${GREEN}...Installing oh-my-posh${ENDCOLOR}"
+pkg install oh-my-posh
+echo -e "${GREEN}...Installing zinit${ENDCOLOR}"
+bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 
 echo -e "${GREEN}...Please Restart Termux${ENDCOLOR}"

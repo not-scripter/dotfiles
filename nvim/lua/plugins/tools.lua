@@ -7,10 +7,11 @@ return {
       local config = require("nvim-treesitter.configs")
       config.setup({
         ensure_installed = {
-          "lua", "vim", "regex", "bash", "markdown", "markdown_inline", "html", "css", "javascript",  "typescript", "tsx", "norg", "json", "python", "gitignore", "git_config", "jsonc"
+          "lua", "vim", "regex", "bash", "markdown", "markdown_inline", "html", "css", "javascript", "typescript", "tsx",
+          "norg", "json", "python", "gitignore", "git_config", "jsonc"
         },
         auto_install = true,
-        highlight = { enable = true }, 
+        highlight = { enable = true },
         -- indent = { enable = true },--BUG: THIS OPTION ALSO COUSES "STACK CORRUPTION ERROR"
 
         highlight = {
@@ -20,19 +21,19 @@ return {
       })
     end
   },
+  -- {
+  --   "folke/trouble.nvim",
+  --   branch = "dev",
+  --   dependencies = "nvim-tree/nvim-web-devicons",
+  --   opts = {},
+  -- },
   {
-    "folke/trouble.nvim",
-    branch = "dev",
-    dependencies = "nvim-tree/nvim-web-devicons",
-    opts = {},
-  },
-  {
-    'kevinhwang91/nvim-ufo', 
+    'kevinhwang91/nvim-ufo',
     dependencies = 'kevinhwang91/promise-async',
     config = function()
       require('ufo').setup({
         provider_selector = function(bufnr, filetype, buftype)
-          return {'treesitter', 'indent'}
+          return { 'treesitter', 'indent' }
         end
       })
     end,
@@ -43,7 +44,7 @@ return {
       "nvim-treesitter/nvim-treesitter",
       'JoosepAlviste/nvim-ts-context-commentstring',
     },
-    event = {"BufReadPre", "BufNewFile"},
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       vim.g.skip_ts_context_commentstring_module = true
       require('Comment').setup {
@@ -65,11 +66,11 @@ return {
     "numToStr/FTerm.nvim",
     opts = {
       dimensions = {
-        height = 0.8, 
+        height = 0.8,
         width = 0.8,
-        x = 0.5, 
-        y = 0.5, 
-    },
+        x = 0.5,
+        y = 0.5,
+      },
     }
   },
 
@@ -85,11 +86,11 @@ return {
   -- },
   {
     'altermo/ultimate-autopair.nvim',
-    event={'InsertEnter','CmdlineEnter'},
-    branch='v0.6',
-    opts={},
+    event = { 'InsertEnter', 'CmdlineEnter' },
+    branch = 'v0.6',
+    opts = {},
   },
-  
+
   {
     "kylechui/nvim-surround",
     version = "*",
@@ -102,14 +103,14 @@ return {
     config = function()
       require("auto-session").setup({
         log_level = "error",
-        auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/"},
+        auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
         auto_session_enable_last_session = true,
         session_lens = {
           buftypes_to_ignore = {},
           load_on_setup = true,
         }
       })
-      vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+      vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
     end
   },
 
@@ -126,7 +127,7 @@ return {
   {
     "turbio/bracey.vim",
     enabled = false,
-    cmd = {"Bracey", "BracyStop", "BraceyReload", "BraceyEval"},
+    cmd = { "Bracey", "BracyStop", "BraceyReload", "BraceyEval" },
     build = "npm install --prefix server",
   },
 
@@ -134,11 +135,11 @@ return {
     "aurum77/live-server.nvim",
     enabled = false,
     run = function()
-      require"live_server.util".install()
+      require "live_server.util".install()
     end,
     cmd = { "LiveServer", "LiveServerStart", "LiveServerStop" },
   },
-   
+
   {
     "max397574/colortils.nvim",
     enabled = false,
@@ -146,7 +147,7 @@ return {
     config = function()
       require("colortils").setup({
         register = "+",
-        color_preview =  "█ %s",
+        color_preview = "█ %s",
         default_format = "hex",
         border = "rounded",
         mappings = {
@@ -183,34 +184,34 @@ return {
     "vuki656/package-info.nvim",
     dependencies = "MunifTanjim/nui.nvim",
     opts = {}
- },
+  },
 
- --TEST:
- -- {
- --   "cshuaimin/ssr.nvim",
- -- },
- 
- --NOTE: Nerd Icon Picker
- {
-   "ziontee113/icon-picker.nvim",
-   opts = {}
- },
+  --TEST:
+  -- {
+  --   "cshuaimin/ssr.nvim",
+  -- },
 
- --NOTE: CommentBox
- {
-   "LudoPinelli/comment-box.nvim",
- },
- --NOTE: Octo nvim
- {
-   'pwntester/octo.nvim',
-   enabled = false,
-   dependencies = {
-     'nvim-lua/plenary.nvim',
-     'nvim-telescope/telescope.nvim',
-     -- OR 'ibhagwan/fzf-lua',
-     'nvim-tree/nvim-web-devicons',
-   },
-   opts = {}
- },
+  --NOTE: Nerd Icon Picker
+  {
+    "ziontee113/icon-picker.nvim",
+    opts = {}
+  },
+
+  --NOTE: CommentBox
+  {
+    "LudoPinelli/comment-box.nvim",
+  },
+  --NOTE: Octo nvim
+  {
+    'pwntester/octo.nvim',
+    enabled = false,
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      -- OR 'ibhagwan/fzf-lua',
+      'nvim-tree/nvim-web-devicons',
+    },
+    opts = {}
+  },
 
 }
