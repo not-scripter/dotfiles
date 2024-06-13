@@ -53,5 +53,7 @@ echo -e "${GREEN}...Setting ZSH as default shell${ENDCOLOR}"
 chsh -s zsh 
 echo -e "${GREEN}...Installing oh-my-posh${ENDCOLOR}"
 pkg install oh-my-posh
+echo -e "${GREEN}...Installing zinit${ENDCOLOR}"
+bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 
 echo -e "${GREEN}...Please Restart Termux${ENDCOLOR}"
