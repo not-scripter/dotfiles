@@ -14,11 +14,15 @@ fi
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
+zinit ice depth=1
+
 # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+zinit light MichaelAquilina/zsh-you-should-use
+zinit light jeffreytse/zsh-vi-mode
 
 # Add in snippets
 zinit snippet OMZP::git
@@ -27,6 +31,7 @@ zinit snippet OMZP::command-not-found
 zinit snippet OMZP::node
 zinit snippet OMZP::npm
 zinit snippet OMZP::python
+# zinit snippet OMZP::vi-mode
 
 # Load completions
 autoload -Uz compinit && compinit
@@ -55,7 +60,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
 alias ls='ls --color'
-alias la='la -A --color'
+alias la='ls -A --color'
 alias vim='nvim'
 alias c='clear'
 
