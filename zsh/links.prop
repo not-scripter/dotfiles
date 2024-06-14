@@ -1,5 +1,2 @@
 $DOTFILES/zsh/rc.zsh=$HOME/.zshrc
-$DOTFILES/zsh/oh-my-zsh=$HOME/.oh-my-zsh
-$DOTFILES/zsh/p10k.zsh=$HOME/.p10k.zsh
-$DOTFILES/zsh/theme.omp.yaml=$HOME/theme.omp.yaml
-$DOTFILES/zsh/antigen.zsh=$HOME/antigen.zsh
+$DOTFILES/zsh/theme.omp.yaml=$HOME/.config/zsh/theme.omp.yaml

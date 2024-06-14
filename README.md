@@ -22,8 +22,14 @@ bash ~/dotfiles/install/bootstrap.sh
 bash ~/dotfiles/install/termux-deps.sh
 ```
 
-#### Linux (Debian, Uvuntu, etc)
+#### Linux (Debian, Ubuntu, etc)
 
 ```bash
 bash ~/dotfiles/install/debian-deps.sh
+```
+
+#### Linux (Fedora, etc)
+
+```bash
+bash ~/dotfiles/install/fedora-deps.sh
 ```
