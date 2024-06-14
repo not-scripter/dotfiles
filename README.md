@@ -24,13 +24,13 @@ bash ~/dotfiles/install/termux-deps.sh
 
 #### Linux
 
-- debian, ubuntu, etc
+- ##### debian, ubuntu, etc
 
 ```bash
 bash ~/dotfiles/install/debian-deps.sh
 ```
 
-- fedora, etc
+- ##### fedora, etc
 
 ```bash
 bash ~/dotfiles/install/fedora-deps.sh
