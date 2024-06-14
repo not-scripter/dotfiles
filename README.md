@@ -1,29 +1,27 @@
 # Installation
 
-### Set zsh as default Terminal
-
-### Clone this Repo
+## Termux
 
 ```bash
 git clone https://github.com/not-scripter/dotfiles.git
-```
-
-### Run Installation Script
-
-```bash
 bash ~/dotfiles/install/bootstrap.sh
-```
-
-### Install all Dependencies
-
-#### Termux
-
-```bash
 bash ~/dotfiles/install/termux-deps.sh
 ```
 
-#### Linux (Debian, Uvuntu, etc)
+## Linux
+
+- **debian, ubuntu, etc**
 
 ```bash
+git clone https://github.com/not-scripter/dotfiles.git
+bash ~/dotfiles/install/bootstrap.sh
 bash ~/dotfiles/install/debian-deps.sh
+```
+
+- **fedora, etc**
+
+```bash
+git clone https://github.com/not-scripter/dotfiles.git
+bash ~/dotfiles/install/bootstrap.sh
+bash ~/dotfiles/install/fedora-deps.sh
 ```
