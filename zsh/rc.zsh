@@ -1,3 +1,20 @@
+# Shell integrations
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+eval "$(oh-my-posh init zsh --config ~/.config/zsh/theme.omp.yaml)"
+fi
+eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
+
+# Aliases
+alias ls='ls --color'
+alias la='ls -A --color'
+alias n='nvim'
+alias c='clear'
+alias q='exit'
+
+# Keybindings
+bindkey -e
+
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -53,35 +70,6 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
-
-# Aliases
-alias ls='ls --color'
-alias la='ls -A --color'
-alias n='nvim'
-alias c='clear'
-alias q='exit'
-
-# Shell integrations
-if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-eval "$(oh-my-posh init zsh --config ~/.config/zsh/theme.omp.yaml)"
-fi
-eval "$(fzf --zsh)"
-eval "$(zoxide init zsh)"
-
-
-#Plugins
-# plugins=(
-#   gh
-#   git
-#   zsh-autosuggestions
-#   zsh-syntax-highlighting
-#   fzf-tab
-#   you-should-use
-#   node
-#   zoxide
-#   npm 
-#   fzf
-# )
 
 # NOTE: Multiple Neovim Config
 
