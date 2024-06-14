@@ -1,7 +1,5 @@
 # Installation
 
-### Set zsh as default Terminal
-
 ### Clone this Repo
 
 ```bash
