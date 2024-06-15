@@ -2,7 +2,7 @@ return {
   {
     "williamboman/mason.nvim",
     vim.lsp.set_log_level("off"),
-    -- vim.lsp.set_log_level("debug"), 
+    -- vim.lsp.set_log_level("debug"),
     config = function()
       require("mason").setup({
         ui = {
@@ -34,21 +34,22 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { 
+        ensure_installed = {
           -- "lua_ls",
           "tsserver",
           "html",
           "cssls",
           "tailwindcss",
           "emmet_ls",
+          "astro"
         },
         automatic_installation = true,
       })
     end
   },
 
-  { 
-    "folke/neodev.nvim", 
+  {
+    "folke/neodev.nvim",
     opts = {},
   },
 
@@ -64,7 +65,7 @@ return {
         Error = " ",
         Warn = " ",
         Hint = "󰠠 ",
-        Info = " " 
+        Info = " "
       }
       for type, icon in pairs(signs) do
         local hl = "DiagnosticSign" .. type
@@ -96,6 +97,12 @@ return {
           },
         },
       })
+      lspconfig.astro.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.pylsp.setup({
+        capabilities = capabilities,
+      })
 
       -- lspconfig.emmet_ls.setup({
       --   capabilities = capabilities,
@@ -120,21 +127,20 @@ return {
         },
       })
 
-      keymap('n', 'K', vim.lsp.buf.hover, {desc = "Hover"})
-      keymap('n', 'gd', vim.lsp.buf.definition, {desc = "Definition"})
-      keymap('n', 'gr', vim.lsp.buf.references, {desc = "Reference"})
-      keymap('n', 'rn', vim.lsp.buf.rename, {desc = "Rename"})
+      keymap('n', 'K', vim.lsp.buf.hover, { desc = "Hover" })
+      keymap('n', 'gd', vim.lsp.buf.definition, { desc = "Definition" })
+      keymap('n', 'gr', vim.lsp.buf.references, { desc = "Reference" })
+      keymap('n', 'rn', vim.lsp.buf.rename, { desc = "Rename" })
       -- keymap({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {desc = "Code Action"})
-
     end,
   },
-    
+
   -- Test
   {
     "pmizio/typescript-tools.nvim",
-    dependencies = { 
+    dependencies = {
       "nvim-lua/plenary.nvim",
-      "neovim/nvim-lspconfig" 
+      "neovim/nvim-lspconfig"
     },
     opts = {},
   },
@@ -143,8 +149,8 @@ return {
     "ray-x/lsp_signature.nvim",
     event = "VeryLazy",
     opts = {},
-    config = function(_, opts) 
-      require('lsp_signature').setup(opts) 
+    config = function(_, opts)
+      require('lsp_signature').setup(opts)
     end
   },
 

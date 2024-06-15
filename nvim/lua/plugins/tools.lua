@@ -6,12 +6,31 @@ return {
     config = function()
       local config = require("nvim-treesitter.configs")
       config.setup({
+        astro = {
+          enable = true,
+        },
         ensure_installed = {
-          "lua", "vim", "regex", "bash", "markdown", "markdown_inline", "html", "css", "javascript", "typescript", "tsx",
-          "norg", "json", "python", "gitignore", "git_config", "jsonc"
+          "lua",
+          "vim",
+          "regex",
+          "bash",
+          "markdown",
+          "markdown_inline",
+          "html",
+          "css",
+          "javascript",
+          "typescript",
+          "tsx",
+          "astro",
+          "norg",
+          "json",
+          "yaml",
+          "python",
+          "gitignore",
+          "git_config",
+          "jsonc"
         },
         auto_install = true,
-        highlight = { enable = true },
         -- indent = { enable = true },--BUG: THIS OPTION ALSO COUSES "STACK CORRUPTION ERROR"
 
         highlight = {
