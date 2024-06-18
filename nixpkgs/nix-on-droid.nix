@@ -1,10 +1,12 @@
 { config, lib, pkgs, ... }:
 
 {
+  environment.motd = null;
   environment.packages = with pkgs; [
     git 
     curl
     wget
+    gcc
     nodejs_21
     bun
     ripgrep
