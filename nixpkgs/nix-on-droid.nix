@@ -6,6 +6,7 @@
     curl
     wget
     nodejs_21
+    bun
     ripgrep
     lua-language-server
     stylua

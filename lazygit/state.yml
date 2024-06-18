@@ -1,19 +1,9 @@
 lastupdatecheck: 0
 recentrepos:
-    - /data/data/com.termux/files/home/dotfiles
-    - /data/data/com.termux/files/home/not-scripter.github.io
-    - /data/data/com.termux/files/home/not-scripter
-    - /data/data/com.termux/files/home/chai-aur-next/nextjs-fullstack-auth
-    - /data/data/com.termux/files/home/chai-aur-next/nextjs-music-academy
+- /data/data/com.termux.nix/files/home/dotfiles
 startuppopupversion: 5
-lastversion: 0.42.0
 customcommandshistory:
-    - git tag v2
-    - Z ..
+- git tag v2
+- Z ..
 hidecommandlog: false
 ignorewhitespaceindiffview: false
-diffcontextsize: 3
-localbranchsortorder: recency
-remotebranchsortorder: alphabetical
-gitlogorder: topo-order
-gitlogshowgraph: always
