@@ -15,7 +15,7 @@ echo -e "${GREEN}...Installing Curl${ENDCOLOR}"
 pkg install curl
 echo -e "${GREEN}...Installing Wget${ENDCOLOR}"
 pkg install wget -y
-echo -e "${GREEN}...Installing NodeJS${ENDCOLOR}"
+echo -e "${GREEN}...Installing Node${ENDCOLOR}"
 plg install nodejs -y
 echo -e "${GREEN}...Installing Neovim${ENDCOLOR}"
 pkg install neovim -y
@@ -39,8 +39,6 @@ echo -e "${GREEN}...Installing Cilorls${ENDCOLOR}"
 gem install colorls
 echo -e "${GREEN}...Installing Pass${ENDCOLOR}"
 pkg install pass -y
-echo -e "${GREEN}...Installing Node${ENDCOLOR}"
-pkg install nodejs -y
 echo -e "${GREEN}...Installing Typescript${ENDCOLOR}"
 pkg install -g typescript
 echo -e "${GREEN}...Installing Python${ENDCOLOR}"
