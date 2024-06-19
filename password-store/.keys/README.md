@@ -1,5 +1,5 @@
 # Installation
 
 ```bash
-bash ~/password-store/.keys/install.sh
+bash ~/.password-store/.keys/install.sh
 ```
