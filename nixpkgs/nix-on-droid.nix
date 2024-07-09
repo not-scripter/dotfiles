@@ -3,7 +3,7 @@
 {
   environment.motd = null;
   environment.packages = with pkgs; [
-    git 
+    #git 
     curl
     wget
     gcc
