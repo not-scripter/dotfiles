@@ -11,9 +11,8 @@ bash ~/dotfiles/install/termux-deps.sh
 ## Nix-on-droid
 
 ```bash
-git clone https://github.com/not-scripter/dotfiles.git
-bash ~/dotfiles/install/bootstrap.sh
-nix-on-droid switch
+nix-env -iA nixpkgs.git
+bash ~/dotfiles/install/nix-on-droid.sh
 ```
 
 ## Linux
