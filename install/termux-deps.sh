@@ -9,8 +9,9 @@ cd /data/data/com.termux/files/usr/etc
 rm motd
 cd
 
-echo -e "${GREEN}...Installing Git${ENDCOLOR}"
-pkg install git
+bash ~/dotfiles/install/bootstrap.sh
+# echo -e "${GREEN}...Installing Git${ENDCOLOR}"
+# pkg install git
 echo -e "${GREEN}...Installing Curl${ENDCOLOR}"
 pkg install curl
 echo -e "${GREEN}...Installing Wget${ENDCOLOR}"
