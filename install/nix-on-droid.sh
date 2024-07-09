@@ -9,5 +9,6 @@ git clone https://github.com/not-scripter/dotfiles.git
 bash ~/dotfiles/install/bootstrap.sh
 using nix-env -e findutils
 nix-on-droid switch
+mkdir /data/data/com.termux.nix/files/usr/lib
 
 echo -e "${GREEN}Please Restart Nix-on-Droid${ENDCOLOR}"
