@@ -1,8 +1,8 @@
 lastupdatecheck: 0
 recentrepos:
     - /data/data/com.termux/files/home/dotfiles
-    - /data/data/com.termux/files/home/chai-aur-react-native
     - /data/data/com.termux/files/home/expo-template-blank
+    - /data/data/com.termux/files/home/chai-aur-react-native
     - /data/data/com.termux/files/home/expo-template-md3
     - /data/data/com.termux/files/home/firstExpoApp
 startuppopupversion: 5
