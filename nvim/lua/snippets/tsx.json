@@ -10,6 +10,21 @@
     "body": ["\t<>", "\t\t$0", "\t</>"],
     "description": ""
   },
+  "View": {
+    "prefix": "view",
+    "body": ["\t<View>", "\t\t$0", "\t</View>"],
+    "description": ""
+  },
+  "Text": {
+    "prefix": "text",
+    "body": ["\t<Text>", "\t\t$0", "\t</Text>"],
+    "description": ""
+  },
+  "Image": {
+    "prefix": "image",
+    "body": ["\t<Image source={$0} />"],
+    "description": ""
+  },
 
   "ReactFunctionComponent": {
     "prefix": "*",
