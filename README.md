@@ -5,7 +5,7 @@
 - **Termux**
 
 ```bash
-pkg install git
+pkg install git -y
 git clone https://github.com/not-scripter/dotfiles.git
 bash ~/dotfiles/install/termux-deps.sh
 ```

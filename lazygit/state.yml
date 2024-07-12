@@ -1,9 +1,19 @@
 lastupdatecheck: 0
 recentrepos:
-- /data/data/com.termux.nix/files/home/dotfiles
+    - /data/data/com.termux/files/home/dotfiles
+    - /data/data/com.termux/files/home/chai-aur-react-native
+    - /data/data/com.termux/files/home/expo-template-blank
+    - /data/data/com.termux/files/home/expo-template-md3
+    - /data/data/com.termux/files/home/firstExpoApp
 startuppopupversion: 5
+lastversion: 0.42.0
 customcommandshistory:
-- git tag v2
-- Z ..
+    - git tag v2
+    - Z ..
 hidecommandlog: false
 ignorewhitespaceindiffview: false
+diffcontextsize: 3
+localbranchsortorder: recency
+remotebranchsortorder: alphabetical
+gitlogorder: topo-order
+gitlogshowgraph: always
