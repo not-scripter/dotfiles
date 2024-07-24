@@ -1,320 +1,200 @@
---NOTE: Key Mappings with Which-Key
 local M = {}
 local wk = require("which-key")
+
 function M.setup()
-  --NOTE: Keymaps for Normal Mode without Prefix
-  wk.register({
-    [";"] = { ":", "Cmd" },
-    ["<Tab>"] = { "<cmd>bnext<cr>", "Next Buffer" },
-    ["<S-Tab>"] = { "<cmd>bprevious<cr>", "Previous Buffer" },
-    ["-"] = { "<cmd>Oil<cr>", "Files" },
-    -- ["-"] = { "<cmd>lua MiniFiles.open()<cr>", "Files" },
-    -- map("n", "<C-d>", "<C-d>zz", default_opts)
-    -- map("n", "<C-u>", "<C-u>zz", default_opts)
-    -- map("n", "n", "nzzzv", default_opts)
-    -- map("n", "N", "Nzzzv", default_opts)
-    ["<A-t>"] = { '<cmd>lua require("FTerm").toggle()<cr>', "Terminal" },
-    ["<A-v>"] = { "<cmd>vsplit<cr>", "Split Vertically" },
-    ["<A-h>"] = { "<cmd>split<cr>", "Split Horizontally" },
-    --NOTE: Flash
-  }, { mode = "n" })
+	wk.add({
+		{ "-", "<cmd>Oil<cr>", desc = "Files" },
+		{ ";", ":", desc = "Cmd" },
+		{ "<A-h>", "<cmd>split<cr>", desc = "Split Horizontally" },
+		{ "<A-t>", '<cmd>lua require("FTerm").toggle()<cr>', desc = "Terminal" },
+		{ "<A-v>", "<cmd>vsplit<cr>", desc = "Split Vertically" },
+		{ "<S-Tab>", "<cmd>bprevious<cr>", desc = "Previous Buffer" },
+		{ "<Tab>", "<cmd>bnext<cr>", desc = "Next Buffer" },
 
-  --NOTE: Keymaps for Insert Mode without Prefix
-  wk.register({
-    ["<C-c>"] = { "<esc>", "Esc" },
-    ["<C-h>"] = { "<Left>", "Left" },
-    ["<C-j>"] = { "<Down>", "Down" },
-    ["<C-k>"] = { "<Up>", "Up" },
-    ["<C-l>"] = { "<Right>", "Right" },
-    ["<C-i>"] = { "<cmd>IconPickerInsert<cr>", "Pick Icon" },
-  }, { mode = "i" })
+		{
+			mode = { "i" },
+			{ "<C-c>", "<esc>", desc = "Esc" },
+			{ "<C-h>", "<Left>", desc = "Left" },
+			{ "<C-i>", "<cmd>IconPickerInsert<cr>", desc = "Pick Icon", icon = { icon = "" } },
+			{ "<C-j>", "<Down>", desc = "Down" },
+			{ "<C-k>", "<Up>", desc = "Up" },
+			{ "<C-l>", "<Right>", desc = "Right" },
+		},
 
-  --NOTE: Keymaps for Normal, Insert and Visual Mode without Prefix
-  wk.register({
-    ["<A-h>"] = { "<cmd>MoveHChar(-1)<cr>", "Move Char Left" },
-    ["<A-j>"] = { "<cmd>MoveLine(1)<cr>", "Move Line Down" },
-    ["<A-k>"] = { "<cmd>MoveLine(-1)<cr>", "Move Line Uo" },
-    ["<A-l>"] = { "<cmd>MoveHChar(1)<cr>", "Move Char Right" },
-    ["<A-f>"] = { "<cmd>MoveWord(1)<cr>", "Move Word Forward" },
-    ["<A-b>"] = { "<cmd>MoveWord(-1)<cr>", "Move Word Backward" },
-    }, { mode = { "n", "i", "v" } })
+		{
+			mode = { "i", "n", "v" },
+			{ "<A-b>", "<cmd>MoveWord(-1)<cr>", desc = "Move Word Backward" },
+			{ "<A-f>", "<cmd>MoveWord(1)<cr>", desc = "Move Word Forward" },
+			{ "<A-h>", "<cmd>MoveHChar(-1)<cr>", desc = "Move Char Left" },
+			{ "<A-j>", "<cmd>MoveLine(1)<cr>", desc = "Move Line Down" },
+			{ "<A-k>", "<cmd>MoveLine(-1)<cr>", desc = "Move Line Uo" },
+			{ "<A-l>", "<cmd>MoveHChar(1)<cr>", desc = "Move Char Right" },
+		},
 
-    --NOTE: Keymaps for Terminal Mode without Prefix
-    wk.register({
-      ["<A-t>"] = { '<C-\\><C-n><cr>lua require("FTerm").toggle()<cr>', "Terminal" },
-    }, { mode = "t" })
+		{ "<A-t>", '<C-\\><C-n><cr>lua require("FTerm").toggle()<cr>', desc = "Terminal", mode = "t" },
 
-    --NOTE: Keymaps for Normal and Visual Mode with leader prefix
-    wk.register({
-      ["M"] = { "<cmd>WhichKey<cr>", "Mappings" },
-      ["w"] = { "<cmd>write<cr>", "Save" },
-      ["q"] = { "<cmd>quit<CR>", "Quit" },
-      ["="] = { "z=", "Spelling Suggestions" },
-      ["y"] = { "<cmd>%y+<cr>", "Copy All" },
-      --NOTE: Dashboard
-      ["D"] = { "<cmd>Dashboard<CR>", "Dashboard" },
-      --NOTE: Actions
-      ["x"] = { "<cmd>bdelete<CR>", "Close Buffer" },
-      ["X"] = { "<cmd>%bd|e#|bd#<CR>", "Close All Buffer" },
-      ["/"] = { "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", "Comment Toggle" },
-       --NOTE: Neotree
-      ["e"] = { "<cmd>Neotree focus<CR>", "NeoTree" },
-      ["E"] = { "<cmd>Neotree close<CR>", "Neotree Close" },
-      -- ["c"] = { "<cmd>Ex<CR>", "" },
-      -- ["leader>"] = { "=ap", "Format" },
-      --NOTE: Ufo Folds
-      ["a"] = { "za", "Toggle Fold" },
-      ["A"] = { "zA", "Toggle Folds" },
-      --NOTE: LazyGit
-      -- ["g"] = { "<cmd>LazyGit<CR>", "LazyGit" },
-      --NOTE: TreeJS
-      ["m"] = { "<cmd>lua require('treesj').toggle()<CR>", "TSJ Toggle" },
-      --NOTE: Nav Buddy 
-      ["N"] = { "<CMD>Navbuddy<CR>", "Nav Buddy" },
-      --NOTE: Zoxide
-      ["Z"] = { require("telescope").extensions.zoxide.list, "zoxide find" },
-      --NOTE: Pick Color 
-      ["C"] = { "<CMD>PickColor<CR>", "Pick Color" },
-      --NOTE: Twilight
-      ["h"] = { "<CMD>Twilight<CR>", "Toggle Twilight" },
-      --NOTE: Barbecue 
-      -- ["B"] = { "<CMD>Barbecue<CR>", "Barbecue" },
-      -- NOTE: Icon Picker
-      ["i"] = { "<cmd>IconPickerNormal<cr>", "Pick Icon" },
-      --NOTE: Keybind Groups
-      
-      z = {
-        name = "💤 Lazy",
-        z = { "<cmd>Lazy<cr>", "Lazy" },
-        c = { "<cmd>Lazy check<cr>", "Check" },
-        C = { "<cmd>Lazy clean<cr>", "Clean" },
-        i = { "<cmd>Lazy install<cr>", "Install" },
-        s = { "<cmd>Lazy sync<cr>", "Sync" },
-        S = { "<cmd>Lazy status<cr>", "Status" },
-        u = { "<cmd>Lazy update<cr>", "Update" },
-        r = { "<cmd>Lazy restore<cr>", "Restore" },
-      },
+		{
+			mode = { "n", "v" },
+			{
+				"<leader>/",
+				"<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+				desc = "Comment Toggle",
+				icon = { icon = "󰅺" },
+			},
+			{ "<leader>=", "z=", desc = "Spelling Suggestions", icon = { icon = "" } },
+			{ "<leader>C", "<CMD>PickColor<CR>", desc = "Pick Color", icon = { icon = "" } },
+			{ "<leader>D", "<cmd>Dashboard<CR>", desc = "Dashboard", icon = { icon = "󰧨" } },
+			{ "<leader>E", "<cmd>Neotree close<CR>", desc = "Neotree Close", icon = { icon = "" } },
+			{ "<leader>H", "<CMD>Twilight<CR>", desc = "Toggle Twilight", icon = { icon = "󰉦" } },
+			{ "<leader>M", "<cmd>WhichKey<cr>", desc = "Mappings", icon = { icon = "" } },
+			{ "<leader>N", "<CMD>Navbuddy<CR>", desc = "Nav Buddy", icon = { icon = "󱘎" } },
 
-      --NOTE: Telescope
-      f = {
-        name = " Telescope",
-        p = { "<cmd>Telescope project<CR>", "Find Projects" },
-        P = { "<cmd>Telescope planets<CR>", "Find Planets" },
-        t = { "<cmd>Telescope themes<CR>", "Themes" },
-        h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-        k = { "<cmd>Telescope keymaps<cr>", "Find Keymaps" },
-        f = { "<cmd>Telescope find_files<cr>", "Find Files" },
-        s = { "<cmd>Telescope builtin<cr>", "Find Select Telescope" },
-        w = { "<cmd>Telescope grep_string<cr>", "Find Current Word" },
-        g = { "<cmd>Telescope live_grep<cr>", "Find by Grep" },
-        d = { "<cmd>Telescope diagnostics<cr>", "Find Diagonostics" },
-        r = { "<cmd>Telescope resume<cr>", "Find Resume" },
-        u = { "<cmd>Telescope oldfiles<cr>", "Find Recent Files" },
-        b = { "<cmd>Telescope buffers<cr>", "Find Existing Buffers" },
-        m = { "<cmd>Telescope media_files<CR>", "Find Media Files" },
-        i = { "<cmd>Telescope package_info<CR>", "Package Info" },
-        z = { "<cmd>Telescope lazy_plugins<CR>", "Lazy Plugins" },
-      },
+			{ "<leader>S", group = "Sessions", icon = { icon = "" } },
+			{ "<leader>SD", "<cmd>Autosession delete<cr>", desc = "Find and Delete" },
+			{ "<leader>Sd", "<cmd>SessionDelete<cr>", desc = "Delete" },
+			{ "<leader>Sf", "<cmd>Autosession search<cr>", desc = "Find" },
+			{ "<leader>Sr", "<cmd>SessionRestore<cr>", desc = "Restore" },
+			{ "<leader>Ss", "<cmd>SessionSave<cr>", desc = "Save" },
 
-      a = {
-        name = "󰚩 ChatGPT",
-        o = { "<cmd>ChatGPT<CR>", "ChatGPT Open" },
-        a = { "<cmd>ChatGPTActAs<CR>", "ChatGPT ActAs" },
-        e = { "<cmd>ChatGPTEditWithInstructions<CR>", "ChatGPT Edit w Ins" },
-      },
+			{ "<leader>T", group = "Trouble", icon = { icon = "" } },
+			{ "<leader>Tb", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagonostics" },
+			{ "<leader>Td", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagonostics" },
+			{ "<leader>Tl", "<cmd>Trouble loclist toggle<cr>", desc = "Location List" },
+			{ "<leader>Tq", "", desc = "Quickfix List" },
+			{
+				"<leader>Tr",
+				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+				desc = "Definitions / References",
+			},
+			{ "<leader>Ts", "<cmd>Trouble symbols toggle focus=false<cr>", desc = "Symbols" },
+			{ "<leader>X", "<cmd>%bd|e#|bd#<CR>", desc = "Close All Buffer", icon = { icon = "󰘪" } },
+			{
+				"<leader>Z",
+				require("telescope").extensions.zoxide.list,
+				desc = "zoxide find",
+				icon = { icon = "󰈞" },
+			},
+			{ "<leader>a", "za", desc = "Toggle Fold", icon = { icon = "" } },
+			{ "<leader>A", "zA", desc = "Toggle Folds", icon = { icon = "" } },
 
-      d = {
-        name = " Debugger",
-        b = { "<cmd>DapToggleBreakpoint<CR>", "Toggle Breakpoint" },
-        c = { "<cmd>DapContinue<CR>", "Continue" },
-        o = { "<cmd>DapStepOver<CR>", "Step Over" },
-        i = { "<cmd>DapStepInto<CR>", "Step Into" },
-        s = { "<cmd>DapShowLog<CR>", "Log" },
-        t = { "<cmd>DapTerminate<CR>", "Terminate" },
-        u = { "<cmd>lua require('dapui').toggle()<CR>", "Toggle Dap UI" },
-      },
+			{ "<leader>b", group = "ChatGPT", icon = { icon = "󱄳" } },
+			{ "<leader>ba", "<cmd>ChatGPTActAs<CR>", desc = "ChatGPT ActAs" },
+			{ "<leader>be", "<cmd>ChatGPTEditWithInstructions<CR>", desc = "ChatGPT Edit w Ins" },
+			{ "<leader>bo", "<cmd>ChatGPT<CR>", desc = "ChatGPT Open" },
 
-      h = {
-        name = "󱤙 Harpoon",
-        m = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Mark" },
-        o = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Open" },
-        p = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", "Previos" },
-        n = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "Next" },
-        f = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "First" },
-      },
+			{ "<leader>c", group = "Boxes", icon = { icon = "" } },
+			{ "<leader>cb", "<Cmd>CBccbox<CR>", desc = "Box Title" },
+			{ "<leader>cd", "<Cmd>CBd<CR>", desc = "Remove a box" },
+			{ "<leader>cl", "<Cmd>CBline<CR>", desc = "Simple Line" },
+			{ "<leader>cm", "<Cmd>CBllbox14<CR>", desc = "Marked" },
+			{ "<leader>ct", "<Cmd>CBllline<CR>", desc = "Titled Line" },
 
-      t = {
-        name = "󰛦 TSTools",
-        o = { "<cmd>TSToolsOrganizeImports<cr>", "Organize" },
-        s = { "<cmd>TSToolsSortImports<cr>", "Sort" },
-        r = { "<cmd>TSToolsRemoveUnusedImports<cr>", "Remove Unused" },
-        R = { "<cmd>TSToolsRemoveUnused<cr>", "Remove Unused Statement" },
-        a = { "<cmd>TSToolsAddMissingImports<cr>", "Add Missing Imports" },
-        f = { "<cmd>TSToolsFixAll<cr>", "Fix Errors" },
-        d = { "<cmd>TSToolsGoToSourceDefinition<cr>", "Source Definition" },
-        r = { "<cmd>TSToolsRenameFile<cr>", "Rename File" },
-        R = { "<cmd>TSToolsFileReferences<cr>", "Find File References" },
-      },
+			{ "<leader>d", group = "Debugger", icon = { icon = "" } },
+			{ "<leader>db", "<cmd>DapToggleBreakpoint<CR>", desc = "Toggle Breakpoint" },
+			{ "<leader>dc", "<cmd>DapContinue<CR>", desc = "Continue" },
+			{ "<leader>di", "<cmd>DapStepInto<CR>", desc = "Step Into" },
+			{ "<leader>do", "<cmd>DapStepOver<CR>", desc = "Step Over" },
+			{ "<leader>ds", "<cmd>DapShowLog<CR>", desc = "Log" },
+			{ "<leader>dt", "<cmd>DapTerminate<CR>", desc = "Terminate" },
+			{ "<leader>du", "<cmd>lua require('dapui').toggle()<CR>", desc = "Toggle Dap UI" },
+			{ "<leader>e", "<cmd>Neotree focus<CR>", desc = "NeoTree", icon = { icon = "" } },
 
-      o = {
-        name = "󰠮 Obsodian",
-        n = { "<cmd>ObsidianNew<CR>", "Create New <Create>" },
-        o = { "<cmd>ObsidianOpen<CR>", "Open <Title>" },
-        s = { "<cmd>ObsidianQuickSwitch<CR>", "Quick Switch" },
-        S = { "<cmd>ObsidianSearch<CR>", "Search <Name>" },
-        c = { "<cmd>ObsidianToggleCheckbox<CR>", "Toggle Checkbox" },
-        f = { "<cmd>ObsidianFollowLink<CR>", "Follow Link" },
-        b = { "<cmd>ObsidianBacklinks<CR>", "Back Links" },
-        t = { "<cmd>ObsidianTags<CR>", "Tag [Tag]" },
-        T = { "<cmd>ObsidianToday<CR>", "Today <Day>" },
-        y = { "<cmd>ObsidianYesterday<CR>", "Yesterday" },
-        Y = { "<cmd>ObsidianTomorrow<CR>", "Tomorrow" },
-        x = { "<cmd>ObsidianTemplate<CR>", "Template <Name>" },
-        l = { "<cmd>ObsidianLink<CR>", "Link <Name>" },
-        L = { "<cmd>ObsidianLinkNew<CR>", "New Link <Name>" },
-        v = { "<cmd>ObsidianLinks<CR>", "Links" },
-        r = { "<cmd>ObsidianRename<CR>", "Rename <New Name>" },
-        e = { "<cmd>ObsidianExtractNote<CR>", "Extract Selected to New" },
-        w = { "<cmd>ObsidianWorkspace<CR>", "Switch Workspace <Name>" },
-        p = { "<cmd>ObsidianPasteImg<CR>", "Pase Img <Img Name>" },
-      },
+			{ "<leader>f", group = "Telescope", icon = { icon = "" } },
+			{ "<leader>fP", "<cmd>Telescope planets<CR>", desc = "Find Planets" },
+			{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find Existing Buffers" },
+			{ "<leader>fd", "<cmd>Telescope diagnostics<cr>", desc = "Find Diagonostics" },
+			{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+			{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Find by Grep" },
+			{ "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Find Help" },
+			{ "<leader>fi", "<cmd>Telescope package_info<CR>", desc = "Package Info" },
+			{ "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Find Keymaps" },
+			{ "<leader>fm", "<cmd>Telescope media_files<CR>", desc = "Find Media Files" },
+			{ "<leader>fp", "<cmd>Telescope project<CR>", desc = "Find Projects" },
+			{ "<leader>fr", "<cmd>Telescope resume<cr>", desc = "Find Resume" },
+			{ "<leader>fs", "<cmd>Telescope builtin<cr>", desc = "Find Select Telescope" },
+			{ "<leader>ft", "<cmd>Telescope themes<CR>", desc = "Themes" },
+			{ "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "Find Recent Files" },
+			{ "<leader>fw", "<cmd>Telescope grep_string<cr>", desc = "Find Current Word" },
+			{ "<leader>fz", "<cmd>Telescope lazy_plugins<CR>", desc = "Lazy Plugins" },
 
-      T = {
-        name = " Trouble",
-        d = { "<cmd>Trouble diagnostics toggle<cr>", "Diagonostics" },
-        b = { "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Buffer Diagonostics" },
-        s = { "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols" },
-        r = { "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", "Definitions / References" },
-        l = { "<cmd>Trouble loclist toggle<cr>", "Location List" },
-        q = { "", "Quickfix List" },
-      },
+			{ "<leader>h", group = "Harpoon", icon = { icon = "" } },
+			{ "<leader>hf", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", desc = "First" },
+			{ "<leader>hm", "<cmd>lua require('harpoon.mark').add_file()<cr>", desc = "Mark" },
+			{ "<leader>hn", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", desc = "Next" },
+			{ "<leader>ho", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", desc = "Open" },
+			{ "<leader>hp", "<cmd>lua require('harpoon.ui').nav_next()<cr>", desc = "Previos" },
+			{ "<leader>i", "<cmd>IconPickerNormal<cr>", desc = "Pick Icon", icon = { icon = "" } },
 
-      S = {
-        name = " Sessions",
-        s = { "<cmd>SessionSave<cr>", "Save" },
-        r = { "<cmd>SessionRestore<cr>", "Restore" },
-        d = { "<cmd>SessionDelete<cr>", "Delete" },
-        f = { "<cmd>Autosession search<cr>", "Find" },
-        D = { "<cmd>Autosession delete<cr>", "Find and Delete" },
-      },
+			{ "<leader>l", group = "Lsp", icon = { icon = "" } },
+			{ "<leader>lc", vim.lsp.buf.code_action, desc = "Code Action" },
+			{ "<leader>ld", vim.lsp.buf.declaration, desc = "Definition" },
+			{ "<leader>lf", vim.lsp.buf.references, desc = "References" },
+			{ "<leader>lk", vim.lsp.buf.hover, desc = "Hover" },
+			{ "<leader>lr", vim.lsp.buf.rename, desc = "Rename" },
+			{ "<leader>m", "<cmd>lua require('treesj').toggle()<CR>", desc = "TSJ Toggle" },
 
-      l = {
-        name = "󰛥 Lsp",
-        k = { vim.lsp.buf.hover, "Hover" },
-        r = { vim.lsp.buf.rename, "Rename" },
-        d = { vim.lsp.buf.definition, "Definition" },
-        f = { vim.lsp.buf.references, "References" },
-        c = { vim.lsp.buf.code_action, "Code Action" },
-      },
+			{ "<leader>n", group = "Manage Packages", icon = { icon = "" } },
+			{ "<leader>nc", require("package-info").change_version, desc = "Change Version" },
+			{ "<leader>nd", require("package-info").delete, desc = "Delete" },
+			{ "<leader>ni", require("package-info").install, desc = "Install" },
+			{ "<leader>nt", require("package-info").toggle, desc = "Toggle" },
+			{ "<leader>nu", require("package-info").update, desc = "Update" },
 
-      n = {
-        name = "󰏓 Manage Packages",
-        t = { require("package-info").toggle, "Toggle" },
-        u = { require("package-info").update, "Update" },
-        d = { require("package-info").delete, "Delete" },
-        i = { require("package-info").install, "Install" },
-        c = { require("package-info").change_version, "Change Version" },
-      },
+			{ "<leader>o", group = "Obsodian", icon = { icon = "" } },
+			{ "<leader>oL", "<cmd>ObsidianLinkNew<CR>", desc = "New Link <Name>" },
+			{ "<leader>oS", "<cmd>ObsidianSearch<CR>", desc = "Search <Name>" },
+			{ "<leader>oT", "<cmd>ObsidianToday<CR>", desc = "Today <Day>" },
+			{ "<leader>oY", "<cmd>ObsidianTomorrow<CR>", desc = "Tomorrow" },
+			{ "<leader>ob", "<cmd>ObsidianBacklinks<CR>", desc = "Back Links" },
+			{ "<leader>oc", "<cmd>ObsidianToggleCheckbox<CR>", desc = "Toggle Checkbox" },
+			{ "<leader>oe", "<cmd>ObsidianExtractNote<CR>", desc = "Extract Selected to New" },
+			{ "<leader>of", "<cmd>ObsidianFollowLink<CR>", desc = "Follow Link" },
+			{ "<leader>ol", "<cmd>ObsidianLink<CR>", desc = "Link <Name>" },
+			{ "<leader>on", "<cmd>ObsidianNew<CR>", desc = "Create New <Create>" },
+			{ "<leader>oo", "<cmd>ObsidianOpen<CR>", desc = "Open <Title>" },
+			{ "<leader>op", "<cmd>ObsidianPasteImg<CR>", desc = "Pase Img <Img Name>" },
+			{ "<leader>or", "<cmd>ObsidianRename<CR>", desc = "Rename <New Name>" },
+			{ "<leader>os", "<cmd>ObsidianQuickSwitch<CR>", desc = "Quick Switch" },
+			{ "<leader>ot", "<cmd>ObsidianTags<CR>", desc = "Tag [Tag]" },
+			{ "<leader>ov", "<cmd>ObsidianLinks<CR>", desc = "Links" },
+			{ "<leader>ow", "<cmd>ObsidianWorkspace<CR>", desc = "Switch Workspace <Name>" },
+			{ "<leader>ox", "<cmd>ObsidianTemplate<CR>", desc = "Template <Name>" },
+			{ "<leader>oy", "<cmd>ObsidianYesterday<CR>", desc = "Yesterday" },
+			{ "<leader>q", "<cmd>quit<CR>", desc = "Quit" },
 
-      c = {
-        name = "◫ Boxes",
-        b = { "<Cmd>CBccbox<CR>", "Box Title" },
-        t = { "<Cmd>CBllline<CR>", "Titled Line" },
-        l = { "<Cmd>CBline<CR>", "Simple Line" },
-        m = { "<Cmd>CBllbox14<CR>", "Marked" },
-        d = { "<Cmd>CBd<CR>", "Remove a box" },
-      },
+			{ "<leader>t", group = "TSTools", icon = { icon = "" } },
+			{ "<leader>tR", "<cmd>TSToolsRemoveUnused<cr>", desc = "Remove Unused Statement" },
+			{ "<leader>ta", "<cmd>TSToolsAddMissingImports<cr>", desc = "Add Missing Imports" },
+			{ "<leader>td", "<cmd>TSToolsGoToSourceDefinition<cr>", desc = "Source Definition" },
+			{ "<leader>tf", "<cmd>TSToolsFixAll<cr>", desc = "Fix Errors" },
+			{ "<leader>to", "<cmd>TSToolsOrganizeImports<cr>", desc = "Organize" },
+			{ "<leader>tr", "<cmd>TSToolsRemoveUnusedImports<cr>", desc = "Remove Unused" },
+			{ "<leader>ts", "<cmd>TSToolsSortImports<cr>", desc = "Sort" },
+			{ "<leader>w", "<cmd>write<cr>", desc = "Save", icon = { icon = "󰆓" } },
+			{ "<leader>x", "<cmd>bdelete<CR>", desc = "Close Buffer", icon = { icon = "󰅙" } },
+			{ "<leader>y", "<cmd>%y+<cr>", desc = "Copy All", icon = { icon = "" } },
 
-      -- C = {
-        --   name = "󰌁 Colortils",
-        --   p = { "<CMD>Colortils picker<CR>", "Picker" },
-        --   l = { "<CMD>Colortils lighten<CR>", "Lighten" },
-        --   d = { "<CMD>Colortils darken<CR>", "Darken" },
-        --   g = { "<CMD>Colortils greyscale<CR>", "Greyscale" },
-        --   G = { "<CMD>Colortils gradient<CR>", "Gradient" },
-        --   L = { "<CMD>Colortils css list<CR>", "List CSS Colors" },
-        -- },
+			{ "<leader>z", group = "Lazy", icon = { icon = "󰒲" } },
+			{ "<leader>zC", "<cmd>Lazy clean<cr>", desc = "Clean" },
+			{ "<leader>zS", "<cmd>Lazy status<cr>", desc = "Status" },
+			{ "<leader>zc", "<cmd>Lazy check<cr>", desc = "Check" },
+			{ "<leader>zi", "<cmd>Lazy install<cr>", desc = "Install" },
+			{ "<leader>zr", "<cmd>Lazy restore<cr>", desc = "Restore" },
+			{ "<leader>zs", "<cmd>Lazy sync<cr>", desc = "Sync" },
+			{ "<leader>zu", "<cmd>Lazy update<cr>", desc = "Update" },
+			{ "<leader>zz", "<cmd>Lazy<cr>", desc = "Lazy" },
 
-      }, {
-        prefix = "<leader>",
-        mode = { "n", "v" },
-      })
+			{ "<leader>g", group = "Git", { icon = "" } },
+			{ "<leader>gi", group = "issue" },
+			{ "<leader>gic", "<cmd>Octo issue close<CR>", desc = "close" },
+			{ "<leader>gir", "<cmd>Octo issue reopen<CR>", desc = "reopen" },
+			{ "<leader>gl", "<cmd>LazyGit<CR>", desc = "LazyGit" },
 
-      --NOTE: Extra Mappings
-      wk.register({
-      --NOTE: MarkdownPreview
-      ["p"] = { "<CMD>MarkdownPreviewToggle<CR>", "Markdown Preview" },
-      }, {
-        name = " Extra Mappings",
-        prefix = "<leader><leader>",
-        mode = { "n", "v" },
-      })
+			{ "<leader><leader>", group = "Extra Mappings", icon = { icon = "" } },
+			{ "<leader><leader>p", "<CMD>MarkdownPreviewToggle<CR>", desc = "Markdown Preview" },
+			{ "<leader><leader>r", "<CMD>source ~/.config/nvim/init.lua<CR>", desc = "Reload Editor" },
+		},
+	})
+end
 
-      --NOTE: Octo nvim
-      wk.register({
-        ["l"] = { "<cmd>LazyGit<CR>", "LazyGit" },
-        i = {
-          name = "issue",
-          c = { "<cmd>Octo issue close<CR>", "close" },
-          r = { "<cmd>Octo issue reopen<CR>", "reopen" },
-        },
-      }, {
-        name = " Git",
-        prefix = "<leader>g",
-        mode = { "n", "v" },
-      })
-
-      --NOTE: which-key config options
-      wk.setup({
-        plugins = {
-          marks = true, 
-          registers = true, 
-          spelling = {
-            enabled = true,
-            suggestions = 20,
-          },
-          presets = {
-            operators = true,    
-            motions = true,     
-            text_objects = true,
-            windows = true,    
-            nav = true,       
-            z = true,        
-            g = true,       
-          },
-        },
-        operators = { gc = "Comments" },
-        key_labels = {
-          ["<space>"] = "l",
-          -- ["<cr>"] = "RET",
-          -- ["<tab>"] = "TAB",
-        },
-        motions = {
-          count = true,
-        },
-        icons = {
-          breadcrumb = "»",
-          separator = "", 
-          group = "", 
-        },
-        popup_mappings = {
-          scroll_up = "<C-u>", 
-          scroll_down = "<C-d>",
-        },
-        window = {
-          border = "single",       
-          position = "bottom",    
-          margin = { 1, 2, 1, 2 },
-          padding = { 1, 2, 1, 2 },
-          winblend = 0,           
-          zindex = 1000,         
-        },
-        layout = {
-          -- height = { min = 4, max = 25 }, -- min and max height of the columns
-          -- width = { min = 20, max = 50 }, -- min and max width of the columns
-          spacing = 5,
-          align = "center",
-        },
-      })
-    end
-    return M
+return M
