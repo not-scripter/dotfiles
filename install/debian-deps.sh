@@ -37,5 +37,7 @@ echo -e "${GREEN}...Installing Cilorls${ENDCOLOR}"
 gem install colorls
 echo -e "${GREEN}...Installing Pass${ENDCOLOR}"
 apt install pass
+echo -e "${GREEN}...Installing Expo${ENDCOLOR}"
+npm install -g eas-cli
 
 echo -e "${GREEN}...Please Restart Termux${ENDCOLOR}"
