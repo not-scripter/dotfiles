@@ -7,5 +7,5 @@
 # Installations
 
 ```bash
-git clone https://github.com/Vikram-Nvim/Vikram-Nvim ~/.config/nvim
+git clone https://github.com/arya-systems/nvim-arya ~/.config/nvim
 ```

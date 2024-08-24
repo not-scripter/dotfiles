@@ -1,11 +1,21 @@
 lastupdatecheck: 0
 recentrepos:
     - /data/data/com.termux/files/home/dotfiles
+    - /data/data/com.termux/files/home/three-web
+    - /data/data/com.termux/files/home/vite-template
+    - /data/data/com.termux/files/home/astro-cam
+    - /data/data/com.termux/files/home/astro-go
+    - /data/data/com.termux/files/home/space-hopper
+    - /data/data/com.termux/files/home/neovim
     - /data/data/com.termux/files/home/melodi
+    - /data/data/com.termux/files/home/expo-template
+    - /data/data/com.termux/files/home/astro-template
+    - /data/data/com.termux/files/home/arya-technologies
+    - /data/data/com.termux/files/home/expo-template-blank
+    - /data/data/com.termux/files/home/dotfiles/nvim
     - /data/data/com.termux/files/home/30-days-javascript-challenge
     - /data/data/com.termux/files/home/expo-template-md3
     - /data/data/com.termux/files/home/chai-aur-react-native
-    - /data/data/com.termux/files/home/expo-template-blank
     - /data/data/com.termux/files/home/firstExpoApp
 startuppopupversion: 5
 lastversion: 0.42.0
