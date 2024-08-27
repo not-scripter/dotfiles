@@ -8,5 +8,8 @@ chmod u+x nvim.appimage
 mkdir -p /opt/nvim
 mv nvim.appimage /opt/nvim/nvim 
 
+sudo apt-get install fuse3
+
+echo 'export PATH="$PATH:/opt/nvim/"' >> ~/.zshrc
 
 echo "done!"
