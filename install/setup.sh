@@ -8,11 +8,6 @@ ENDCOLOR="\e[0m"
 git clone https://github.com/not-scripter/dotfiles.git
 source ~/dotfiles/install/scripts/animations.sh
 
-echo -e "${GREEN}Bootsrapping${ENDCOLOR}"
-BLA::start_loading_animation "${BLA_modern_metro[@]}"
-bash ~/dotfiles/install/scripts/bootstrap.sh
-BLA::stop_loading_animation
-
 echo -e "${GREEN}Installing Dependencies${ENDCOLOR}"
 BLA::start_loading_animation "${BLA_modern_metro[@]}"
 
@@ -21,7 +16,7 @@ cmd_prefix=""
 #NOTE: with Case 
 case "$OSTYPE" in
   # darwin*)  echo "OSX" ;; 
-  linux-gnu*)   cmd_prefix="sudo apt" ;;
+  linux-gnu*)   cmd_prefix="apt" ;;
   linux-android*)   cmd_prefix="pkg" ;;
   *)        echo "unknown: $OSTYPE" ;;
 esac
@@ -41,8 +36,8 @@ npm install -g eas-cli
 if [[ $OSTYPE == "linux-android" ]]; then
   #NOTE: Neovim
  $cmd_prefix install neovim -y
-  #NOTE: Nerd-Font
-  echo -e "$DOTFILES/fonts/font.ttf=$HOME/.termux/font.ttf" > ~/dotfiles/fonts/links.prop
+  #NOTE: Fonts
+  echo -e '$DOTFILES/fonts/font.ttf=$HOME/.termux/font.ttf' > ~/dotfiles/fonts/links.prop
  elif [[ $OSTYPE == "linux-gnu" ]]; then 
   #NOTE: Neovim
     curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
@@ -52,10 +47,8 @@ if [[ $OSTYPE == "linux-android" ]]; then
     $cmd_prefix install fuse3
     echo 'export PATH="$PATH:/opt/nvim/"' >> ~/.zshrc
 
-#NOTE: Nerd-Font
-# wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/DroidSansMono.zip
-# unzip DroidSansMono.zip -d ~/.fonts
-  echo -e "$DOTFILES/fonts/=$HOME/.fonts" > ~/dotfiles/fonts/links.prop
+  #NOTE: Fonts
+  echo -e '$DOTFILES/fonts/=$HOME/.fonts' > ~/dotfiles/fonts/links.prop
 fc-cache -fv
 
  fi
@@ -63,6 +56,9 @@ fc-cache -fv
 else
   echo "OS does not recognised"
 fi 
+
+echo -e "${GREEN}Bootsrapping${ENDCOLOR}"
+bash ~/dotfiles/install/scripts/bootstrap.sh
 
 source ~/.zshrc
 
