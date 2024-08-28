@@ -5,14 +5,13 @@ GREEN="\e[32m"
 ENDCOLOR="\e[0m"
 
 echo -e "${GREEN}Installing${ENDCOLOR}"
-BLA::start_loading_animation "${BLA_modern_metro[@]}"
+nix-env -iA nixpkgs.git
+nix-env -iA nixpkgs.findutils
 
 git clone https://github.com/not-scripter/dotfiles.git
 source ~/dotfiles/install/scripts/animations.sh
 
-nix-env -iA nixpkgs.git
-
-nix-env -iA nixpkgs.findutils
+BLA::start_loading_animation "${BLA_modern_metro[@]}"
 
 bash ~/dotfiles/install/scripts//bootstrap.sh
 
