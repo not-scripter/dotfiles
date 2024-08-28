@@ -68,12 +68,14 @@ common_deps () {
   npm install -g eas-cli
 }
 android_deps () {
+  echo "running android_deps"
   chsh -s zsh 
   echo -e '$DOTFILES/termux/=$HOME/.termux' > ~/dotfiles/termux/links.prop
   $cmd_prefix install neovim -y lazygit ncurses-utils zoxide
   echo -e '$DOTFILES/fonts/font.ttf=$HOME/.termux/font.ttf' > ~/dotfiles/fonts/links.prop
 }
 linux_deps () {
+  echo "running linux_deps"
   # sudo chsh -s zsh 
   $cmd_prefix install fuse3 libncurses5-dev libncursesw5-dev
   #NOTE: Zoxide
