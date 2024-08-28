@@ -41,6 +41,8 @@ npm install -g eas-cli
 if [[ $OSTYPE == "linux-android" ]]; then
   #NOTE: Neovim
  $cmd_prefix install neovim -y
+  #NOTE: Nerd-Font
+  echo -e "$DOTFILES/fonts/font.ttf=$HOME/.termux/font.ttf" > ~/dotfiles/fonts/links.prop
  elif [[ $OSTYPE == "linux-gnu" ]]; then 
   #NOTE: Neovim
     curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
@@ -51,8 +53,9 @@ if [[ $OSTYPE == "linux-android" ]]; then
     echo 'export PATH="$PATH:/opt/nvim/"' >> ~/.zshrc
 
 #NOTE: Nerd-Font
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/DroidSansMono.zip
-unzip DroidSansMono.zip -d ~/.fonts
+# wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/DroidSansMono.zip
+# unzip DroidSansMono.zip -d ~/.fonts
+  echo -e "$DOTFILES/fonts/=$HOME/.fonts" > ~/dotfiles/fonts/links.prop
 fc-cache -fv
 
  fi
