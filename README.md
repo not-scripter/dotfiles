@@ -12,9 +12,11 @@ curl -s https://raw.githubusercontent.com/not-scripter/dotfiles/main/install/set
 
 <details>
   <summary><b>Nightly</b></summary>
-  <code>
+
+```bash
 curl -s https://raw.githubusercontent.com/not-scripter/dotfiles/nightly/install/setup.sh | bash -s
-  </code>
+```
+
 </details>
 
 ```bash
