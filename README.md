@@ -1,20 +1,20 @@
 # Installation
 
-- **Common**
+> **Common**
 
-- **Stable**
+> > **Stable**
 
 ```bash
 curl -s https://raw.githubusercontent.com/not-scripter/dotfiles/main/install/setup.sh | bash -s
 ```
 
-- **Nightly**
+> > **Nightly**
 
 ```bash
 curl -s https://raw.githubusercontent.com/not-scripter/dotfiles/nightly/install/setup.sh | bash -s
 ```
 
-- **Nix-on-droid**
+> **Nix-on-droid**
 
 ```bash
 nix-env -iA nixpkgs.git
