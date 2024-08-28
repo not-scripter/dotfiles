@@ -26,7 +26,7 @@ if [[ cmd_prefix != "" ]]; then
 #NOTE: Common
 
 $cmd_prefix install git curl wget zsh nodejs -y ripgrep tmux ruby entr pass
-chsh -s zsh 
+# chsh -s zsh 
 curl -s https://ohmyposh.dev/install.sh | bash -s
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 gem install colorls
