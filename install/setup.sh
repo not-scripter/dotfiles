@@ -9,7 +9,7 @@ git clone https://github.com/not-scripter/dotfiles.git
 source ~/dotfiles/install/scripts/animations.sh
 
 echo -e "${GREEN}Installing Dependencies${ENDCOLOR}"
-BLA::start_loading_animation "${BLA_modern_metro[@]}"
+# BLA::start_loading_animation "${BLA_modern_metro[@]}"
 
 cmd_prefix=""
 
@@ -62,7 +62,7 @@ bash ~/dotfiles/install/scripts/bootstrap.sh
 
 source ~/.zshrc
 
-BLA::stop_loading_animation
+# BLA::stop_loading_animation
 
 # exit 0
 trap "echo 'Exiting script'; exit 1" INT
