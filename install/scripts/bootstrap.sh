@@ -3,6 +3,7 @@
 # bootstrap installs things.
 
 cd "$(dirname "$0")/.."
+cd .. #NOTE: this is needed because we moved this scripts under another subdir
 DOTFILES=$(pwd -P)
 
 set -e

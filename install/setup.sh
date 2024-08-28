@@ -1,22 +1,53 @@
 #!/bin/bash
 set -e
 
+echo ''
+
 RED="\e[31m"
 GREEN="\e[32m"
 ENDCOLOR="\e[0m"
 
-git clone https://github.com/not-scripter/dotfiles.git
-source ~/dotfiles/install/scripts/animations.sh
-
-echo -e "${GREEN}Bootsrapping${ENDCOLOR}"
-BLA::start_loading_animation "${BLA_modern_metro[@]}"
-bash ~/dotfiles/install/scripts/bootstrap.sh
-BLA::stop_loading_animation
-
-echo -e "${GREEN}Installing Dependencies${ENDCOLOR}"
-BLA::start_loading_animation "${BLA_modern_metro[@]}"
-
+branch=""
 cmd_prefix=""
+repo="https://github.com/not-scripter/dotfiles.git"
+
+info () {
+  printf "\r  [ \033[00;34m..\033[0m ] $1\n"
+}
+
+user () {
+  printf "\r  [ \033[0;33m??\033[0m ] $1\n"
+}
+
+success () {
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+}
+
+fail () {
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
+  echo ''
+  exit
+}
+
+while getopts "b:" opt; do
+  case $opt in
+    b)
+      branch="$OPTARG"
+      ;;
+    *)
+      echo "Usage: $0 [-b branch-name] repo"
+      exit 1
+      ;;
+  esac
+done
+
+# if [ -n "$branch" ]; then
+#   git clone -b "$branch" "$repo"
+# else
+#   git clone "$repo"
+# fi
+# source ~/dotfiles/install/scripts/animations.sh
+
 
 #NOTE: with Case 
 case "$OSTYPE" in
@@ -26,44 +57,57 @@ case "$OSTYPE" in
   *)        echo "unknown: $OSTYPE" ;;
 esac
 
-if [[ cmd_prefix != "" ]]; then
+install_deps () {
+  info "Installing Dependencies"
+  if [[ cmd_prefix != "" ]]; then 
+    #NOTE: Common
+    $cmd_prefix install git curl wget zsh nodejs -y ripgrep tmux ruby entr pass
+    curl -s https://ohmyposh.dev/install.sh | bash -s
+    curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+    gem install colorls
+    npm install -g eas-cli
+    #NOTE: Platform Specific
+    if [[ $OSTYPE == "linux-android" ]]; then #NOTE: Android 
+      chsh -s zsh 
+      echo -e '$DOTFILES/termux/=$HOME/.termux' > ~/dotfiles/termux/links.prop
+      $cmd_prefix install neovim -y lazygit ncurses-utils
+      echo -e '$DOTFILES/fonts/font.ttf=$HOME/.termux/font.ttf' > ~/dotfiles/fonts/links.prop
+    elif [[ $OSTYPE == "linux-gnu" ]]; then #NOTE: Linux
+      sudo chsh -s zsh 
+      #NOTE: Neovim
+      curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+      chmod u+x nvim.appimage
+      mkdir -p /opt/nvim
+      mv nvim.appimage /opt/nvim/nvim 
+      echo 'export PATH="$PATH:/opt/nvim/"' >> ~/.zshrc
+      $cmd_prefix install fuse3 libncurses5-dev libncursesw5-dev
+      #NOTE: LazyVim
+      LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+      curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+      tar xf lazygit.tar.gz lazygit
+      sudo install lazygit /usr/local/bin
+      #NOTE: Fonts
+      echo -e '$DOTFILES/fonts/=$HOME/.fonts' > ~/dotfiles/fonts/links.prop
+      fc-cache -fv
+    fi
+  else
+    fail "OS does not recognised"
+  fi 
+}
 
-#NOTE: Common
+bootstrap () {
+  info "Bootstrapping"
+  bash ~/dotfiles/install/scripts/bootstrap.sh
+}
 
-$cmd_prefix install git curl wget zsh nodejs -y ripgrep tmux ncurses-utils lazygit ruby entr zoxide pass
-chsh -s zsh 
-curl -s https://ohmyposh.dev/install.sh | bash -s
-gem install colorls
-npm install -g eas-cli
-
-#NOTE: Platform Specific
-
-if [[ $OSTYPE == "linux-android" ]]; then
-  #NOTE: Neovim
- $cmd_prefix install neovim -y
- elif [[ $OSTYPE == "linux-gnu" ]]; then 
-  #NOTE: Neovim
-    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-    chmod u+x nvim.appimage
-    mkdir -p /opt/nvim
-    mv nvim.appimage /opt/nvim/nvim 
-    $cmd_prefix install fuse3
-    echo 'export PATH="$PATH:/opt/nvim/"' >> ~/.zshrc
-
-#NOTE: Nerd-Font
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/DroidSansMono.zip
-unzip DroidSansMono.zip -d ~/.fonts
-fc-cache -fv
-
- fi
-
-else
-  echo "OS does not recognised"
-fi 
-
+# BLA::start_loading_animation "${BLA_modern_metro[@]}"
+# install_deps 
+bootstrap
 source ~/.zshrc
-
-BLA::stop_loading_animation
+# BLA::stop_loading_animation
 
 # exit 0
-trap "echo 'Exiting script'; exit 1" INT
+# trap "echo 'Exiting script'; exit 1" INT
+echo ''
+echo ''
+success 'All installed! Shamno Varunah'
