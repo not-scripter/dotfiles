@@ -68,14 +68,14 @@ common_deps () {
   npm install -g eas-cli
 }
 android_deps () {
-  echo "running android_deps"
+  info "running android_deps"
   chsh -s zsh 
   echo -e '$DOTFILES/termux/=$HOME/.termux' > ~/dotfiles/termux/links.prop
   $cmd_prefix install neovim -y lazygit ncurses-utils zoxide
   echo -e '$DOTFILES/fonts/font.ttf=$HOME/.termux/font.ttf' > ~/dotfiles/fonts/links.prop
 }
 linux_deps () {
-  echo "running linux_deps"
+  info "running linux_deps"
   # sudo chsh -s zsh 
   $cmd_prefix install fuse3 libncurses5-dev libncursesw5-dev
   #NOTE: Zoxide
@@ -100,19 +100,19 @@ fi
   fc-cache -fv
 }
 
-# install_deps () {
-#   info "Installing Dependencies"
-#   if [[ cmd_prefix != "" ]]; then 
-#     # common_deps
-#     if [[ $OSTYPE == "linux-android" ]]; then  
-#       android_deps
-#     elif [[ $OSTYPE == "linux-gnu" ]]; then 
-#       linux_deps
-#     fi
-#   else
-#     fail "OS does not recognised"
-#   fi 
-# }
+install_deps () {
+  info "Installing Dependencies"
+  if [[ cmd_prefix != "" ]]; then 
+    common_deps
+    if [[ $OSTYPE == "linux-android" ]]; then  
+      android_deps
+    elif [[ $OSTYPE == "linux-gnu" ]]; then 
+      linux_deps
+    fi
+  else
+    fail "OS does not recognised"
+  fi 
+}
 
 bootstrap () {
   info "Bootstrapping"
@@ -120,19 +120,21 @@ bootstrap () {
 }
 
 # BLA::start_loading_animation "${BLA_modern_metro[@]}"
-# install_deps 
-info "Installing Dependencies"
-if [[ cmd_prefix != "" ]]; then 
-  # common_deps
-  if [[ $OSTYPE == "linux-android" ]]; then  
-    android_deps
-  elif [[ $OSTYPE == "linux-gnu" ]]; then 
-    linux_deps
-  fi
-else
-  fail "OS does not recognised"
-fi 
+install_deps 
+# info "Installing Dependencies"
+# if [[ cmd_prefix != "" ]]; then 
+#   # common_deps
+#   if [[ $OSTYPE == "linux-android" ]]; then  
+#     android_deps
+#   elif [[ $OSTYPE == "linux-gnu" ]]; then 
+#     linux_deps
+#   fi
+# else
+#   fail "OS does not recognised"
+# fi 
+
 bootstrap
+
 source ~/.zshrc
 # BLA::stop_loading_animation
 
