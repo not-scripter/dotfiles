@@ -8,16 +8,6 @@ ENDCOLOR="\e[0m"
 branch=""
 cmd_prefix=""
 repo="https://github.com/not-scripter/dotfiles.git"
-if [ -n "$branch" ]; then
-  git clone -b "$branch" "$repo"
-else
-  git clone "$repo"
-fi
-# source ~/dotfiles/install/scripts/animations.sh
-
-echo -e "${GREEN}Installing Dependencies${ENDCOLOR}"
-# BLA::start_loading_animation "${BLA_modern_metro[@]}"
-
 
 while getopts "b:" opt; do
   case $opt in
@@ -30,6 +20,16 @@ while getopts "b:" opt; do
       ;;
   esac
 done
+
+if [ -n "$branch" ]; then
+  git clone -b "$branch" "$repo"
+else
+  git clone "$repo"
+fi
+# source ~/dotfiles/install/scripts/animations.sh
+
+echo -e "${GREEN}Installing Dependencies${ENDCOLOR}"
+# BLA::start_loading_animation "${BLA_modern_metro[@]}"
 
 #NOTE: with Case 
 case "$OSTYPE" in
