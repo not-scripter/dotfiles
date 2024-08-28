@@ -16,7 +16,7 @@ cmd_prefix=""
 #NOTE: with Case 
 case "$OSTYPE" in
   # darwin*)  echo "OSX" ;; 
-  linux-gnu*)   cmd_prefix="apt" ;;
+  linux-gnu*)   cmd_prefix="sudo apt" ;;
   linux-android*)   cmd_prefix="pkg" ;;
   *)        echo "unknown: $OSTYPE" ;;
 esac
