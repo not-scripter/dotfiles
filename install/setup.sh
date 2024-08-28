@@ -62,22 +62,29 @@ case "$OSTYPE" in
 esac
 
 common_deps () {
-  $cmd_prefix install git curl wget zsh nodejs -y ripgrep tmux ruby entr pass
+  $cmd_prefix install git curl wget zsh ripgrep tmux ruby-dev entr pass
+  sudo gem install public_suffix -v 5.1.1 # Added because of error
   gem install colorls
-  npm install -g eas-cli
 }
 android_deps () {
   info "running android_deps"
   chsh -s zsh 
   echo -e '$DOTFILES/termux/=$HOME/.termux' > ~/dotfiles/termux/links.prop
-  $cmd_prefix install neovim -y lazygit ncurses-utils zoxide oh-my-posh
+  $cmd_prefix install neovim -y nodejs -y lazygit ncurses-utils zoxide oh-my-posh
   echo -e '$DOTFILES/fonts/font.ttf=$HOME/.termux/font.ttf' > ~/dotfiles/fonts/links.prop
+  npm install -g eas-cli
 }
 linux_deps () {
   info "running linux_deps"
   # sudo chsh -s zsh 
   $cmd_prefix install fuse3 libncurses5-dev libncursesw5-dev
   curl -s https://ohmyposh.dev/install.sh | bash -s
+  #NOTE: Nodejs
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  nvm install 22
+  npm install -g eas-cli
   #NOTE: Zoxide
   curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
   #NOTE: Neovim
