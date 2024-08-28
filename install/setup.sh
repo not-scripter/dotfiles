@@ -86,8 +86,7 @@ linux_deps () {
   #NOTE: Zoxide
   curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
   #NOTE: Ruby
-  sudo apt install ruby-dev && sudo gem install public_suffix -v 5.1.1 # Added because of error
-  gem install colorls
+  sudo apt install ruby-dev && sudo gem install public_suffix -v 5.1.1 && sudo gem install colorls
   #NOTE: Neovim
 if [ -d "/opt/nvim" ]; then
   info "Directory /opt/nvim already exists. Skipping clone."
