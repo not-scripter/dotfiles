@@ -88,9 +88,10 @@ linux_deps () {
   #NOTE: Ruby
   sudo apt install ruby-dev && sudo gem install public_suffix -v 5.1.1 && sudo gem install colorls
   #NOTE: Neovim
-if [ -d "/opt/nvim" ]; then
+if [ -r "/opt/nvim/nvim" ]; then
   info "Directory /opt/nvim already exists. Skipping clone."
 else
+  info "Directory /opt/nvim does not exists. cloning."
   curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
   chmod u+x nvim.appimage
   mkdir -p /opt/nvim
