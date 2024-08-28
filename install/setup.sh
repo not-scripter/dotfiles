@@ -1,13 +1,19 @@
 #!/bin/bash
 set -e
 
-source ~/dotfiles/install/scripts/animations.sh
-
 RED="\e[31m"
 GREEN="\e[32m"
 ENDCOLOR="\e[0m"
 
-echo -e "${GREEN}Setup Begins${ENDCOLOR}"
+git clone https://github.com/not-scripter/dotfiles.git
+source ~/dotfiles/install/scripts/animations.sh
+
+echo -e "${GREEN}Bootsrapping${ENDCOLOR}"
+BLA::start_loading_animation "${BLA_modern_metro[@]}"
+bash ~/dotfiles/install/scripts/bootstrap.sh
+BLA::stop_loading_animation
+
+echo -e "${GREEN}Installing Dependencies${ENDCOLOR}"
 BLA::start_loading_animation "${BLA_modern_metro[@]}"
 
 cmd_prefix=""
