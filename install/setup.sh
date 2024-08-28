@@ -5,13 +5,31 @@ RED="\e[31m"
 GREEN="\e[32m"
 ENDCOLOR="\e[0m"
 
-git clone https://github.com/not-scripter/dotfiles.git
+branch=""
+cmd_prefix=""
+repo="https://github.com/not-scripter/dotfiles.git"
+if [ -n "$branch" ]; then
+  git clone -b "$branch" "$repo"
+else
+  git clone "$repo"
+fi
 # source ~/dotfiles/install/scripts/animations.sh
 
 echo -e "${GREEN}Installing Dependencies${ENDCOLOR}"
 # BLA::start_loading_animation "${BLA_modern_metro[@]}"
 
-cmd_prefix=""
+
+while getopts "b:" opt; do
+  case $opt in
+    b)
+      branch="$OPTARG"
+      ;;
+    *)
+      echo "Usage: $0 [-b branch-name] repo"
+      exit 1
+      ;;
+  esac
+done
 
 #NOTE: with Case 
 case "$OSTYPE" in
@@ -26,7 +44,6 @@ if [[ cmd_prefix != "" ]]; then
 #NOTE: Common
 
 $cmd_prefix install git curl wget zsh nodejs -y ripgrep tmux ruby entr pass
-# chsh -s zsh 
 curl -s https://ohmyposh.dev/install.sh | bash -s
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 gem install colorls
@@ -35,6 +52,7 @@ npm install -g eas-cli
 #NOTE: Platform Specific
 
 if [[ $OSTYPE == "linux-android" ]]; then
+chsh -s zsh 
   #NOTE: Termux
   echo -e '$DOTFILES/termux/=$HOME/.termux' > ~/dotfiles/termux/links.prop
   #NOTE: Neovim
@@ -43,6 +61,7 @@ if [[ $OSTYPE == "linux-android" ]]; then
   echo -e '$DOTFILES/fonts/font.ttf=$HOME/.termux/font.ttf' > ~/dotfiles/fonts/links.prop
 
  elif [[ $OSTYPE == "linux-gnu" ]]; then 
+sudo chsh -s zsh 
   #NOTE: Neovim
     curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
     chmod u+x nvim.appimage
