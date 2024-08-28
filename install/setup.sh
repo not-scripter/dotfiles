@@ -6,7 +6,7 @@ GREEN="\e[32m"
 ENDCOLOR="\e[0m"
 
 git clone https://github.com/not-scripter/dotfiles.git
-source ~/dotfiles/install/scripts/animations.sh
+# source ~/dotfiles/install/scripts/animations.sh
 
 echo -e "${GREEN}Installing Dependencies${ENDCOLOR}"
 # BLA::start_loading_animation "${BLA_modern_metro[@]}"
