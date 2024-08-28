@@ -56,7 +56,7 @@ fi
 #NOTE: with Case 
 case "$OSTYPE" in
   # darwin*)  echo "OSX" ;; 
-  linux-gnu*)   cmd_prefix="sudo apt" ;;
+  linux-gnu*)   cmd_prefix="apt" ;;
   linux-android*)   cmd_prefix="pkg" ;;
   *)        echo "unknown: $OSTYPE" ;;
 esac
@@ -74,7 +74,7 @@ android_deps () {
 }
 linux_deps () {
   info "running linux_deps"
-  # sudo chsh -s zsh 
+  # chsh -s zsh 
   $cmd_prefix install fuse3 libncurses5-dev libncursesw5-dev
   curl -s https://ohmyposh.dev/install.sh | bash -s
   #NOTE: Nodejs
@@ -86,7 +86,7 @@ linux_deps () {
   #NOTE: Zoxide
   curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
   #NOTE: Ruby
-  sudo apt install ruby-dev && sudo gem install public_suffix -v 5.1.1 && sudo gem install colorls
+  apt install ruby-dev && gem install public_suffix -v 5.1.1 && gem install colorls
   #NOTE: Neovim
 if [ -r "/opt/nvim/nvim" ]; then
   info "Directory /opt/nvim already exists. Skipping clone."
@@ -102,7 +102,7 @@ fi
   LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
   curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
   tar xf lazygit.tar.gz lazygit
-  sudo install lazygit /usr/local/bin
+  install lazygit /usr/local/bin
   #NOTE: Fonts
   echo -e '$DOTFILES/fonts/=$HOME/.fonts' > ~/dotfiles/fonts/links.prop
   fc-cache -fv
@@ -129,17 +129,6 @@ bootstrap () {
 
 # BLA::start_loading_animation "${BLA_modern_metro[@]}"
 install_deps 
-# info "Installing Dependencies"
-# if [[ cmd_prefix != "" ]]; then 
-#   # common_deps
-#   if [[ $OSTYPE == "linux-android" ]]; then  
-#     android_deps
-#   elif [[ $OSTYPE == "linux-gnu" ]]; then 
-#     linux_deps
-#   fi
-# else
-#   fail "OS does not recognised"
-# fi 
 
 bootstrap
 
