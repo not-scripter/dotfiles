@@ -34,6 +34,8 @@ npm install -g eas-cli
 #NOTE: Platform Specific
 
 if [[ $OSTYPE == "linux-android" ]]; then
+  #NOTE: Termux
+  echo -e '$DOTFILES/termux/=$HOME/.termux' > ~/dotfiles/termux/links.prop
   #NOTE: Neovim
  $cmd_prefix install neovim -y
   #NOTE: Fonts
