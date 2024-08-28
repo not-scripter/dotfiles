@@ -75,15 +75,19 @@ android_deps () {
 }
 linux_deps () {
   sudo chsh -s zsh 
+  $cmd_prefix install fuse3 libncurses5-dev libncursesw5-dev
   #NOTE: Zoxide
   curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
   #NOTE: Neovim
+if [ -d "/opt/nvim" ]; then
+  info "Directory /opt/nvim already exists. Skipping clone."
+else
   curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
   chmod u+x nvim.appimage
   mkdir -p /opt/nvim
   mv nvim.appimage /opt/nvim/nvim 
   echo 'export PATH="$PATH:/opt/nvim/"' >> ~/.zshrc
-  $cmd_prefix install fuse3 libncurses5-dev libncursesw5-dev
+fi
   #NOTE: LazyVim
   LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
   curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
@@ -115,17 +119,17 @@ bootstrap () {
 
 # BLA::start_loading_animation "${BLA_modern_metro[@]}"
 # install_deps 
-  info "Installing Dependencies"
-  if [[ cmd_prefix != "" ]]; then 
-    # common_deps
-    if [[ $OSTYPE == "linux-android" ]]; then  
-      android_deps
-    elif [[ $OSTYPE == "linux-gnu" ]]; then 
-      linux_deps
-    fi
-  else
-    fail "OS does not recognised"
-  fi 
+info "Installing Dependencies"
+if [[ cmd_prefix != "" ]]; then 
+  # common_deps
+  if [[ $OSTYPE == "linux-android" ]]; then  
+    android_deps
+  elif [[ $OSTYPE == "linux-gnu" ]]; then 
+    linux_deps
+  fi
+else
+  fail "OS does not recognised"
+fi 
 bootstrap
 source ~/.zshrc
 # BLA::stop_loading_animation
