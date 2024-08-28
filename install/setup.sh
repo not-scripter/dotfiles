@@ -62,15 +62,13 @@ case "$OSTYPE" in
 esac
 
 common_deps () {
-  $cmd_prefix install git curl wget zsh ripgrep tmux ruby-dev entr pass
-  sudo gem install public_suffix -v 5.1.1 # Added because of error
-  gem install colorls
+  $cmd_prefix install git curl wget zsh ripgrep tmux entr pass
 }
 android_deps () {
   info "running android_deps"
   chsh -s zsh 
   echo -e '$DOTFILES/termux/=$HOME/.termux' > ~/dotfiles/termux/links.prop
-  $cmd_prefix install neovim -y nodejs -y lazygit ncurses-utils zoxide oh-my-posh
+  $cmd_prefix install neovim -y nodejs -y ruby lazygit ncurses-utils zoxide oh-my-posh
   echo -e '$DOTFILES/fonts/font.ttf=$HOME/.termux/font.ttf' > ~/dotfiles/fonts/links.prop
   npm install -g eas-cli
 }
@@ -87,6 +85,9 @@ linux_deps () {
   npm install -g eas-cli
   #NOTE: Zoxide
   curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+  #NOTE: Ruby
+  sudo apt install ruby-dev && sudo gem install public_suffix -v 5.1.1 # Added because of error
+  gem install colorls
   #NOTE: Neovim
 if [ -d "/opt/nvim" ]; then
   info "Directory /opt/nvim already exists. Skipping clone."
