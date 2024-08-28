@@ -1,7 +1,6 @@
 # Installation
 
-## Common
-
+- ## Common
 - ### Stable
 
 ```bash
