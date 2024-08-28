@@ -5,9 +5,7 @@
 <details>
   <summary><h3>Stable</h3></summary>
 
-```bash
-curl -s https://raw.githubusercontent.com/not-scripter/dotfiles/main/install/setup.sh | bash -s
-```
+> `curl -s https://raw.githubusercontent.com/not-scripter/dotfiles/main/install/setup.sh | bash -s`
 
 </details>
 
