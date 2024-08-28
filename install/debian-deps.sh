@@ -8,6 +8,8 @@ echo -e "${GREEN}...Installing ZSH shell${ENDCOLOR}"
 apt install zsh 
 echo -e "${GREEN}...Setting ZSH as default shell${ENDCOLOR}"
 chsh -s zsh 
+echo -e "${GREEN}...Installing oh-my-posh${ENDCOLOR}"
+curl -s https://ohmyposh.dev/install.sh | bash -s
 
 echo -e "${GREEN}...Installing Git${ENDCOLOR}"
 apt install git
@@ -37,5 +39,7 @@ echo -e "${GREEN}...Installing Cilorls${ENDCOLOR}"
 gem install colorls
 echo -e "${GREEN}...Installing Pass${ENDCOLOR}"
 apt install pass
+echo -e "${GREEN}...Installing Expo${ENDCOLOR}"
+npm install -g eas-cli
 
 echo -e "${GREEN}...Please Restart Termux${ENDCOLOR}"

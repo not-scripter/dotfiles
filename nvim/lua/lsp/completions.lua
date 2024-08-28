@@ -30,7 +30,7 @@ return {
 		ls.filetype_extend("javascriptreact", { "html" })
 		ls.filetype_extend("typescriptreact", { "html" })
 		ls.filetype_extend("markdown", { "html" })
-		ls.filetype_extend("astro", { "html", "javascript", "typescript" })
+		-- ls.filetype_extend("astro", {  "javascript", "typescript" })
 
 		vscode.lazy_load({ paths = { "./lua/snippets" } })
 		vscode.lazy_load()
