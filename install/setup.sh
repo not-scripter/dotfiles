@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+echo ''
+
 RED="\e[31m"
 GREEN="\e[32m"
 ENDCOLOR="\e[0m"
@@ -8,6 +10,24 @@ ENDCOLOR="\e[0m"
 branch=""
 cmd_prefix=""
 repo="https://github.com/not-scripter/dotfiles.git"
+
+info () {
+  printf "\r  [ \033[00;34m..\033[0m ] $1\n"
+}
+
+user () {
+  printf "\r  [ \033[0;33m??\033[0m ] $1\n"
+}
+
+success () {
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+}
+
+fail () {
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
+  echo ''
+  exit
+}
 
 while getopts "b:" opt; do
   case $opt in
@@ -28,7 +48,7 @@ else
 fi
 # source ~/dotfiles/install/scripts/animations.sh
 
-echo -e "${GREEN}Installing Dependencies${ENDCOLOR}"
+info "Installing Dependencies"
 # BLA::start_loading_animation "${BLA_modern_metro[@]}"
 
 #NOTE: with Case 
@@ -39,6 +59,7 @@ case "$OSTYPE" in
   *)        echo "unknown: $OSTYPE" ;;
 esac
 
+install_deps () {
 if [[ cmd_prefix != "" ]]; then
 
 #NOTE: Common
@@ -83,15 +104,23 @@ fc-cache -fv
  fi
 
 else
-  echo "OS does not recognised"
+  fail "OS does not recognised"
 fi 
+}
 
+bootstrap () {
 echo -e "${GREEN}Bootsrapping${ENDCOLOR}"
 bash ~/dotfiles/install/scripts/bootstrap.sh
+}
 
+install_deps 
+bootstrap
 source ~/.zshrc
 
 # BLA::stop_loading_animation
 
 # exit 0
-trap "echo 'Exiting script'; exit 1" INT
+# trap "echo 'Exiting script'; exit 1" INT
+echo ''
+echo ''
+success 'All installed!'
