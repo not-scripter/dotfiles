@@ -27,7 +27,3 @@ curl -s https://raw.githubusercontent.com/not-scripter/dotfiles/main/install/nix
 ```bash
 curl -s https://raw.githubusercontent.com/not-scripter/dotfiles/nightly/install/nix-on-droid.sh | bash -s
 ```
-
-```bash
-
-```
