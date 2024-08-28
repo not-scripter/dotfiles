@@ -1,13 +1,19 @@
 #!/bin/bash
 set -e
 
-source ~/dotfiles/install/scripts/animations.sh
-
 RED="\e[31m"
 GREEN="\e[32m"
 ENDCOLOR="\e[0m"
 
-echo -e "${GREEN}Setup Begins${ENDCOLOR}"
+git clone https://github.com/not-scripter/dotfiles.git
+source ~/dotfiles/install/scripts/animations.sh
+
+echo -e "${GREEN}Bootsrapping${ENDCOLOR}"
+BLA::start_loading_animation "${BLA_modern_metro[@]}"
+bash ~/dotfiles/install/scripts/bootstrap.sh
+BLA::stop_loading_animation
+
+echo -e "${GREEN}Installing Dependencies${ENDCOLOR}"
 BLA::start_loading_animation "${BLA_modern_metro[@]}"
 
 cmd_prefix=""
@@ -24,21 +30,9 @@ if [[ cmd_prefix != "" ]]; then
 
 #NOTE: Common
 
-$cmd_prefix install zsh 
+$cmd_prefix install git curl wget zsh nodejs -y ripgrep tmux ncurses-utils lazygit ruby entr zoxide pass
 chsh -s zsh 
 curl -s https://ohmyposh.dev/install.sh | bash -s
-$cmd_prefix install git
-$cmd_prefix install curl
-$cmd_prefix install wget
-$cmd_prefix install nodejs -y
-$cmd_prefix install ripgrep
-$cmd_prefix install tmux
-$cmd_prefix install ncurses-utils
-$cmd_prefix install lazygit
-$cmd_prefix install ruby
-$cmd_prefix install entr
-$cmd_prefix install zoxide
-$cmd_prefix install pass
 gem install colorls
 npm install -g eas-cli
 
