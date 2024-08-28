@@ -74,7 +74,7 @@ android_deps () {
   echo -e '$DOTFILES/fonts/font.ttf=$HOME/.termux/font.ttf' > ~/dotfiles/fonts/links.prop
 }
 linux_deps () {
-  sudo chsh -s zsh 
+  # sudo chsh -s zsh 
   $cmd_prefix install fuse3 libncurses5-dev libncursesw5-dev
   #NOTE: Zoxide
   curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
