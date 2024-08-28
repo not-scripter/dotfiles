@@ -64,18 +64,19 @@ esac
 common_deps () {
   $cmd_prefix install git curl wget zsh nodejs -y ripgrep tmux ruby entr pass
   curl -s https://ohmyposh.dev/install.sh | bash -s
-  curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
   gem install colorls
   npm install -g eas-cli
 }
 android_deps () {
   chsh -s zsh 
   echo -e '$DOTFILES/termux/=$HOME/.termux' > ~/dotfiles/termux/links.prop
-  $cmd_prefix install neovim -y lazygit ncurses-utils
+  $cmd_prefix install neovim -y lazygit ncurses-utils zoxide
   echo -e '$DOTFILES/fonts/font.ttf=$HOME/.termux/font.ttf' > ~/dotfiles/fonts/links.prop
 }
 linux_deps () {
   sudo chsh -s zsh 
+  #NOTE: Zoxide
+  curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
   #NOTE: Neovim
   curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
   chmod u+x nvim.appimage
@@ -93,18 +94,19 @@ linux_deps () {
   fc-cache -fv
 }
 
-install_deps () {
-  info "Installing Dependencies"
-  if [[ cmd_prefix != "" ]]; then 
-    #NOTE: Common
-    #NOTE: Platform Specific
-    if [[ $OSTYPE == "linux-android" ]]; then #NOTE: Android 
-    elif [[ $OSTYPE == "linux-gnu" ]]; then #NOTE: Linux
-    fi
-  else
-    fail "OS does not recognised"
-  fi 
-}
+# install_deps () {
+#   info "Installing Dependencies"
+#   if [[ cmd_prefix != "" ]]; then 
+#     # common_deps
+#     if [[ $OSTYPE == "linux-android" ]]; then  
+#       android_deps
+#     elif [[ $OSTYPE == "linux-gnu" ]]; then 
+#       linux_deps
+#     fi
+#   else
+#     fail "OS does not recognised"
+#   fi 
+# }
 
 bootstrap () {
   info "Bootstrapping"
@@ -113,6 +115,17 @@ bootstrap () {
 
 # BLA::start_loading_animation "${BLA_modern_metro[@]}"
 # install_deps 
+  info "Installing Dependencies"
+  if [[ cmd_prefix != "" ]]; then 
+    # common_deps
+    if [[ $OSTYPE == "linux-android" ]]; then  
+      android_deps
+    elif [[ $OSTYPE == "linux-gnu" ]]; then 
+      linux_deps
+    fi
+  else
+    fail "OS does not recognised"
+  fi 
 bootstrap
 source ~/.zshrc
 # BLA::stop_loading_animation
