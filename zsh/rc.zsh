@@ -47,7 +47,7 @@ zinit snippet OMZP::python
 # zinit snippet OMZP::vi-mode
 
 # Load completions
-# autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit
 
 zinit cdreplay -q
 
@@ -104,7 +104,7 @@ if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
 fi
 
 source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
-# autoload -Uz _zinit
+autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 # Load a few important annexes, without Turbo
