@@ -74,20 +74,28 @@ install_eas_cli () {
 common_deps () {
   $cmd_prefix install git curl wget zsh ripgrep tmux entr pass
 }
+
 android_deps () {
   info "running android_deps"
   chsh -s zsh 
   $cmd_prefix install neovim -y nodejs -y ruby lazygit ncurses-utils zoxide oh-my-posh
-  if [ -d "~/.termux/" ]; then
+  if [ -e "~/dotfiles/termux/links.prop" ]; then
     info "Directory ~/.termux already exists. Skipping."
   else
     info "Directory ~/.termux does not exists. cloning."
     echo -e '$DOTFILES/termux/=$HOME/.termux' > ~/dotfiles/termux/links.prop
   fi
+  #NOTE: Font
+  if [ -e "~/dotfiles/fonts/links.prop" ]; then
+    info "Directory font already exists. Skipping."
+  else
+    info "Directory font does not exists. cloning."
   echo -e '$DOTFILES/fonts/font.ttf=$HOME/.termux/font.ttf' > ~/dotfiles/fonts/links.prop
+  fi
   #NOTE: Eas-Cli
   install_eas_cli
 }
+
 linux_deps () {
   info "running linux_deps"
   # chsh -s zsh 
