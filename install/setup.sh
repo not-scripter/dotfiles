@@ -61,28 +61,56 @@ case "$OSTYPE" in
   *)        echo "unknown: $OSTYPE" ;;
 esac
 
+install_eas_cli () {
+  if command -v eas &> /dev/null
+  then
+    info "eas-cli already exists. Skipping."
+  else
+    info "eas-cli does not exists. Installing."
+    npm install -g eas-cli
+  fi
+}
+
 common_deps () {
   $cmd_prefix install git curl wget zsh ripgrep tmux entr pass
 }
 android_deps () {
   info "running android_deps"
   chsh -s zsh 
-  echo -e '$DOTFILES/termux/=$HOME/.termux' > ~/dotfiles/termux/links.prop
   $cmd_prefix install neovim -y nodejs -y ruby lazygit ncurses-utils zoxide oh-my-posh
+  if [ -d "~/.termux/" ]; then
+    info "Directory ~/.termux already exists. Skipping."
+  else
+    info "Directory ~/.termux does not exists. cloning."
+    echo -e '$DOTFILES/termux/=$HOME/.termux' > ~/dotfiles/termux/links.prop
+  fi
   echo -e '$DOTFILES/fonts/font.ttf=$HOME/.termux/font.ttf' > ~/dotfiles/fonts/links.prop
-  npm install -g eas-cli
+  #NOTE: Eas-Cli
+  install_eas_cli
 }
 linux_deps () {
   info "running linux_deps"
   # chsh -s zsh 
   $cmd_prefix install fuse3 libncurses5-dev libncursesw5-dev
-  curl -s https://ohmyposh.dev/install.sh | bash -s
+  #NOTE: Oh-My-Posh
+  if command -v oh-my-posh &> /dev/null
+  then
+    info "oh-my-posh is already installed. skipping"
+  else
+    curl -s https://ohmyposh.dev/install.sh | bash -s
+  fi
   #NOTE: Nodejs
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-  nvm install 22
-  npm install -g eas-cli
+  if command -v node &> /dev/null
+  then
+    info "nodejs already exists. Skipping."
+  else
+    info "nodejs does not exists. Installing."
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    nvm install 22
+  fi
+  install_eas_cli
   #NOTE: Zoxide
   curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
   #NOTE: Ruby
