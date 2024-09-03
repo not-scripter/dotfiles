@@ -200,4 +200,6 @@ return {
 		},
 		opts = {},
 	},
+	--NOTE: Arduino
+	{ "stevearc/vim-arduino" },
 }

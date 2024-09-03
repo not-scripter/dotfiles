@@ -1,11 +1,12 @@
 lastupdatecheck: 0
 recentrepos:
     - /data/data/com.termux/files/home/dotfiles
+    - /data/data/com.termux/files/home/chai-aur-cpp
+    - /data/data/com.termux/files/home/astro-go
     - /data/data/com.termux/files/home/dotfiles/nvim
     - /data/data/com.termux/files/home/three-web
     - /data/data/com.termux/files/home/vite-template
     - /data/data/com.termux/files/home/astro-cam
-    - /data/data/com.termux/files/home/astro-go
     - /data/data/com.termux/files/home/space-hopper
     - /data/data/com.termux/files/home/neovim
     - /data/data/com.termux/files/home/melodi

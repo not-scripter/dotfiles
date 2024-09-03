@@ -94,6 +94,15 @@ android_deps () {
   fi
   #NOTE: Eas-Cli
   install_eas_cli
+  #NOTE: arduino-cli
+  if command -v arduino-cli &> /dev/null
+  then
+    info "arduino-cli is already installed. skipping"
+ else
+   #NOTE: hard coded for now
+    wget -O /data/data/com.termux/files/usr/tmp/arduino-cli.tar.gz https://downloads.arduino.cc/arduino-cli/arduino-cli_1.0.4_Linux_ARM64.tar.gz 
+    tar xf /data/data/com.termux/files/usr/tmp/ -C /data/data/com.termux/files/usr/bin
+  fi
 }
 
 linux_deps () {
@@ -106,6 +115,13 @@ linux_deps () {
     info "oh-my-posh is already installed. skipping"
   else
     curl -s https://ohmyposh.dev/install.sh | bash -s
+  fi
+  #NOTE: arduino-cli
+  if command -v arduino-cli &> /dev/null
+  then
+    info "arduino-cli is already installed. skipping"
+  else
+    curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
   fi
   #NOTE: Nodejs
   if command -v node &> /dev/null

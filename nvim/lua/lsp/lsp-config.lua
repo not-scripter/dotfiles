@@ -45,6 +45,8 @@ return {
 					"tailwindcss",
 					"emmet_ls",
 					"astro",
+					-- "clangd",
+					"arduino_language_server",
 				},
 				automatic_installation = true,
 			})
@@ -104,6 +106,12 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.pylsp.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.clangd.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.arduino_language_server.setup({
 				capabilities = capabilities,
 			})
 
