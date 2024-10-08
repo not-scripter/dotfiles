@@ -1,12 +1,12 @@
 # Installation
 
-## Common
+## Linux
 
 <details>
   <summary><b>Stable</b></summary>
 
 ```bash
-curl -s https://raw.githubusercontent.com/not-scripter/dotfiles/main/install/setup.sh | bash -s
+curl -sSfL https://raw.githubusercontent.com/not-scripter/dotfiles/main/install/setup.sh | sudo bash -s
 ```
 
 </details>
@@ -15,7 +15,26 @@ curl -s https://raw.githubusercontent.com/not-scripter/dotfiles/main/install/set
   <summary><b>Nightly</b></summary>
    
 ```bash
-curl -s https://raw.githubusercontent.com/not-scripter/dotfiles/nightly/install/setup.sh | bash -s
+curl -sSfL https://raw.githubusercontent.com/not-scripter/dotfiles/nightly/install/setup.sh | sudo bash -s -- -b nightly
+```
+</details>
+
+## Termux
+
+<details>
+  <summary><b>Stable</b></summary>
+
+```bash
+curl -sSfL https://raw.githubusercontent.com/not-scripter/dotfiles/main/install/setup.sh | bash -s
+```
+
+</details>
+
+<details>
+  <summary><b>Nightly</b></summary>
+   
+```bash
+curl -sSfL https://raw.githubusercontent.com/not-scripter/dotfiles/nightly/install/setup.sh | bash -s -- -b nightly
 ```
 </details>
 
@@ -25,7 +44,7 @@ curl -s https://raw.githubusercontent.com/not-scripter/dotfiles/nightly/install/
   <summary><b>Stable</b></summary>
 
 ```bash
-curl -s https://raw.githubusercontent.com/not-scripter/dotfiles/main/install/nix-on-droid.sh | bash -s
+curl -sSfL https://raw.githubusercontent.com/not-scripter/dotfiles/main/install/nix-on-droid.sh | bash -s
 ```
 
 </details>
@@ -34,7 +53,7 @@ curl -s https://raw.githubusercontent.com/not-scripter/dotfiles/main/install/nix
   <summary><b>Nightly</b></summary>
 
 ```bash
-curl -s https://raw.githubusercontent.com/not-scripter/dotfiles/nightly/install/nix-on-droid.sh | bash -s
+curl -sSfL https://raw.githubusercontent.com/not-scripter/dotfiles/nightly/install/nix-on-droid.sh | bash -s -- -b nightly
 ```
 
 </details>

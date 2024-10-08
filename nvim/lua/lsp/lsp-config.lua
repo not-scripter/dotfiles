@@ -45,6 +45,8 @@ return {
 					"tailwindcss",
 					"emmet_ls",
 					"astro",
+					-- "clangd",
+					"arduino_language_server",
 				},
 				automatic_installation = true,
 			})
@@ -106,21 +108,25 @@ return {
 			lspconfig.pylsp.setup({
 				capabilities = capabilities,
 			})
+			lspconfig.clangd.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.arduino_language_server.setup({
+				capabilities = capabilities,
+			})
 
 			-- lspconfig.emmet_ls.setup({
-			--   capabilities = capabilities,
+			-- 	capabilities = capabilities,
 			-- })
 
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
-				settings = { -- custom settings for lua
+				settings = {
 					Lua = {
-						-- make the language server recognize "vim" global
 						diagnostics = {
 							globals = { "vim" },
 						},
 						workspace = {
-							-- make language server aware of runtime files
 							library = {
 								[vim.fn.expand("$VIMRUNTIME/lua")] = true,
 								[vim.fn.stdpath("config") .. "/lua"] = true,

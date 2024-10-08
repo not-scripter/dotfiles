@@ -31,7 +31,7 @@ function M.setup()
 
 		highlight = {
 			enable = true,
-			additional_vim_regex_highlighting = false,
+			additional_vim_regex_highlighting = true,
 		},
 		incremental_selection = {
 			enable = true,

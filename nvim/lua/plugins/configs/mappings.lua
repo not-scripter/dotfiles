@@ -193,6 +193,30 @@ function M.setup()
 			{ "<leader><leader>", group = "Extra Mappings", icon = { icon = "" } },
 			{ "<leader><leader>p", "<CMD>MarkdownPreviewToggle<CR>", desc = "Markdown Preview" },
 			{ "<leader><leader>r", "<CMD>source ~/.config/nvim/init.lua<CR>", desc = "Reload Editor" },
+
+			{ "<leader><leader>a", group = "Arduino", icon = { icon = "" } },
+			{ "<leader><leader>aa", "<CMD>ArduinoAttach<CR>", desc = "Arduino Attach", icon = { icon = "" } },
+			{ "<leader><leader>av", "<CMD>ArduinoVerify<CR>", desc = "Arduino Verify", icon = { icon = "" } },
+			{ "<leader><leader>au", "<CMD>ArduinoUpload<CR>", desc = "Arduino Upload", icon = { icon = "" } },
+			{
+				"<leader><leader>aU",
+				"<CMD>ArduinoUploadAndSerial<CR>",
+				desc = "Arduino Upload and Serial",
+				icon = { icon = "" },
+			},
+			{ "<leader><leader>as", "<CMD>ArduinoSerial<CR>", desc = "Arduino Serial", icon = { icon = "" } },
+			{
+				"<leader><leader>ac",
+				"<CMD>ArduinoChooseBoard<CR>",
+				desc = "Arduino Choose board",
+				icon = { icon = "" },
+			},
+			{
+				"<leader><leader>ap",
+				"<CMD>ArduinoChooseProgrammer<CR>",
+				desc = "Arduino Choose Programmer",
+				icon = { icon = "" },
+			},
 		},
 	})
 end

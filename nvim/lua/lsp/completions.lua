@@ -39,7 +39,7 @@ return {
 			history = true,
 			delete_check_events = "TextChanged",
 			updateevents = "TextChanged,TextChangedI",
-			enable_autosnippets = true,
+			enable_autosnippets = false,
 		})
 
 		-- hl(0, "CmpItemAbbr", { fg = "#CDD6F4" })

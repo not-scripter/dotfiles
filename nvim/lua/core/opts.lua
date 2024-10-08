@@ -114,10 +114,10 @@ vim.o.foldenable = true
 --NOTE: Change cursor style in insert mode
 -- vim.o.guicursor = 'n-v-c-sm-i-ci-ve:block,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor'
 
---NOTE: Soace after enter inside html element
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "html", "typescriptreact", "javascriptreact" },
-	callback = function()
-		vim.api.nvim_buf_set_keymap(0, "i", "<CR>", "<CR><Esc>O", { noremap = true, silent = true })
-	end,
-})
+--NOTE: Space after enter inside html element
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = { "html", "typescriptreact", "javascriptreact" },
+-- 	callback = function()
+-- 		vim.api.nvim_buf_set_keymap(0, "i", "<CR>", "<CR><Esc>O", { noremap = true, silent = true })
+-- 	end,
+-- })
