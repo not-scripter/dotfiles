@@ -1,9 +1,4 @@
 {
-  "vikram": {
-    "prefix": "vikram",
-    "body": ["VikramNvim"]
-  },
-
   "appwriteAuth": {
     "prefix": "appwriteAuth",
     "body": [
