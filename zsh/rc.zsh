@@ -1,3 +1,5 @@
+export PATH=$PATH:/home/notscripter/bin
+export PATH="$PATH:/opt/nvim/"
 # Shell integrations
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
 eval "$(oh-my-posh init zsh --config ~/.config/zsh/theme.omp.yaml)"
