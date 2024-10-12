@@ -57,5 +57,3 @@ curl -sSfL https://raw.githubusercontent.com/not-scripter/dotfiles/nightly/insta
 ```
 
 </details>
-
-## test

@@ -1,18 +1,18 @@
 {
   "custom/quicklink1": {
-    "format": " ",
-    "on-click": "~/.config/ml4w/apps/ML4W_Hyprland_Settings-x86_64.AppImage",
-    "tooltip-format": "Open Hyprland Settings"
-  },
-  "custom/quicklink2": {
     "format": " ",
     "on-click": "firefox",
     "tooltip-format": "Open the browser"
   },
-  "custom/quicklink3": {
+  "custom/quicklink2": {
     "format": " ",
     "on-click": "dolphin",
     "tooltip-format": "Open the filemanager"
+  },
+  "custom/quicklink3": {
+    "format": " ",
+    "on-click": "kitty",
+    "tooltip-format": "Open Terminal"
   },
   "custom/quicklinkempty": {},
   "group/quicklinks": {
