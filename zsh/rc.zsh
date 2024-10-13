@@ -1,5 +1,12 @@
-export PATH=$PATH:/home/notscripter/bin
-export PATH="$PATH:/opt/nvim/"
+# for nix-on-droid
+# export PATH="$PATH:/opt/nvim/"
+
+# for arch 
+export PATH=$PATH:/home/notscripter/.local/bin
+
+# for fedora 
+# export PATH=$PATH:/home/notscripter/bin
+
 # Shell integrations
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
 eval "$(oh-my-posh init zsh --config ~/.config/zsh/theme.omp.yaml)"
