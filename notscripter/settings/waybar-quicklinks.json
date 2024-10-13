@@ -1,7 +1,7 @@
 {
   "custom/quicklink1": {
     "format": " ",
-    "on-click": "firefox",
+    "on-click": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=launch-script.sh --file-forwarding io.github.zen_browser.zen",
     "tooltip-format": "Open the browser"
   },
   "custom/quicklink2": {
