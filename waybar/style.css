@@ -242,7 +242,7 @@ window#waybar.empty #window {
   color: @crust;
   border-radius: 15px;
   margin: 10px 7px 10px 0px;
-  padding: 4px 10px 0px 10px;
+  padding: 2px 10px 0px 10px;
 }
 
 /* -----------------------------------------------------
@@ -330,8 +330,8 @@ window#waybar.empty #window {
 }
 
 #battery.critical:not(.charging) {
-  background-color: #f53c3c;
-  color: @red;
+  background-color: @red;
+  color: @crust;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -373,5 +373,5 @@ label:focus {
 }
 
 #network.disconnected {
-  background-color: #f53c3c;
+  background-color: @red;
 }
