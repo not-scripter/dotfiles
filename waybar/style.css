@@ -37,7 +37,7 @@
 }
 
 window#waybar {
-  background-cybar olor: transparent;
+  background-color: transparent;
   border-bottom: 0px solid #ffffff;
   transition-property: background-color;
   transition-duration: 0.5s;
