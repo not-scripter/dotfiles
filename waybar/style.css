@@ -100,7 +100,7 @@ tooltip label {
 #window {
   background: @lavender;
   margin: 10px 15px 10px 0px;
-  padding: 2px 10px 0px 10px;
+  padding: 4px 10px 0px 10px;
   border-radius: 15px;
   color: @crust;
   font-size: 16px;
