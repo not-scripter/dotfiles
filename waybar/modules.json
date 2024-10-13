@@ -41,7 +41,7 @@
   "custom/appmenu": {
     "format": "Apps",
     "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings",
-    "on-click": "rofi -show drun -replace",
+    "on-click": "rofi -show drun -replace & sleep 0.2; hyprctl dispatch focuswindow '^(Rofi)'",
     "on-click-right": "~/.config/notscripter/scripts/keybindings.sh",
     "tooltip": false
   },
@@ -84,9 +84,8 @@
   "clock": {
     // "timezone": "America/New_York",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%Y-%m-%d}",
-    // "format": "{:  %H:%M:%S}"
-    "format": "  {0:%H:%M}    {0:%d-%m-%Y}"
+    "format": "  {0:%H:%M}",
+    "format-alt": "  {0:%H:%M}    {0:%d-%m-%Y}"
   },
 
   // System

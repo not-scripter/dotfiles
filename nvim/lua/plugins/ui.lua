@@ -164,48 +164,48 @@ return {
 			"arkav/lualine-lsp-progress",
 		},
 		config = function()
-			local colors = {
-				bg = "#000000",
-				fg = "#CDD6F4",
-				blue = "#89B4FA",
-				cyan = "#94E2D5",
-				green = "#A6E3A1",
-				yellow = "#F9E2AF",
-				magenta = "#F5C2E7",
-				red = "#F38BA8",
-			}
-			local custom = {
-				normal = {
-					a = { fg = colors.bg, bg = colors.red }, -- gui = 'bold'
-					b = { fg = colors.fg, bg = colors.bg },
-					c = { fg = colors.fg, bg = colors.bg },
-					x = { fg = colors.fg, bg = colors.bg },
-					y = { fg = colors.fg, bg = colors.bg },
-					z = { fg = colors.bg, bg = colors.red },
-				},
-
-				insert = {
-					a = { fg = colors.bg, bg = colors.blue },
-					z = { fg = colors.bg, bg = colors.blue },
-				},
-				visual = {
-					a = { fg = colors.bg, bg = colors.green },
-					z = { fg = colors.bg, bg = colors.green },
-				},
-				replace = {
-					a = { fg = colors.bg, bg = colors.cyan },
-					z = { fg = colors.bg, bg = colors.cyan },
-				},
-
-				inactive = {
-					a = { fg = colors.fg, bg = colors.bg },
-					b = { fg = colors.fg, bg = colors.bg },
-					c = { fg = colors.fg, bg = colors.bg },
-					x = { fg = colors.fg, bg = colors.bg },
-					y = { fg = colors.fg, bg = colors.bg },
-					z = { fg = colors.fg, bg = colors.bg },
-				},
-			}
+			-- local colors = {
+			-- 	bg = "#000000",
+			-- 	fg = "#CDD6F4",
+			-- 	blue = "#89B4FA",
+			-- 	cyan = "#94E2D5",
+			-- 	green = "#A6E3A1",
+			-- 	yellow = "#F9E2AF",
+			-- 	magenta = "#F5C2E7",
+			-- 	red = "#F38BA8",
+			-- }
+			-- local custom = {
+			-- 	normal = {
+			-- 		a = { fg = colors.bg, bg = colors.red }, -- gui = 'bold'
+			-- 		b = { fg = colors.fg, bg = colors.bg },
+			-- 		c = { fg = colors.fg, bg = colors.bg },
+			-- 		x = { fg = colors.fg, bg = colors.bg },
+			-- 		y = { fg = colors.fg, bg = colors.bg },
+			-- 		z = { fg = colors.bg, bg = colors.red },
+			-- 	},
+			--
+			-- 	insert = {
+			-- 		a = { fg = colors.bg, bg = colors.blue },
+			-- 		z = { fg = colors.bg, bg = colors.blue },
+			-- 	},
+			-- 	visual = {
+			-- 		a = { fg = colors.bg, bg = colors.green },
+			-- 		z = { fg = colors.bg, bg = colors.green },
+			-- 	},
+			-- 	replace = {
+			-- 		a = { fg = colors.bg, bg = colors.cyan },
+			-- 		z = { fg = colors.bg, bg = colors.cyan },
+			-- 	},
+			--
+			-- 	inactive = {
+			-- 		a = { fg = colors.fg, bg = colors.bg },
+			-- 		b = { fg = colors.fg, bg = colors.bg },
+			-- 		c = { fg = colors.fg, bg = colors.bg },
+			-- 		x = { fg = colors.fg, bg = colors.bg },
+			-- 		y = { fg = colors.fg, bg = colors.bg },
+			-- 		z = { fg = colors.fg, bg = colors.bg },
+			-- 	},
+			-- }
 			require("lualine").setup({
 				--NOTE: Uniqe separators           
 				options = {
@@ -213,8 +213,8 @@ return {
 					-- theme = custom,
 					theme = "auto",
 					globalstatus = true,
-					component_separators = { left = "", right = "" },
-					section_separators = { left = "", right = "" },
+					component_separators = "",
+					section_separators = { left = "", right = "" },
 					disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
 				},
 				sections = {
@@ -222,18 +222,19 @@ return {
 						{
 							"hostname",
 							icon = { "󰙄", align = "left" },
-							separator = { left = "  ", right = "" },
+							separator = { left = "" }, right_padding = 2,
 						},
 					},
 					lualine_b = {
 						{ "branch", icon = { "󰊢", align = "left" } },
 					},
 					lualine_c = {
-						-- {require('auto-session.lib').current_session_name},
-						{ "filesize", icon = { "󰈔", align = "left" } },
-						{ "diagnostics", separator = { left = "", right = "  " } },
+            '%=',
+						{require('auto-session.lib').current_session_name},
+						-- { "filesize", icon = { "󰈔", align = "left" } },
 					},
 					lualine_x = {
+            { "diagnostics" },
 						{ "diff" },
 					},
 					lualine_y = {
@@ -244,7 +245,7 @@ return {
 						{
 							"location",
 							icon = { "󰦨", align = "right" },
-							separator = { left = "  ", right = "  " },
+							separator = { right = "" }, left_padding = 2,
 						},
 					},
 				},
@@ -252,7 +253,7 @@ return {
 					lualine_a = {
 						{
 							"buffers",
-							separator = { left = "  ", right = "" },
+							separator = { left = "", right = "" },left_padding = 2, right_padding = 2,
 							symbols = {
 								modified = " ●",
 								alternate_file = "",
@@ -267,7 +268,7 @@ return {
 					lualine_z = {
 						{
 							"tabs",
-							separator = { left = "", right = "  " },
+							separator = { left = "", right = "" },left_padding = 2, right_padding = 2,
 							symbols = {
 								modified = " ●",
 								alternate_file = "",
