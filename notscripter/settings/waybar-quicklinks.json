@@ -14,6 +14,11 @@
     "on-click": "kitty",
     "tooltip-format": "Open Terminal"
   },
+  "custom/quicklink4": {
+    "format": " ",
+    "on-click": "nvim",
+    "tooltip-format": "Open Neovim"
+  },
   "custom/quicklinkempty": {},
   "group/quicklinks": {
     "orientation": "horizontal",
@@ -21,6 +26,7 @@
       "custom/quicklink1",
       "custom/quicklink2",
       "custom/quicklink3",
+      "custom/quicklink4",
       "custom/quicklinkempty"
     ]
   }

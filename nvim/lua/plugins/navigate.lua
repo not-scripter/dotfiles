@@ -66,7 +66,7 @@ return {
 			"nvim-telescope/telescope-media-files.nvim",
 			"nvim-telescope/telescope-github.nvim",
 			"andrew-george/telescope-themes",
-			"polirritmico/telescope-lazy-plugins.nvim",
+			-- "polirritmico/telescope-lazy-plugins.nvim",
 		},
 		config = function()
 			require("plugins.configs.telescope").setup()
