@@ -83,6 +83,7 @@ return {
 				completeopt = "menu,menuone,noinsert",
 			},
 			sources = cmp.config.sources({
+				{ name = "codeium" },
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 				{ name = "buffer" },
@@ -106,12 +107,13 @@ return {
 					before = function(entry, vim_item)
 						vim_item.kind = (icons[vim_item.kind] or "foo") --.. " " .. vim_item.kind
 						vim_item.menu = ({
-							luasnip = "",
-							nvim_lsp = "",
+							codeium = " ",
+							luasnip = " ",
+							nvim_lsp = " ",
 							nvim_lua = "[Lua]",
-							buffer = "",
-							path = "",
-							cmdline = "",
+							buffer = " ",
+							path = " ",
+							cmdline = " ",
 						})[entry.source.name]
 						-- Duplicates
 						-- vim_item.dup = ({
