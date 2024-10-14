@@ -204,6 +204,7 @@ window#waybar.empty #window {
   margin-right: 0;
 }
 
+
 #cpu {
   border-radius: 1rem 0 0 1rem;
   padding-left: 1rem;
@@ -296,7 +297,7 @@ window#waybar.empty #window {
   border-radius: 1rem;
   margin: 1rem 1rem 1rem 0;
 }
-
+  
 #battery.charging,
 #battery.plugged {
   color: @crust;
