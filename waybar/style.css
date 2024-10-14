@@ -45,6 +45,41 @@ window#waybar {
   transition-duration: 0.5s;
 }
 
+#workspaces,
+/* #custom-browser, */
+/* #custom-filemanager, */
+#network,
+#pulseaudio,
+#battery,
+#custom-appmenu,
+#clock,
+#cpu,
+#memory,
+#window,
+#temperature {
+  font-weight: bold;
+  padding: 0 1rem;
+  margin: 0.5rem 1rem 0.5rem 0;
+  border-radius: 1rem;
+}
+
+#custom-exit,
+#custom-quicklink1,
+#custom-quicklink2,
+#custom-quicklink3,
+#custom-quicklink4,
+#custom-quicklink5,
+#custom-quicklink6,
+#custom-quicklink7,
+#custom-quicklink8,
+#custom-quicklink9,
+#custom-quicklink10 {
+  font-size: 1.4rem;
+  color: @lavender;
+  padding: 0;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+}
+
 /* -----------------------------------------------------
  * Workspaces 
  * ----------------------------------------------------- */
@@ -134,41 +169,6 @@ window#waybar.empty #window {
  * Custom Quicklinks
  * ----------------------------------------------------- */
 
-#workspaces,
-#custom-browser,
-#custom-filemanager,
-#network,
-#pulseaudio,
-#battery,
-#custom-appmenu,
-#clock,
-#cpu,
-#memory,
-#window,
-#temperature {
-  font-weight: bold;
-  padding: 0 1rem;
-  margin: 1rem 1rem 1rem 0;
-  border-radius: 1rem;
-}
-
-#custom-exit,
-#custom-quicklink1,
-#custom-quicklink2,
-#custom-quicklink3,
-#custom-quicklink4,
-#custom-quicklink5,
-#custom-quicklink6,
-#custom-quicklink7,
-#custom-quicklink8,
-#custom-quicklink9,
-#custom-quicklink10 {
-  font-size: 1.4rem;
-  color: @lavender;
-  padding: 0;
-  margin-right: 0.5rem;
-}
-
 /* -----------------------------------------------------
  * Custom Modules
  * ----------------------------------------------------- */
@@ -239,8 +239,6 @@ window#waybar.empty #window {
 #pulseaudio {
   background-color: @lavender;
   color: @crust;
-  border-radius: 1rem;
-  margin: 1rem 1rem 1rem 0;
 }
 
 #pulseaudio.muted {
@@ -255,8 +253,6 @@ window#waybar.empty #window {
 #network {
   background-color: @lavender;
   color: @crust;
-  border-radius: 1rem;
-  margin: 1rem 1rem 1rem 0;
 }
 
 #network.ethernet {
@@ -269,6 +265,10 @@ window#waybar.empty #window {
   color: @crust;
 }
 
+#network.disconnected {
+  background-color: @red;
+}
+
 /* -----------------------------------------------------
  * Bluetooth
  * ----------------------------------------------------- */
@@ -278,8 +278,6 @@ window#waybar.empty #window {
 #bluetooth.connected {
   background-color: @lavender;
   color: @crust;
-  border-radius: 1rem;
-  margin: 1rem 1rem 1rem 0;
 }
 
 #bluetooth.off {
@@ -349,12 +347,4 @@ label:focus {
 
 #backlight {
   background-color: #90b1b1;
-}
-
-#network {
-  background-color: #2980b9;
-}
-
-#network.disconnected {
-  background-color: @red;
 }
