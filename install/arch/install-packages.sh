@@ -3,6 +3,8 @@
 # -----------------------------------------------------
 
 installer_packages=(
+  "alsa-firmware"
+  "alsa-utils"
   "git"
   "wget"
   "unzip"
