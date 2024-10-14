@@ -164,48 +164,6 @@ return {
 			"arkav/lualine-lsp-progress",
 		},
 		config = function()
-			-- local colors = {
-			-- 	bg = "#000000",
-			-- 	fg = "#CDD6F4",
-			-- 	blue = "#89B4FA",
-			-- 	cyan = "#94E2D5",
-			-- 	green = "#A6E3A1",
-			-- 	yellow = "#F9E2AF",
-			-- 	magenta = "#F5C2E7",
-			-- 	red = "#F38BA8",
-			-- }
-			-- local custom = {
-			-- 	normal = {
-			-- 		a = { fg = colors.bg, bg = colors.red }, -- gui = 'bold'
-			-- 		b = { fg = colors.fg, bg = colors.bg },
-			-- 		c = { fg = colors.fg, bg = colors.bg },
-			-- 		x = { fg = colors.fg, bg = colors.bg },
-			-- 		y = { fg = colors.fg, bg = colors.bg },
-			-- 		z = { fg = colors.bg, bg = colors.red },
-			-- 	},
-			--
-			-- 	insert = {
-			-- 		a = { fg = colors.bg, bg = colors.blue },
-			-- 		z = { fg = colors.bg, bg = colors.blue },
-			-- 	},
-			-- 	visual = {
-			-- 		a = { fg = colors.bg, bg = colors.green },
-			-- 		z = { fg = colors.bg, bg = colors.green },
-			-- 	},
-			-- 	replace = {
-			-- 		a = { fg = colors.bg, bg = colors.cyan },
-			-- 		z = { fg = colors.bg, bg = colors.cyan },
-			-- 	},
-			--
-			-- 	inactive = {
-			-- 		a = { fg = colors.fg, bg = colors.bg },
-			-- 		b = { fg = colors.fg, bg = colors.bg },
-			-- 		c = { fg = colors.fg, bg = colors.bg },
-			-- 		x = { fg = colors.fg, bg = colors.bg },
-			-- 		y = { fg = colors.fg, bg = colors.bg },
-			-- 		z = { fg = colors.fg, bg = colors.bg },
-			-- 	},
-			-- }
 			require("lualine").setup({
 				--NOTE: Uniqe separators           
 				options = {
