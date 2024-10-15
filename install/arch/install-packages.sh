@@ -17,6 +17,14 @@ installer_packages=(
   "neovim"
   "ttf-font-awesome"
   "pavucontrol"
+  "ark"
+  "kwrite"
+  "mpv"
+  "elisa"
+
+  "webcord"
+  "coreimage"
+
   "waybar"
   "hyprpaper"
   "hyprlock"
@@ -26,6 +34,12 @@ installer_packages=(
 installer_yay=(
   "wlogout"
   "hyprshot"
+
+  "amberol"
+
+  "postman"
+
+  "microsoft-edge-stable-bin"
 )
 
 _installPackages "${installer_packages[@]}";
