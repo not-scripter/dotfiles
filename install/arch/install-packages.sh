@@ -3,8 +3,9 @@
 # -----------------------------------------------------
 
 installer_packages=(
-  "alsa-firmware"
   "alsa-utils"
+  # "alsa-firmware"
+  # "alsa-plugins"
   "git"
   "wget"
   "unzip"
@@ -14,15 +15,17 @@ installer_packages=(
   "fzf"
   "zoxide"
   "neovim"
+  "ttf-font-awesome"
+  "pavucontrol"
   "waybar"
   "hyprpaper"
   "hyprlock"
-  "ttf-font-awesome"
-  "pavucontrol"
+  "hypridle"
 )
 
 installer_yay=(
   "wlogout"
+  "hyprshot"
 )
 
 _installPackages "${installer_packages[@]}";
