@@ -1,10 +1,11 @@
+export QT_STYLE_OVERRIDE=kvantum
 # for nix-on-droid
 # export PATH="$PATH:/opt/nvim/"
 
-# for arch 
+# for arch
 export PATH=$PATH:/home/notscripter/.local/bin
 
-# for fedora 
+# for fedora
 # export PATH=$PATH:/home/notscripter/bin
 
 # Shell integrations

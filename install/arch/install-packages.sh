@@ -22,6 +22,12 @@ installer_packages=(
   "mpv"
   "elisa"
 
+  "arc-gtk-theme"
+  # "lxappearance"
+  # "qt5ct"
+  "kvantum"
+  "kvantum-qt5"
+
   "webcord"
   "coreimage"
 
