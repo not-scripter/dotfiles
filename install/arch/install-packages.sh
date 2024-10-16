@@ -44,6 +44,7 @@ installer_yay=(
   "amberol"
 
   "postman"
+  # "bun" >600mb
 
   "microsoft-edge-stable-bin"
 )
