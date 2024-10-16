@@ -1,5 +1,5 @@
 [%General]
-author=elkrien based on Arc Dark style
+author=notscripter
 comment=Catppuccin-Mocha-Lavender
 spread_menuitems=true
 left_tabs=true
@@ -20,9 +20,9 @@ slim_toolbars=false
 toolbutton_style=1
 x11drag=menubar_and_primary_toolbar
 double_click=false
-translucent_windows=true
-blurring=true
-popup_blurring=true
+translucent_windows=false
+blurring=false
+popup_blurring=false
 opaque=kaffeine,kmplayer,subtitlecomposer,kdenlive,vlc,smplayer,smplayer2,avidemux,avidemux2_qt4,avidemux3_qt4,avidemux3_qt5,kamoso,QtCreator,VirtualBox,trojita,dragon,digikam,qmplay2
 group_toolbar_buttons=false
 vertical_spin_indicators=false
@@ -69,11 +69,13 @@ reduce_window_opacity=10
 saturation=1.00
 shadowless_popup=false
 transient_groove=false
+menu_blur_radius=0
+tooltip_blur_radius=0
 
 [GeneralColors]
-window.color=#1E1E2E00
-base.color=#18182500
-alt.base.color=#181825
+window.color=#00000000
+base.color=#00000000
+alt.base.color=#00000000
 button.color=#313244
 light.color=#45475A
 mid.light.color=#45475A
@@ -430,7 +432,7 @@ text.press.color=#CDD6F4
 text.focus.color=#CDD6F4
 
 [Hacks]
-transparent_dolphin_view=false
+transparent_dolphin_view=true
 blur_konsole=true
 transparent_ktitle_label=true
 transparent_menutitle=true
@@ -445,7 +447,7 @@ normal_default_pushbutton=true
 single_top_toolbar=false
 tint_on_mouseover=0
 transparent_pcmanfm_sidepane=true
-transparent_pcmanfm_view=false
+transparent_pcmanfm_view=true
 blur_translucent=true
 centered_forms=false
 kinetic_scrolling=false
