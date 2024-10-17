@@ -45,18 +45,18 @@ window#waybar {
   transition-duration: 0.5s;
 }
 
+#cpu,
+#memory,
+#temperature,
+#window,
 #workspaces,
 /* #custom-browser, */
 /* #custom-filemanager, */
 #network,
 #pulseaudio,
 #battery,
-#custom-appmenu,
 #clock,
-#cpu,
-#memory,
-#window,
-#temperature {
+#custom-appmenu {
   font-weight: bold;
   padding: 0 1rem;
   margin: 0.5rem 1rem 0.5rem 0;
@@ -89,6 +89,7 @@ window#waybar {
 
 #workspaces button {
   color: @text;
+  font-weight: bold;
   border-radius: 1rem;
   transition: all 0.3s ease-in-out;
 }
@@ -125,7 +126,7 @@ tooltip label {
  * ----------------------------------------------------- */
 
 #window {
-  background: @lavender;
+  background-color: @lavender;
   color: @crust;
 }
 
@@ -138,7 +139,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #taskbar {
-  background: @lavender;
+  background-color: @lavender;
   margin: 0.4rem 1rem 0.4rem 0px;
   padding: 0px;
   border-radius: 1rem;
@@ -183,7 +184,6 @@ window#waybar.empty #window {
   border-radius: 1rem;
   margin-left: 1rem;
 }
-
 /* -----------------------------------------------------
  * Custom Exit
  * ----------------------------------------------------- */
@@ -196,6 +196,11 @@ window#waybar.empty #window {
 /* -----------------------------------------------------
  * Hardware Group
  * ----------------------------------------------------- */
+
+/* #group-hardware { */
+/*   color: @crust; */
+/*   background-color: @lavender; */
+/* } */
 
 #disk,
 #memory,
