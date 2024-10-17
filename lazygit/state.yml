@@ -7,7 +7,7 @@ lastversion: 0.44.1
 customcommandshistory:
     - git tag v2
     - Z ..
-hidecommandlog: false
+hidecommandlog: true
 ignorewhitespaceindiffview: false
 diffcontextsize: 3
 renamesimilaritythreshold: 50
