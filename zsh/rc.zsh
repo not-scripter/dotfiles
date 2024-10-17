@@ -22,6 +22,9 @@ alias n='nvim'
 alias c='clear'
 alias q='exit'
 
+alias bunst='bun start'
+alias bunrd='bun run dev'
+
 # Keybindings
 bindkey -e
 
