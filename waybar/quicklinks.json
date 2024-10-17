@@ -1,7 +1,7 @@
 {
   "custom/quicklink1": {
     "format": " ",
-    "on-click": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=launch-script.sh --file-forwarding io.github.zen_browser.zen",
+    "on-click": "zen-browser",
     "tooltip-format": "Open the browser"
   },
   "custom/quicklink2": {
@@ -16,7 +16,7 @@
   },
   "custom/quicklink4": {
     "format": " ",
-    "on-click": "nvim",
+    "on-click": "kitty nvim",
     "tooltip-format": "Open Neovim"
   },
   "custom/quicklinkempty": {},

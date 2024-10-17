@@ -1,9 +1,0 @@
-[Desktop Entry]
-Categories=Development;
-Comment=Supercharge your API workflow
-Exec=/home/notscripter/Postman/Postman
-Icon=/home/notscripter/Postman/app/resources/app/assets/icon.png
-Name=Postman
-Terminal=false
-Type=Application
-Version=1.0

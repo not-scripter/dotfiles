@@ -6,7 +6,7 @@
     // "spacing": 4, // Gaps between modules (4px)
 
     "include": [
-        "~/.config/notscripter/settings/waybar-quicklinks.json",
+        "~/.config/waybar/quicklinks.json",
         "~/.config/waybar/modules.json"
     ],
     "modules-left": [

@@ -157,6 +157,10 @@ window#waybar.empty #window {
  * Modules
  * ----------------------------------------------------- */
 
+#custom-notification {
+  font-family: "NotoSansMono Nerd Font";
+}
+
 .modules-left > widget:first-child > #workspaces {
   margin-left: 0;
 }

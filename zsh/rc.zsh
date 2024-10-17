@@ -1,10 +1,11 @@
+export QT_STYLE_OVERRIDE=kvantum
 # for nix-on-droid
 # export PATH="$PATH:/opt/nvim/"
 
-# for arch 
+# for arch
 export PATH=$PATH:/home/notscripter/.local/bin
 
-# for fedora 
+# for fedora
 # export PATH=$PATH:/home/notscripter/bin
 
 # Shell integrations
@@ -20,6 +21,9 @@ alias la='ls -A --color'
 alias n='nvim'
 alias c='clear'
 alias q='exit'
+
+alias bunst='bun start'
+alias bunrd='bun run dev'
 
 # Keybindings
 bindkey -e
@@ -125,3 +129,10 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
 
 ### End of Zinit's installer chunk
+
+# bun completions
+[ -s "/home/notscripter/.bun/_bun" ] && source "/home/notscripter/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
