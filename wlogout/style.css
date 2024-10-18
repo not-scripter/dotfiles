@@ -60,10 +60,6 @@ button:active {
   box-shadow: 0 0 20px @lavender;
 }
 
-button span {
-  font-size: 5rem; /* Increase the font size */
-}
-
 #lock {
   background-image: image(url("./icons/lock.png"));
 }
