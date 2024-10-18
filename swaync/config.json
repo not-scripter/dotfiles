@@ -64,43 +64,21 @@
       "image-radius": 12
     },
     "backlight": {
-      "label": "",
+      "label": "󰃠 ",
       "device": "intel_backlight",
-      "min": 10
+      "min": 0
     },
     "backlight#KB": {
-      "label": " ",
+      "label": "  ",
       "device": "asus::kbd_backlight",
       "subsystem": "leds"
     },
     "volume": {
-      "label": ""
+      "label": " "
     },
     "menubar#label": {
-      "menu#power-buttons": {
-        "label": "",
-        "position": "right",
-        "actions": [
-          {
-            "label": " Reboot",
-            "command": "systemctl reboot"
-          },
-          {
-            "label": " Lock",
-            "command": "swaylock -f --image ~/.config/wallpapers/snow_woods.jpg"
-          },
-          {
-            "label": " Logout",
-            "command": "swaymsg exit"
-          },
-          {
-            "label": " Shut down",
-            "command": "systemctl poweroff"
-          }
-        ]
-      },
       "menu#powermode-buttons": {
-        "label": "",
+        "label": "󰐦 ",
         "position": "left",
         "actions": [
           {
@@ -121,7 +99,7 @@
         "position": "left",
         "actions": [
           {
-            "label": "",
+            "label": " ",
             "command": "grim"
           }
         ]
@@ -130,11 +108,11 @@
     "buttons-grid": {
       "actions": [
         {
-          "label": "直",
+          "label": " ",
           "command": "~/.config/rofi/rofi-wifi-menu.sh"
         },
         {
-          "label": "",
+          "label": " ",
           "command": "~/.config/rofi/rofi-bluetooth"
         }
       ]

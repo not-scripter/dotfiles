@@ -49,7 +49,7 @@ button {
 button:hover,
 button:focus,
 button:active {
-  background-color: alpha(@crust, 0.9);
+  background-color: alpha(@crust, 0.95);
   color: @text;
   background-size: 50%;
   margin: 1rem;
