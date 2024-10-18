@@ -27,7 +27,6 @@
 
 * {
   color: @text;
-
   all: unset;
   font-size: 1rem;
   font-family: "JetBrains Mono Nerd Font 10";
@@ -42,12 +41,12 @@
 /* CONTROL CENTER ------------------------------------------------------------------------ */
 
 .control-center {
-  background: alpha(@crust, 0.55);
-  border-radius: 24px;
+  background: rgba(0, 0, 0, 0.95);
+  border-radius: 1rem;
   border: 1px solid alpha(@crust, 0.5);
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6);
-  margin: 18px;
-  padding: 12px;
+  box-shadow: 0 0 10px 0 @lavender;
+  margin: 0;
+  padding: 1rem;
 }
 
 /* Notifications  */
@@ -56,7 +55,7 @@
   .notification-row
   .notification-background
   .notification.critical {
-  background-color: alpha(@crust, 0.9);
+  background-color: alpha(@crust, 0.95);
   border-radius: 16px;
   margin: 4px 0px;
   padding: 4px;
@@ -74,8 +73,8 @@
   .notification-background
   .notification
   .notification-content {
-  margin: 6px;
-  padding: 8px 6px 2px 2px;
+  margin: 0.4rem;
+  padding: 0.5rem 0.4rem 0.15rem 0.15rem;
 }
 
 .control-center
@@ -97,7 +96,7 @@
   background: alpha(alpha(@crust, 0.5), 0.6);
   color: @text;
   border-radius: 12px;
-  margin: 6px;
+  margin: 0.4rem;
 }
 
 .control-center
@@ -124,7 +123,7 @@
 
 .control-center .notification-row .notification-background .close-button {
   background: transparent;
-  border-radius: 6px;
+  border-radius: 0.4rem;
   color: @text;
   margin: 0px;
   padding: 4px;
@@ -172,7 +171,7 @@ progressbar {
   background: transparent;
   color: @text;
   margin: 4px;
-  border-radius: 6px;
+  border-radius: 0.4rem;
   padding: 4px;
 }
 
@@ -186,12 +185,12 @@ progressbar {
 /* Notification clear button */
 .widget-title {
   font-size: 1.2em;
-  margin: 6px;
+  margin: 0.4rem;
 }
 
 .widget-title button {
   background: alpha(@crust, 0.9);
-  border-radius: 6px;
+  border-radius: 0.4rem;
   padding: 4px 16px;
 }
 
@@ -205,7 +204,7 @@ progressbar {
 
 /* Do not disturb */
 .widget-dnd {
-  margin: 6px;
+  margin: 0.4rem;
   font-size: 1.2rem;
 }
 
@@ -231,22 +230,22 @@ progressbar {
 
 .widget-dnd > switch slider {
   background: @text;
-  border-radius: 6px;
+  border-radius: 0.4rem;
 }
 
 /* Buttons menu */
 .widget-buttons-grid {
-  font-size: x-large;
-  padding: 6px 2px;
-  margin: 6px;
-  border-radius: 12px;
-  background: alpha(@crust, 0.9);
+  font-size: 1rem;
+  padding: 0.5rem 0 0.5rem 1rem;
+  /* margin: 1rem; */
+  border-radius: 1rem;
+  background: alpha(@crust, 0.95);
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button {
-  margin: 4px 10px;
-  padding: 6px 12px;
-  background: transparent;
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+  background: alpha(@crust, 0.95);
   border-radius: 8px;
 }
 
@@ -259,20 +258,20 @@ progressbar {
   background: alpha(@crust, 0.9);
   border-radius: 16px;
   color: @text;
-  margin: 20px 6px;
+  margin: 1rem 0.4rem;
 }
 
 /* NOTE: Background need *opacity 1* otherwise will turn into the album art blurred  */
 .widget-mpris-player {
-  background-color: @background-sec;
-  border-radius: 22px;
-  padding: 6px 14px;
-  margin: 6px;
+  background-color: @lavender;
+  border-radius: 1rem;
+  padding: 0.4rem 1rem;
+  margin: 0.4rem;
 }
 
 .widget-mpris > box > button {
   color: @text;
-  border-radius: 20px;
+  border-radius: 1rem;
 }
 
 .widget-mpris button {
@@ -284,7 +283,7 @@ progressbar {
 }
 
 .widget-mpris-album-art {
-  border-radius: 16px;
+  border-radius: 1rem;
 }
 
 .widget-mpris-title {
@@ -299,9 +298,9 @@ progressbar {
 
 /* Volume */
 .widget-volume {
-  background: @background-sec;
-  color: @background;
+  background: @lavender;
+  color: @text;
   padding: 4px;
-  margin: 6px;
-  border-radius: 6px;
+  margin: 0.4rem;
+  border-radius: 0.4rem;
 }

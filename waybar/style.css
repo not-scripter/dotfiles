@@ -159,6 +159,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-notification {
+  /* margin-right: 1rem; */
   /* font-family: "NotoSansMono Nerd Font"; */
 }
 
