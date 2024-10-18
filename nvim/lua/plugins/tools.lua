@@ -73,6 +73,7 @@ return {
 	-- },
 	{
 		"altermo/ultimate-autopair.nvim",
+    -- enabled = false,
 		event = { "InsertEnter", "CmdlineEnter" },
 		-- branch = "v0.6",
 		opts = {},
@@ -87,6 +88,7 @@ return {
 
 	{
 		"rmagatti/auto-session",
+    enabled = false,
 		config = function()
 			require("auto-session").setup({
 				log_level = "error",

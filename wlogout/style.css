@@ -1,72 +1,81 @@
-/*
-          _                         _    
-__      _| | ___   __ _  ___  _   _| |_  
-\ \ /\ / / |/ _ \ / _` |/ _ \| | | | __| 
- \ V  V /| | (_) | (_| | (_) | |_| | |_  
-  \_/\_/ |_|\___/ \__, |\___/ \__,_|\__| 
-                  |___/                  
- 
-by Stephan Raabe (2024) 
------------------------------------------------------ 
-*/
+@define-color rosewater #f5e0dc;
+@define-color flamingo #f2cdcd;
+@define-color pink #f5c2e7;
+@define-color mauve #cba6f7;
+@define-color red #f38ba8;
+@define-color maroon #eba0ac;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color sapphire #74c7ec;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+@define-color text #cdd6f4;
+@define-color subtext1 #bac2de;
+@define-color subtext0 #a6adc8;
+@define-color overlay2 #9399b2;
+@define-color overlay1 #7f849c;
+@define-color overlay0 #6c7086;
+@define-color surface2 #585b70;
+@define-color surface1 #45475a;
+@define-color surface0 #313244;
+@define-color base #1e1e2e;
+@define-color mantle #181825;
+@define-color crust #11111b;
 
 * {
-    font-family: "Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-	background-image: none;
-	transition: 20ms;
-	box-shadow: none;
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: Fira Code Medium;
 }
 
 window {
-	background-color: rgba(12, 12, 12, 0.8);
+  color: @text;
+  background-color: rgba(0, 0, 0, 0.95);
 }
 
 button {
-	color: #FFFFFF;
-    font-size:20px;
-
-    background-repeat: no-repeat;
-	background-position: center;
-	background-size: 25%;
-	border-style: solid;
-	border: 3px solid #FFFFFF;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
+  background-color: alpha(@crust, 0.5);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30%;
+  animation: gradient_f 0.5s ease-in infinite;
+  border-radius: 80px; /* Increased border radius for a more rounded look */
+  margin: 2rem;
 }
 
+button:hover,
 button:focus,
-button:active,
-button:hover {
-    color: #FFFFFF;
-	border: 3px solid #FFFFFF;
+button:active {
+  background-color: alpha(@crust, 0.9);
+  color: @text;
+  background-size: 50%;
+  margin: 1rem;
+  transition:
+    all 0.3s cubic-bezier(0.55, 0, 0.28, 1.682),
+    box-shadow 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
+  box-shadow: 0 0 20px @lavender;
 }
 
-/* 
------------------------------------------------------ 
-Buttons
------------------------------------------------------ 
-*/
+button span {
+  font-size: 5rem; /* Increase the font size */
+}
 
 #lock {
-	margin: 10px;
-	border-radius: 20px;
-	background-image: image(url("icons/lock.png"));
+  background-image: image(url("./icons/lock.png"));
 }
 
 #logout {
-	margin: 10px;
-	border-radius: 20px;
-	background-image: image(url("icons/logout.png"));
+  background-image: image(url("./icons/logout.png"));
 }
 
 #shutdown {
-	margin: 10px;
-	border-radius: 20px;
-	background-image: image(url("icons/shutdown.png"));
+  background-image: image(url("./icons/shutdown.png"));
 }
 
 #reboot {
-	margin: 10px;
-	border-radius: 20px;
-	background-image: image(url("icons/reboot.png"));
+  background-image: image(url("./icons/reboot.png"));
 }
