@@ -188,7 +188,7 @@ return {
 					},
 					lualine_c = {
             '%=',
-						{require('auto-session.lib').current_session_name},
+						-- {require('auto-session.lib').current_session_name},
 						-- { "filesize", icon = { "󰈔", align = "left" } },
 					},
 					lualine_x = {

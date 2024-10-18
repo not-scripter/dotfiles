@@ -1,6 +1,7 @@
 lastupdatecheck: 0
 recentrepos:
     - /home/notscripter/dotfiles
+    - /home/notscripter/chai-aur-cpp
     - /home/notscripter/chai-aur-backend
 startuppopupversion: 5
 lastversion: 0.44.1

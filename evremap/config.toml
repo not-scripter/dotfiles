@@ -1,0 +1,9 @@
+[[remap]]
+input = ["KEY_LEFTALT", "KEY_F8"]
+# When our `input` is matched, our list of `output` is prevented from
+# matching as the `input` of subsequent rules.
+output = ["KEY_F8"]
+
+[[remap]]
+input = ["KEY_F8"]
+output = ["KEY_MUTE"]
