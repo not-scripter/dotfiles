@@ -21,6 +21,8 @@ installer_packages=(
   "kwrite"
   "mpv"
   "elisa"
+  "blueman"
+  "yt-dlp"
 
   "arc-gtk-theme"
   # "lxappearance"

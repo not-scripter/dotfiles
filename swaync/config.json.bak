@@ -69,12 +69,7 @@
       "image-radius": 12
     },
     "volume": {
-      "label": "",
-      "expand-button-label": "",
-      "collapse-button-label": "",
-      "show-per-app": true,
-      "show-per-app-icon": false,
-      "show-per-app-label": true
+      "label": "󰕾"
     },
     "backlight": {
       "label": "󰃟"
@@ -82,23 +77,23 @@
     "buttons-grid": {
       "actions": [
         {
-          "label": "",
+          "label": "  ",
           "command": "amixer set Master toggle"
         },
         {
-          "label": "",
+          "label": "  ",
           "command": "amixer set Capture toggle"
         },
         {
-          "label": "",
+          "label": "  ",
           "command": "nm-connection-editor"
         },
         {
-          "label": "󰂯",
+          "label": " 󰂯 ",
           "command": "blueman-manager"
         },
         {
-          "label": "⏻",
+          "label": " ⏻ ",
           "command": "wlogout -b 4"
         }
       ]

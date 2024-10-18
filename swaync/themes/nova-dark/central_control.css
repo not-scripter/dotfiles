@@ -209,23 +209,27 @@ progressbar {
 }
 
 .widget-dnd > switch {
-  background: alpha(@crust, 0.9);
-  font-size: initial;
-  border-radius: 8px;
+  color: @text;
+  background: alpha(@crust, 0.95);
+  font-size: 1rem;
+  border-radius: 0.5rem;
   box-shadow: none;
   padding: 2px;
 }
 
 .widget-dnd > switch:hover {
-  background: alpha(@crust, 0.5);
+  background: alpha(@lavender, 0.5);
+  color: @crust;
 }
 
 .widget-dnd > switch:checked {
-  background: alpha(@crust, 0.5);
+  background: @lavender;
+  color: @crust;
 }
 
 .widget-dnd > switch:checked:hover {
-  background: alpha(@crust, 0.5);
+  background: @lavender;
+  color: @crust;
 }
 
 .widget-dnd > switch slider {
@@ -236,8 +240,8 @@ progressbar {
 /* Buttons menu */
 .widget-buttons-grid {
   font-size: 1rem;
-  padding: 0.5rem 0 0.5rem 1rem;
-  /* margin: 1rem; */
+  padding: 1rem 0 1rem 1rem;
+  margin: 0 0 1rem 0;
   border-radius: 1rem;
   background: alpha(@crust, 0.95);
 }
@@ -245,12 +249,14 @@ progressbar {
 .widget-buttons-grid > flowbox > flowboxchild > button {
   margin-right: 1rem;
   padding: 0.5rem 1rem;
-  background: alpha(@crust, 0.95);
-  border-radius: 8px;
+  background: alpha(@lavender, 0.95);
+  color: @crust;
+  border-radius: 0.5rem;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button:hover {
-  background: alpha(@crust, 0.5);
+  background: @lavender;
+  color: @crust;
 }
 
 /* Music player */
@@ -263,7 +269,7 @@ progressbar {
 
 /* NOTE: Background need *opacity 1* otherwise will turn into the album art blurred  */
 .widget-mpris-player {
-  background-color: @lavender;
+  background-color: transparent;
   border-radius: 1rem;
   padding: 0.4rem 1rem;
   margin: 0.4rem;
@@ -279,7 +285,8 @@ progressbar {
 }
 
 .widget-mpris button:hover {
-  color: @text;
+  background: @lavender;
+  color: @crust;
 }
 
 .widget-mpris-album-art {
@@ -297,10 +304,86 @@ progressbar {
 }
 
 /* Volume */
+/* .widget-volume { */
+/*   background: @lavender; */
+/*   color: @text; */
+/*   padding: 4px; */
+/*   margin: 0.4rem; */
+/*   border-radius: 0.4rem; */
+/* } */
+/**/
+/* .widget-volume label { */
+/*   color: @text; */
+/*   margin: 0 1rem; */
+/* } */
+
 .widget-volume {
+  background-color: @surface2;
+  border-radius: 20px;
+  margin: 0 10px;
+}
+
+trough highlight {
+  background-color: @text;
+}
+
+scale trough {
+  background-color: transparent;
+  border: transparent;
+  padding: 0px;
+  min-height: 5px;
+  margin: 0 0 0 10px;
+  font-family: JetBrains Mono Nerd Font;
+}
+
+slider {
+  background-color: @overlay0;
+  border: 2px solid @text;
+}
+
+.widget-volume label {
+  padding: 0 0 0 10px;
+}
+
+.widget-volume trough highlight {
   background: @lavender;
-  color: @text;
-  padding: 4px;
-  margin: 0.4rem;
-  border-radius: 0.4rem;
+  border: unset;
+}
+
+.widget-volume button {
+  background-color: inherit;
+  box-shadow: unset;
+  font-size: 20px;
+  padding: 0 20px 0 0;
+  border-radius: 20px;
+  color: @lavender;
+  font-family: "JetBrains Mono NerdFont";
+}
+
+.widget-buttons-grid {
+  background-color: transparent;
+  margin: 0 0 0 278px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  background-color: transparent;
+  border-radius: 99px;
+  border: unset;
+  box-shadow: unset;
+  min-width: 30px;
+  min-height: 30px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background-color: @surface2;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:active {
+  background-color: @surface1;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button label {
+  color: @green;
+  font-family: "JetBrains Mono NerdFont";
+  font-size: 20px;
 }
