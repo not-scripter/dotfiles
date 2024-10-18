@@ -47,15 +47,15 @@
     "volume",
     "backlight",
     "mpris",
-    "title",
     "dnd",
+    "title",
     "notifications"
   ],
   "widget-config": {
     "title": {
       "text": "Notifications",
       "clear-all-button": true,
-      "button-text": " 󰎟 "
+      "button-text": "󰎟"
     },
     "dnd": {
       "text": "Do not disturb"
@@ -82,15 +82,15 @@
     "buttons-grid": {
       "actions": [
         {
-          "label": "",
+          "label": "󰕾",
           "command": "amixer set Master toggle"
         },
         {
-          "label": "",
+          "label": "󰍬",
           "command": "amixer set Capture toggle"
         },
         {
-          "label": "",
+          "label": "󰖩",
           "command": "nm-connection-editor"
         },
         {
@@ -98,7 +98,7 @@
           "command": "blueman-manager"
         },
         {
-          "label": "⏻",
+          "label": "󰐥",
           "command": "wlogout -b 4"
         }
       ]

@@ -204,8 +204,7 @@ progressbar {
 
 /* Do not disturb */
 .widget-dnd {
-  margin: 0.4rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .widget-dnd > switch {
@@ -228,13 +227,19 @@ progressbar {
 }
 
 .widget-dnd > switch:checked:hover {
-  background: @lavender;
+  background: alpha(@lavender, 0.5);
   color: @crust;
 }
 
 .widget-dnd > switch slider {
-  background: @text;
-  border-radius: 0.4rem;
+  color: @crust;
+  background: alpha(@lavender, 0.5);
+  border-radius: 0.5rem;
+}
+
+.widget-dnd > switch:checked slider {
+  color: @crust;
+  background: alpha(@lavender, 0.95);
 }
 
 /* Buttons menu */
@@ -318,22 +323,11 @@ progressbar {
 /* } */
 
 .widget-volume {
-  background-color: @surface2;
-  border-radius: 20px;
-  margin: 0 10px;
-}
-
-trough highlight {
-  background-color: @text;
-}
-
-scale trough {
-  background-color: transparent;
-  border: transparent;
-  padding: 0px;
-  min-height: 5px;
-  margin: 0 0 0 10px;
-  font-family: JetBrains Mono Nerd Font;
+  font-size: 1rem;
+  padding: 1rem;
+  margin: 0 0 1rem 0;
+  border-radius: 1rem;
+  background: alpha(@crust, 0.95);
 }
 
 slider {
@@ -353,37 +347,9 @@ slider {
 .widget-volume button {
   background-color: inherit;
   box-shadow: unset;
-  font-size: 20px;
-  padding: 0 20px 0 0;
-  border-radius: 20px;
+  font-size: 1rem;
+  padding: 0 1rem 0 0;
+  border-radius: 1rem;
   color: @lavender;
   font-family: "JetBrains Mono NerdFont";
-}
-
-.widget-buttons-grid {
-  background-color: transparent;
-  margin: 0 0 0 278px;
-}
-
-.widget-buttons-grid > flowbox > flowboxchild > button {
-  background-color: transparent;
-  border-radius: 99px;
-  border: unset;
-  box-shadow: unset;
-  min-width: 30px;
-  min-height: 30px;
-}
-
-.widget-buttons-grid > flowbox > flowboxchild > button:hover {
-  background-color: @surface2;
-}
-
-.widget-buttons-grid > flowbox > flowboxchild > button:active {
-  background-color: @surface1;
-}
-
-.widget-buttons-grid > flowbox > flowboxchild > button label {
-  color: @green;
-  font-family: "JetBrains Mono NerdFont";
-  font-size: 20px;
 }
