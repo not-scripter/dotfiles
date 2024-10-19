@@ -43,7 +43,7 @@
 .control-center {
   background: rgba(0, 0, 0, 0.95);
   border-radius: 1rem;
-  border: 1px solid alpha(@crust, 0.5);
+  border: 0.1rem solid alpha(@crust, 0.5);
   box-shadow: 0 0 10px 0 @lavender;
   margin: 0;
   padding: 1rem;
@@ -143,17 +143,42 @@
 progressbar,
 progress,
 trough {
-  border-radius: 12px;
+  border-radius: 1rem;
 }
 
 progressbar {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: @crust;
 }
+
+trough {
+  background: alpha(@surface0, 0.95);
+}
+
+trough highlight {
+  /* ´trough´ is the background of the slider, ´highlight´ is the actual slider */
+  padding: 0.6rem;
+  background: @lavender;
+  border: 0.1rem solid @lavender;
+  border-radius: 1rem;
+}
+
+trough slider {
+  /* padding: 0.5rem; */
+  /* outline: 1rem solid @lavender; */
+  /* border-radius: 99rem; */
+  /* background: @crust; */
+  /* border: 0.1rem solid @lavender; */
+}
+/**/
+/* trough slider:hover { */
+/*   background: @lavender; */
+/*   border: 0.1rem solid @crust; */
+/* } */
 
 /* Notifications expanded-group */
 
 .notification-group {
-  margin: 2px 8px 2px 8px;
+  margin: 0 1rem 1rem 1rem;
 }
 .notification-group-headers {
   font-weight: bold;
@@ -184,8 +209,8 @@ progressbar {
 
 /* Notification clear button */
 .widget-title {
-  font-size: 1.2em;
-  margin: 0.4rem;
+  font-size: 1rem;
+  margin: 0 1rem 1rem 1rem;
 }
 
 .widget-title button {
@@ -195,16 +220,18 @@ progressbar {
 }
 
 .widget-title button:hover {
-  background: alpha(@crust, 0.5);
+  background: alpha(@lavender, 0.5);
 }
 
 .widget-title button:active {
-  background-color: alpha(@crust, 0.5);
+  background-color: alpha(@lavender, 0.95);
 }
 
 /* Do not disturb */
 .widget-dnd {
   font-size: 1rem;
+  font-weight: bold;
+  margin: 0 1rem 1rem 1rem;
 }
 
 .widget-dnd > switch {
@@ -221,13 +248,13 @@ progressbar {
   color: @crust;
 }
 
-.widget-dnd > switch:checked {
-  background: @lavender;
+.widget-dnd > switch:hover:checked {
+  background: alpha(@lavender, 0.5);
   color: @crust;
 }
 
-.widget-dnd > switch:checked:hover {
-  background: alpha(@lavender, 0.5);
+.widget-dnd > switch:checked {
+  background: @lavender;
   color: @crust;
 }
 
@@ -238,8 +265,8 @@ progressbar {
 }
 
 .widget-dnd > switch:checked slider {
-  color: @crust;
-  background: alpha(@lavender, 0.95);
+  color: @lavender;
+  background: alpha(@crust, 0.95);
 }
 
 /* Buttons menu */
@@ -266,18 +293,19 @@ progressbar {
 
 /* Music player */
 .widget-mpris {
-  background: alpha(@crust, 0.9);
-  border-radius: 16px;
+  background: alpha(@crust, 0.95);
+  border-radius: 1rem;
   color: @text;
-  margin: 1rem 0.4rem;
+  margin: 0;
+  padding: 0;
 }
 
 /* NOTE: Background need *opacity 1* otherwise will turn into the album art blurred  */
 .widget-mpris-player {
   background-color: transparent;
   border-radius: 1rem;
-  padding: 0.4rem 1rem;
-  margin: 0.4rem;
+  /* padding: 0.5rem 1rem; */
+  /* margin: 0rem; */
 }
 
 .widget-mpris > box > button {
@@ -286,7 +314,7 @@ progressbar {
 }
 
 .widget-mpris button {
-  color: alpha(@text, 0.6);
+  color: @text;
 }
 
 .widget-mpris button:hover {
@@ -336,7 +364,7 @@ slider {
 }
 
 .widget-volume label {
-  padding: 0 0 0 10px;
+  margin: 0 0.5rem 0 0.5rem;
 }
 
 .widget-volume trough highlight {
@@ -348,8 +376,6 @@ slider {
   background-color: inherit;
   box-shadow: unset;
   font-size: 1rem;
-  padding: 0 1rem 0 0;
-  border-radius: 1rem;
+  margin: 0 0 0 0.5rem;
   color: @lavender;
-  font-family: "JetBrains Mono NerdFont";
 }

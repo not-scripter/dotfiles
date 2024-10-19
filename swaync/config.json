@@ -58,7 +58,7 @@
       "button-text": "󰎟"
     },
     "dnd": {
-      "text": "Do not disturb"
+      "text": "DND"
     },
     "label": {
       "max-lines": 1,
@@ -82,23 +82,23 @@
     "buttons-grid": {
       "actions": [
         {
-          "label": "󰕾",
+          "label": "",
           "command": "amixer set Master toggle"
         },
         {
-          "label": "󰍬",
+          "label": "",
           "command": "amixer set Capture toggle"
         },
         {
-          "label": "󰖩",
+          "label": "",
           "command": "nm-connection-editor"
         },
         {
-          "label": "󰂯",
+          "label": "",
           "command": "blueman-manager"
         },
         {
-          "label": "󰐥",
+          "label": "",
           "command": "wlogout -b 4"
         }
       ]
