@@ -21,6 +21,8 @@ installer_packages=(
   "kwrite"
   "mpv"
   "elisa"
+  "blueman"
+  "yt-dlp"
 
   "arc-gtk-theme"
   # "lxappearance"
@@ -40,6 +42,7 @@ installer_packages=(
 installer_yay=(
   "wlogout"
   "hyprshot"
+  "xremap-x11-bin"
 
   "amberol"
 

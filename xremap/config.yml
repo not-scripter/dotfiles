@@ -1,0 +1,23 @@
+modmap:
+  - name: custom modmap
+    remap:
+      CAPSLOCK: ESC
+      RIGHTALT: ENTER
+      RIGHTCTRL: BACKSPACE
+      LEFTALT: LEFTCTRL
+keymap:
+  - name: custom binding
+    remap:
+      C-h: left
+      C-l: right
+      C-k: up
+      C-j: down
+      FN-U: 1
+      FN-I: 2
+      FN-O: 3
+      FN-J: 4
+      FN-K: 5
+      FN-L: 6
+      FN-M: 7
+      FN-COMMA: 8
+      FN-DOT: 9

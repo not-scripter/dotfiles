@@ -1,33 +1,31 @@
 {
   "custom/quicklink1": {
-    "format": " ",
+    "format": "",
     "on-click": "zen-browser",
     "tooltip-format": "Open the browser"
   },
   "custom/quicklink2": {
-    "format": " ",
+    "format": "󱢴",
     "on-click": "dolphin",
     "tooltip-format": "Open the filemanager"
   },
   "custom/quicklink3": {
-    "format": " ",
+    "format": "",
     "on-click": "kitty",
     "tooltip-format": "Open Terminal"
   },
   "custom/quicklink4": {
-    "format": " ",
+    "format": "",
     "on-click": "kitty nvim",
     "tooltip-format": "Open Neovim"
   },
-  "custom/quicklinkempty": {},
   "group/quicklinks": {
     "orientation": "horizontal",
     "modules": [
       "custom/quicklink1",
       "custom/quicklink2",
       "custom/quicklink3",
-      "custom/quicklink4",
-      "custom/quicklinkempty"
+      "custom/quicklink4"
     ]
   }
 }

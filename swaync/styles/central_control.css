@@ -1,0 +1,381 @@
+@define-color rosewater #f5e0dc;
+@define-color flamingo #f2cdcd;
+@define-color pink #f5c2e7;
+@define-color mauve #cba6f7;
+@define-color red #f38ba8;
+@define-color maroon #eba0ac;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color sapphire #74c7ec;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+@define-color text #cdd6f4;
+@define-color subtext1 #bac2de;
+@define-color subtext0 #a6adc8;
+@define-color overlay2 #9399b2;
+@define-color overlay1 #7f849c;
+@define-color overlay0 #6c7086;
+@define-color surface2 #585b70;
+@define-color surface1 #45475a;
+@define-color surface0 #313244;
+@define-color base #1e1e2e;
+@define-color mantle #181825;
+@define-color crust #11111b;
+
+* {
+  color: @text;
+  all: unset;
+  font-size: 1rem;
+  font-family: "JetBrains Mono Nerd Font 10";
+  transition: 200ms;
+}
+
+/* Avoid 'annoying' backgroud */
+.blank-window {
+  background: transparent;
+}
+
+/* CONTROL CENTER ------------------------------------------------------------------------ */
+
+.control-center {
+  background: rgba(0, 0, 0, 0.95);
+  border-radius: 1rem;
+  border: 0.1rem solid alpha(@crust, 0.5);
+  box-shadow: 0 0 10px 0 @lavender;
+  margin: 0;
+  padding: 1rem;
+}
+
+/* Notifications  */
+.control-center .notification-row .notification-background,
+.control-center
+  .notification-row
+  .notification-background
+  .notification.critical {
+  background-color: alpha(@crust, 0.95);
+  border-radius: 16px;
+  margin: 4px 0px;
+  padding: 4px;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification.critical {
+  color: @red;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content {
+  margin: 0.4rem;
+  padding: 0.5rem 0.4rem 0.15rem 0.15rem;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > * {
+  min-height: 3.4em;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action {
+  background: alpha(alpha(@crust, 0.5), 0.6);
+  color: @text;
+  border-radius: 12px;
+  margin: 0.4rem;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action:hover {
+  background: alpha(@crust, 0.5);
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action:active {
+  background-color: alpha(@crust, 0.5);
+}
+
+/* Buttons */
+
+.control-center .notification-row .notification-background .close-button {
+  background: transparent;
+  border-radius: 0.4rem;
+  color: @text;
+  margin: 0px;
+  padding: 4px;
+}
+
+.control-center .notification-row .notification-background .close-button:hover {
+  background-color: alpha(@crust, 0.5);
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .close-button:active {
+  background-color: alpha(@crust, 0.5);
+}
+
+progressbar,
+progress,
+trough {
+  border-radius: 1rem;
+}
+
+progressbar {
+  background-color: @crust;
+}
+
+trough {
+  background: alpha(@surface0, 0.95);
+}
+
+trough highlight {
+  /* ´trough´ is the background of the slider, ´highlight´ is the actual slider */
+  padding: 0.6rem;
+  background: @lavender;
+  border: 0.1rem solid @lavender;
+  border-radius: 1rem;
+}
+
+trough slider {
+  /* padding: 0.5rem; */
+  /* outline: 1rem solid @lavender; */
+  /* border-radius: 99rem; */
+  /* background: @crust; */
+  /* border: 0.1rem solid @lavender; */
+}
+/**/
+/* trough slider:hover { */
+/*   background: @lavender; */
+/*   border: 0.1rem solid @crust; */
+/* } */
+
+/* Notifications expanded-group */
+
+.notification-group {
+  margin: 0 1rem 1rem 1rem;
+}
+.notification-group-headers {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: @text;
+  letter-spacing: 2px;
+}
+
+.notification-group-icon {
+  color: @text;
+}
+
+.notification-group-collapse-button,
+.notification-group-close-all-button {
+  background: transparent;
+  color: @text;
+  margin: 4px;
+  border-radius: 0.4rem;
+  padding: 4px;
+}
+
+.notification-group-collapse-button:hover,
+.notification-group-close-all-button:hover {
+  background: alpha(@crust, 0.5);
+}
+
+/* WIDGETS --------------------------------------------------------------------------- */
+
+/* Notification clear button */
+.widget-title {
+  font-size: 1rem;
+  margin: 0 1rem 1rem 1rem;
+}
+
+.widget-title button {
+  background: alpha(@crust, 0.9);
+  border-radius: 0.4rem;
+  padding: 4px 16px;
+}
+
+.widget-title button:hover {
+  background: alpha(@lavender, 0.5);
+}
+
+.widget-title button:active {
+  background-color: alpha(@lavender, 0.95);
+}
+
+/* Do not disturb */
+.widget-dnd {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0 1rem 1rem 1rem;
+}
+
+.widget-dnd > switch {
+  color: @text;
+  background: alpha(@crust, 0.95);
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: none;
+  padding: 2px;
+}
+
+.widget-dnd > switch:hover {
+  background: alpha(@lavender, 0.5);
+  color: @crust;
+}
+
+.widget-dnd > switch:hover:checked {
+  background: alpha(@lavender, 0.5);
+  color: @crust;
+}
+
+.widget-dnd > switch:checked {
+  background: @lavender;
+  color: @crust;
+}
+
+.widget-dnd > switch slider {
+  color: @crust;
+  background: alpha(@lavender, 0.5);
+  border-radius: 0.5rem;
+}
+
+.widget-dnd > switch:checked slider {
+  color: @lavender;
+  background: alpha(@crust, 0.95);
+}
+
+/* Buttons menu */
+.widget-buttons-grid {
+  font-size: 1rem;
+  padding: 1rem 0 1rem 1rem;
+  margin: 0 0 1rem 0;
+  border-radius: 1rem;
+  background: alpha(@crust, 0.95);
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+  background: alpha(@lavender, 0.95);
+  color: @crust;
+  border-radius: 0.5rem;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background: @lavender;
+  color: @crust;
+}
+
+/* Music player */
+.widget-mpris {
+  background: alpha(@crust, 0.95);
+  border-radius: 1rem;
+  color: @text;
+  margin: 0;
+  padding: 0;
+}
+
+/* NOTE: Background need *opacity 1* otherwise will turn into the album art blurred  */
+.widget-mpris-player {
+  background-color: transparent;
+  border-radius: 1rem;
+  /* padding: 0.5rem 1rem; */
+  /* margin: 0rem; */
+}
+
+.widget-mpris > box > button {
+  color: @text;
+  border-radius: 1rem;
+}
+
+.widget-mpris button {
+  color: @text;
+}
+
+.widget-mpris button:hover {
+  background: @lavender;
+  color: @crust;
+}
+
+.widget-mpris-album-art {
+  border-radius: 1rem;
+}
+
+.widget-mpris-title {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.widget-mpris-subtitle {
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+/* Volume */
+/* .widget-volume { */
+/*   background: @lavender; */
+/*   color: @text; */
+/*   padding: 4px; */
+/*   margin: 0.4rem; */
+/*   border-radius: 0.4rem; */
+/* } */
+/**/
+/* .widget-volume label { */
+/*   color: @text; */
+/*   margin: 0 1rem; */
+/* } */
+
+.widget-volume {
+  font-size: 1rem;
+  padding: 1rem;
+  margin: 0 0 1rem 0;
+  border-radius: 1rem;
+  background: alpha(@crust, 0.95);
+}
+
+slider {
+  background-color: @overlay0;
+  border: 2px solid @text;
+}
+
+.widget-volume label {
+  margin: 0 0.5rem 0 0.5rem;
+}
+
+.widget-volume trough highlight {
+  background: @lavender;
+  border: unset;
+}
+
+.widget-volume button {
+  background-color: inherit;
+  box-shadow: unset;
+  font-size: 1rem;
+  margin: 0 0 0 0.5rem;
+  color: @lavender;
+}

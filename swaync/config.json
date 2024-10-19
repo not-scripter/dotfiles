@@ -2,20 +2,26 @@
   "$schema": "/etc/xdg/swaync/configSchema.json",
   "positionX": "right",
   "positionY": "top",
-  "control-center-margin-top": 10,
-  "control-center-margin-bottom": 0,
-  "control-center-margin-right": 10,
+  "layer": "overlay",
+  "cssPriority": "user",
+
+  "control-center-width": 368,
+  "control-center-height": 860,
+  "control-center-margin-top": 2,
+  "control-center-margin-bottom": 2,
+  "control-center-margin-right": 2,
   "control-center-margin-left": 0,
-  "notification-icon-size": 64,
-  "notification-body-image-height": 100,
+
+  "notification-window-width": 400,
+  "notification-icon-size": 48,
+  "notification-body-image-height": 160,
   "notification-body-image-width": 200,
-  "timeout": 10,
-  "timeout-low": 5,
-  "timeout-critical": 0,
+
+  "timeout": 4,
+  "timeout-low": 2,
+  "timeout-critical": 6,
+
   "fit-to-screen": false,
-  "control-center-width": 500,
-  "control-center-height": 600,
-  "notification-window-width": 500,
   "keyboard-shortcuts": true,
   "image-visibility": "when-available",
   "transition-time": 200,
@@ -24,118 +30,76 @@
   "script-fail-notify": true,
   "scripts": {
     "example-script": {
-      "exec": "echo 'Do something...'",
+      "exec": "",
       "urgency": "Normal"
     }
   },
   "notification-visibility": {
     "example-name": {
       "state": "muted",
-      "urgency": "Low",
+      "urgency": "Normal",
       "app-name": "Spotify"
     }
   },
   "widgets": [
-    "menubar#label",
+    "label",
     "buttons-grid",
-    "backlight",
-    "backlight#KB",
     "volume",
+    "backlight",
     "mpris",
-    "title",
     "dnd",
+    "title",
     "notifications"
   ],
   "widget-config": {
     "title": {
       "text": "Notifications",
       "clear-all-button": true,
-      "button-text": "Clear All"
+      "button-text": "󰎟"
     },
     "dnd": {
-      "text": "Do Not Disturb"
+      "text": "DND"
     },
     "label": {
       "max-lines": 1,
-      "text": "Controll Center"
+      "text": " "
     },
     "mpris": {
       "image-size": 96,
       "image-radius": 12
     },
-    "backlight": {
-      "label": "",
-      "device": "intel_backlight",
-      "min": 10
-    },
-    "backlight#KB": {
-      "label": " ",
-      "device": "asus::kbd_backlight",
-      "subsystem": "leds"
-    },
     "volume": {
-      "label": ""
+      "label": "",
+      "expand-button-label": "",
+      "collapse-button-label": "",
+      "show-per-app": true,
+      "show-per-app-icon": false,
+      "show-per-app-label": true
     },
-    "menubar#label": {
-      "menu#power-buttons": {
-        "label": "",
-        "position": "right",
-        "actions": [
-          {
-            "label": " Reboot",
-            "command": "systemctl reboot"
-          },
-          {
-            "label": " Lock",
-            "command": "swaylock -f --image ~/.config/wallpapers/snow_woods.jpg"
-          },
-          {
-            "label": " Logout",
-            "command": "swaymsg exit"
-          },
-          {
-            "label": " Shut down",
-            "command": "systemctl poweroff"
-          }
-        ]
-      },
-      "menu#powermode-buttons": {
-        "label": "",
-        "position": "left",
-        "actions": [
-          {
-            "label": "Performance",
-            "command": "powerprofilesctl set performance"
-          },
-          {
-            "label": "Balanced",
-            "command": "powerprofilesctl set balanced"
-          },
-          {
-            "label": "Power-saver",
-            "command": "powerprofilesctl set power-saver"
-          }
-        ]
-      },
-      "buttons#topbar-buttons": {
-        "position": "left",
-        "actions": [
-          {
-            "label": "",
-            "command": "grim"
-          }
-        ]
-      }
+    "backlight": {
+      "label": "󰃟"
     },
     "buttons-grid": {
       "actions": [
         {
-          "label": "直",
-          "command": "~/.config/rofi/rofi-wifi-menu.sh"
+          "label": "",
+          "command": "amixer set Master toggle"
         },
         {
-          "label": "",
-          "command": "~/.config/rofi/rofi-bluetooth"
+          "label": "",
+          "command": "amixer set Capture toggle"
+        },
+        {
+          "label": "",
+          "command": "nm-connection-editor"
+        },
+        {
+          "label": "",
+          "command": "blueman-manager"
+        },
+        {
+          "label": "",
+          "command": "wlogout -b 4"
         }
       ]
     }

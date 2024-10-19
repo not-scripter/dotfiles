@@ -28,6 +28,6 @@
         "keyboard-state",
         "battery",
         "clock",
-        "custom/exit"
+        "custom/notification",
     ]
 }

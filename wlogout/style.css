@@ -49,7 +49,7 @@ button {
 button:hover,
 button:focus,
 button:active {
-  background-color: alpha(@crust, 0.9);
+  background-color: alpha(@crust, 0.95);
   color: @text;
   background-size: 50%;
   margin: 1rem;
@@ -58,10 +58,6 @@ button:active {
     box-shadow 0.2s ease-in-out,
     background-color 0.2s ease-in-out;
   box-shadow: 0 0 20px @lavender;
-}
-
-button span {
-  font-size: 5rem; /* Increase the font size */
 }
 
 #lock {
