@@ -1,0 +1,21 @@
+modmap:
+  - name: custom Chrome
+    remap:
+      KEY_RIGHTALT: KEY_BACKSPACE
+keymap:
+  - name: custom binding
+    remap:
+      C-h: left
+      C-l: right
+      C-k: up
+      C-j: down
+      KEY_FN-u: KEY_1
+      KEY_FN-i: KEY_2
+      KEY_FN-o: KEY_3
+      KEY_FN-j: KEY_4
+      KEY_FN-k: KEY_5
+      KEY_FN-l: KEY_6
+      KEY_FN-n: KEY_7
+      KEY_FN-m: KEY_8
+      KEY_FN_1-KEY_COMMA: KEY_9
+      # KEY_RIGHTCTRL-:

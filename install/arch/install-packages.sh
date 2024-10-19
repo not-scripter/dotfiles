@@ -42,6 +42,7 @@ installer_packages=(
 installer_yay=(
   "wlogout"
   "hyprshot"
+  "xremap-x11-bin"
 
   "amberol"
 
