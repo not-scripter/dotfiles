@@ -13,12 +13,12 @@ keymap:
       C-l: right
       C-k: up
       C-j: down
-      KEY_FN-KEY_U: KEY_1
-      KEY_FN-KEY_I: KEY_2
-      KEY_FN-KEY_O: KEY_3
-      KEY_FN-KEY_J: KEY_4
-      KEY_FN-KEY_K: KEY_5
-      KEY_FN-KEY_L: KEY_6
-      KEY_FN-KEY_M: KEY_7
-      KEY_FN-KEY_COMMA: KEY_8
-      KEY_FN-KEY_DOT: KEY_9
+      KEY_LEFTALT-KEY_U: KEY_1
+      KEY_LEFTALT-KEY_I: KEY_2
+      KEY_LEFTALT-KEY_O: KEY_3
+      KEY_LEFTALT-KEY_J: KEY_4
+      KEY_LEFTALT-KEY_K: KEY_5
+      KEY_LEFTALT-KEY_L: KEY_6
+      KEY_LEFTALT-KEY_M: KEY_7
+      KEY_LEFTALT-KEY_COMMA: KEY_8
+      KEY_LEFTALT-KEY_DOT: KEY_9
