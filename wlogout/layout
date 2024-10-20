@@ -1,13 +1,13 @@
 {
     "label" : "lock",
     "action" : "hyprlock",
-    "text" : "Lock",
+    "text" : "  Lock  ",
     "keybind" : "l"
 }
 {
     "label" : "logout",
     "action" : "killall -9 Hyprland",
-    "text" : "Exit",
+    "text" : "  Exit  ",
     "keybind" : "e"
 }
 {
@@ -19,6 +19,6 @@
 {
     "label" : "reboot",
     "action" : "reboot",
-    "text" : "Reboot",
+    "text" : "  Reboot  ",
     "keybind" : "r"
 }

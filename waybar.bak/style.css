@@ -30,7 +30,8 @@
  * ----------------------------------------------------- */
 
 * {
-  font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial,
+    sans-serif;
   border: none;
   border-radius: 0;
   min-height: 0;
@@ -39,13 +40,9 @@
 
 window#waybar {
   border-radius: 1rem;
-  background: #00000000;
+  background-color: @red;
   transition-property: background-color;
   transition-duration: 0.5s;
-}
-
-window#waybar.empty #window {
-  background-color: transparent;
 }
 
 #cpu,
@@ -62,7 +59,7 @@ window#waybar.empty #window {
 #custom-appmenu {
   font-weight: bold;
   padding: 0 1rem;
-  margin: 0rem 1rem 0rem 0;
+  margin: 0.5rem 1rem 0.5rem 0;
   border-radius: 1rem;
 }
 
@@ -81,7 +78,7 @@ window#waybar.empty #window {
   font-size: 1.4rem;
   color: @lavender;
   padding: 0;
-  margin: 0rem 1rem 0rem 0;
+  margin: 0.5rem 1rem 0.5rem 0;
 }
 
 /* -----------------------------------------------------
@@ -115,7 +112,7 @@ window#waybar.empty #window {
 
 tooltip {
   border-radius: 1rem;
-  background-color: alpha(@lavender, 0.95);
+  background-color: alpha(@lavender, 0.8);
   opacity: 1;
   padding: 1rem;
   margin: 1rem;
@@ -130,8 +127,12 @@ tooltip label {
  * ----------------------------------------------------- */
 
 #window {
-  background-color: alpha(@lavender, 0.95);
+  background-color: @lavender;
   color: @crust;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
 }
 
 /* -----------------------------------------------------
@@ -139,8 +140,8 @@ tooltip label {
  * ----------------------------------------------------- */
 
 #taskbar {
-  background-color: alpha(@lavender, 0.95);
-  margin: 0rem 1rem 0rem 0px;
+  background-color: @lavender;
+  margin: 0.4rem 1rem 0.4rem 0px;
   padding: 0px;
   border-radius: 1rem;
   font-weight: normal;
@@ -159,11 +160,8 @@ tooltip label {
  * ----------------------------------------------------- */
 
 #custom-notification {
-  margin-right: 0;
-  background-color: alpha(@lavender, 0.95);
-  color: @crust;
-  border-radius: 1rem;
-  padding: 0 1rem;
+  /* margin-right: 1rem; */
+  /* font-family: "NotoSansMono Nerd Font"; */
 }
 
 .modules-left > widget:first-child > #workspaces {
@@ -183,9 +181,10 @@ tooltip label {
  * ----------------------------------------------------- */
 
 #custom-appmenu {
-  background-color: alpha(@lavender, 0.95);
+  background-color: @lavender;
   color: @crust;
   border-radius: 1rem;
+  margin-left: 1rem;
 }
 /* -----------------------------------------------------
  * Custom Exit
@@ -202,14 +201,14 @@ tooltip label {
 
 /* #group-hardware { */
 /*   color: @crust; */
-/* background-color: alpha(@lavender, 0.95); */
+/*   background-color: @lavender; */
 /* } */
 
 #disk,
 #memory,
 #cpu,
 #temperature {
-  background-color: alpha(@lavender, 0.95);
+  background-color: @lavender;
   color: @crust;
   padding: 0 0.4rem;
   margin-left: 0;
@@ -240,7 +239,7 @@ tooltip label {
  * ----------------------------------------------------- */
 
 #clock {
-  background-color: alpha(@lavender, 0.95);
+  background-color: @lavender;
   color: @crust;
 }
 
@@ -249,12 +248,12 @@ tooltip label {
  * ----------------------------------------------------- */
 
 #pulseaudio {
-  background-color: alpha(@lavender, 0.95);
+  background-color: @lavender;
   color: @crust;
 }
 
 #pulseaudio.muted {
-  background-color: alpha(@lavender, 0.95);
+  background-color: @lavender;
   color: @crust;
 }
 
@@ -263,22 +262,22 @@ tooltip label {
  * ----------------------------------------------------- */
 
 #network {
-  background-color: alpha(@lavender, 0.95);
+  background-color: @lavender;
   color: @crust;
 }
 
 #network.ethernet {
-  background-color: alpha(@lavender, 0.95);
+  background-color: @lavender;
   color: @crust;
 }
 
 #network.wifi {
-  background-color: alpha(@lavender, 0.95);
+  background-color: @lavender;
   color: @crust;
 }
 
 #network.disconnected {
-  background-color: alpha(@lavender, 0.95);
+  background-color: @red;
 }
 
 /* -----------------------------------------------------
@@ -288,12 +287,12 @@ tooltip label {
 #bluetooth,
 #bluetooth.on,
 #bluetooth.connected {
-  background-color: alpha(@lavender, 0.95);
+  background-color: @lavender;
   color: @crust;
 }
 
 #bluetooth.off {
-  background-color: alpha(@lavender, 0.95);
+  background-color: transparent;
   padding: 0;
   margin: 0;
 }
@@ -303,27 +302,27 @@ tooltip label {
  * ----------------------------------------------------- */
 
 #battery {
-  background-color: alpha(@lavender, 0.95);
+  background-color: @lavender;
   color: @crust;
   border-radius: 1rem;
-  margin: 0rem 1rem 0rem 0;
+  margin: 1rem 1rem 1rem 0;
 }
 
 #battery.charging,
 #battery.plugged {
   color: @crust;
-  background-color: alpha(@lavender, 0.95);
+  background-color: @lavender;
 }
 
 @keyframes blink {
   to {
-    background-color: alpha(@lavender, 0.95);
+    background-color: @lavender;
     color: @crust;
   }
 }
 
 #battery.critical:not(.charging) {
-  background-color: alpha(@lavender, 0.95);
+  background-color: @red;
   color: @crust;
   animation-name: blink;
   animation-duration: 0.5s;
@@ -346,7 +345,7 @@ tooltip label {
 
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  background-color: alpha(@lavender, 0.95);
+  background-color: #eb4d4b;
 }
 
 /* -----------------------------------------------------
@@ -354,9 +353,9 @@ tooltip label {
  * ----------------------------------------------------- */
 
 label:focus {
-  background-color: alpha(@lavender, 0.95);
+  background-color: #000000;
 }
 
 #backlight {
-  background-color: alpha(@lavender, 0.95);
+  background-color: #90b1b1;
 }
