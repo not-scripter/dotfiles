@@ -1,0 +1,8 @@
+[Added Associations]
+[Removed Associations]
+[Default Applications]
+image/jpeg=coreImage
+image/png=coreImage
+video/H264=mpv
+video/webm=mpv
+audio/mp3=amberol
