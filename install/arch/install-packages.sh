@@ -23,6 +23,10 @@ installer_packages=(
   "elisa"
   "blueman"
   "polkit"
+  "xdg-desktop-portal-hyprland"
+  "xdg-desktop-portal-gtk"
+  # "iwd"
+  # "iwgtk"
 
   "arc-gtk-theme"
   # "lxappearance"
