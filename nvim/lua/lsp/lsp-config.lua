@@ -81,14 +81,14 @@ return {
 			lspconfig.html.setup({
 				capabilities = capabilities,
 			})
-			-- lspconfig.tsserver.setup({
-			--   capabilities = capabilities,
-			--   -- init_options = {
-			--   --   preferences = {
-			--   --     disableSuggestions = true,
-			--   --   }
-			--   -- },
-			-- })
+			lspconfig.tsserver.setup({
+			  capabilities = capabilities,
+			  -- init_options = {
+			  --   preferences = {
+			  --     disableSuggestions = true,
+			  --   }
+			  -- },
+			})
 			lspconfig.cssls.setup({
 				capabilities = capabilities,
 			})
