@@ -1,8 +1,35 @@
 [Added Associations]
+x-scheme-handler/http=zen-alpha.desktop;
+x-scheme-handler/https=zen-alpha.desktop;
+x-scheme-handler/chrome=zen-alpha.desktop;
+text/html=zen-alpha.desktop;
+application/x-extension-htm=zen-alpha.desktop;
+application/x-extension-html=zen-alpha.desktop;
+application/x-extension-shtml=zen-alpha.desktop;
+application/xhtml+xml=zen-alpha.desktop;
+application/x-extension-xhtml=zen-alpha.desktop;
+application/x-extension-xht=zen-alpha.desktop;
+
 [Removed Associations]
+
 [Default Applications]
-image/jpeg=coreImage
-image/png=coreImage
-video/H264=mpv
-video/webm=mpv
-audio/mp3=amberol
+image/jpeg=/usr/share/applications/feh.desktop
+image/jpg=/usr/share/applications/feh.desktop
+image/png=/usr/share/applications/feh.desktop
+video/H264=/usr/share/applications/mpv.desktop
+video/webm=/usr/share/applications/mpv.desktop
+audio/mp3=/usr/share/applications/io.bassi.Amberol.desktop
+x-scheme-handler/postman=Postman.desktop
+x-scheme-handler/http=zen-alpha.desktop
+x-scheme-handler/https=zen-alpha.desktop
+x-scheme-handler/chrome=zen-alpha.desktop
+text/html=zen-alpha.desktop
+application/x-extension-htm=zen-alpha.desktop
+application/x-extension-html=zen-alpha.desktop
+application/x-extension-shtml=zen-alpha.desktop
+application/xhtml+xml=zen-alpha.desktop
+application/x-extension-xhtml=zen-alpha.desktop
+application/x-extension-xht=zen-alpha.desktop
+video/mp4=/usr/share/applications/mpv.desktop
+x-scheme-handler/about=zen-alpha.desktop
+x-scheme-handler/unknown=zen-alpha.desktop

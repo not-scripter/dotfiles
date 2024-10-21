@@ -27,6 +27,9 @@ installer_packages=(
   "xdg-desktop-portal-gtk"
   # "iwd"
   # "iwgtk"
+  "gvfs"
+  "thunar"
+  "ranger"
 
   "arc-gtk-theme"
   # "lxappearance"
