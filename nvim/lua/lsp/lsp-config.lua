@@ -38,15 +38,16 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					-- "lua_ls",
-					"tsserver",
+					"lua_ls",
 					"html",
 					"cssls",
+					"tsserver",
 					"tailwindcss",
 					"emmet_ls",
 					"astro",
-					-- "clangd",
+					"clangd",
 					"arduino_language_server",
+          "hyprls"
 				},
 				automatic_installation = true,
 			})
@@ -80,14 +81,14 @@ return {
 			lspconfig.html.setup({
 				capabilities = capabilities,
 			})
-			-- lspconfig.tsserver.setup({
-			--   capabilities = capabilities,
-			--   -- init_options = {
-			--   --   preferences = {
-			--   --     disableSuggestions = true,
-			--   --   }
-			--   -- },
-			-- })
+			lspconfig.tsserver.setup({
+			  capabilities = capabilities,
+			  -- init_options = {
+			  --   preferences = {
+			  --     disableSuggestions = true,
+			  --   }
+			  -- },
+			})
 			lspconfig.cssls.setup({
 				capabilities = capabilities,
 			})
@@ -112,6 +113,9 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.arduino_language_server.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.hyprls.setup({
 				capabilities = capabilities,
 			})
 

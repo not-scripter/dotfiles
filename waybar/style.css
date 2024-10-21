@@ -30,8 +30,7 @@
  * ----------------------------------------------------- */
 
 * {
-  font-family: "Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial,
-    sans-serif;
+  font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
   border: none;
   border-radius: 0;
   min-height: 0;
@@ -39,9 +38,14 @@
 }
 
 window#waybar {
-  background-color: transparent;
+  border-radius: 1rem;
+  background: #00000000;
   transition-property: background-color;
   transition-duration: 0.5s;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
 }
 
 #cpu,
@@ -58,7 +62,7 @@ window#waybar {
 #custom-appmenu {
   font-weight: bold;
   padding: 0 1rem;
-  margin: 0.5rem 1rem 0.5rem 0;
+  margin: 0rem 1rem 0rem 0;
   border-radius: 1rem;
 }
 
@@ -77,7 +81,7 @@ window#waybar {
   font-size: 1.4rem;
   color: @lavender;
   padding: 0;
-  margin: 0.5rem 1rem 0.5rem 0;
+  margin: 0rem 1rem 0rem 0;
 }
 
 /* -----------------------------------------------------
@@ -111,7 +115,7 @@ window#waybar {
 
 tooltip {
   border-radius: 1rem;
-  background-color: alpha(@lavender, 0.8);
+  background-color: alpha(@lavender, 0.95);
   opacity: 1;
   padding: 1rem;
   margin: 1rem;
@@ -126,12 +130,8 @@ tooltip label {
  * ----------------------------------------------------- */
 
 #window {
-  background-color: @lavender;
+  background-color: alpha(@lavender, 0.95);
   color: @crust;
-}
-
-window#waybar.empty #window {
-  background-color: transparent;
 }
 
 /* -----------------------------------------------------
@@ -139,8 +139,8 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #taskbar {
-  background-color: @lavender;
-  margin: 0.4rem 1rem 0.4rem 0px;
+  background-color: alpha(@lavender, 0.95);
+  margin: 0rem 1rem 0rem 0px;
   padding: 0px;
   border-radius: 1rem;
   font-weight: normal;
@@ -159,8 +159,11 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-notification {
-  /* margin-right: 1rem; */
-  /* font-family: "NotoSansMono Nerd Font"; */
+  margin-right: 0;
+  background-color: alpha(@lavender, 0.95);
+  color: @crust;
+  border-radius: 1rem;
+  padding: 0 1rem;
 }
 
 .modules-left > widget:first-child > #workspaces {
@@ -180,10 +183,9 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-appmenu {
-  background-color: @lavender;
+  background-color: alpha(@lavender, 0.95);
   color: @crust;
   border-radius: 1rem;
-  margin-left: 1rem;
 }
 /* -----------------------------------------------------
  * Custom Exit
@@ -200,14 +202,14 @@ window#waybar.empty #window {
 
 /* #group-hardware { */
 /*   color: @crust; */
-/*   background-color: @lavender; */
+/* background-color: alpha(@lavender, 0.95); */
 /* } */
 
 #disk,
 #memory,
 #cpu,
 #temperature {
-  background-color: @lavender;
+  background-color: alpha(@lavender, 0.95);
   color: @crust;
   padding: 0 0.4rem;
   margin-left: 0;
@@ -239,7 +241,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #clock {
-  background-color: @lavender;
+  background-color: alpha(@lavender, 0.95);
   color: @crust;
 }
 
@@ -248,12 +250,12 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #pulseaudio {
-  background-color: @lavender;
+  background-color: alpha(@lavender, 0.95);
   color: @crust;
 }
 
 #pulseaudio.muted {
-  background-color: @lavender;
+  background-color: alpha(@lavender, 0.95);
   color: @crust;
 }
 
@@ -262,22 +264,22 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #network {
-  background-color: @lavender;
+  background-color: alpha(@lavender, 0.95);
   color: @crust;
 }
 
 #network.ethernet {
-  background-color: @lavender;
+  background-color: alpha(@lavender, 0.95);
   color: @crust;
 }
 
 #network.wifi {
-  background-color: @lavender;
+  background-color: alpha(@lavender, 0.95);
   color: @crust;
 }
 
 #network.disconnected {
-  background-color: @red;
+  background-color: alpha(@lavender, 0.95);
 }
 
 /* -----------------------------------------------------
@@ -287,12 +289,12 @@ window#waybar.empty #window {
 #bluetooth,
 #bluetooth.on,
 #bluetooth.connected {
-  background-color: @lavender;
+  background-color: alpha(@lavender, 0.95);
   color: @crust;
 }
 
 #bluetooth.off {
-  background-color: transparent;
+  background-color: alpha(@lavender, 0.95);
   padding: 0;
   margin: 0;
 }
@@ -302,27 +304,27 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #battery {
-  background-color: @lavender;
+  background-color: alpha(@lavender, 0.95);
   color: @crust;
   border-radius: 1rem;
-  margin: 1rem 1rem 1rem 0;
+  margin: 0rem 1rem 0rem 0;
 }
   
 #battery.charging,
 #battery.plugged {
   color: @crust;
-  background-color: @lavender;
+  background-color: alpha(@lavender, 0.95);
 }
 
 @keyframes blink {
   to {
-    background-color: @lavender;
+    background-color: alpha(@lavender, 0.95);
     color: @crust;
   }
 }
 
 #battery.critical:not(.charging) {
-  background-color: @red;
+  background-color: alpha(@lavender, 0.95);
   color: @crust;
   animation-name: blink;
   animation-duration: 0.5s;
@@ -345,7 +347,7 @@ window#waybar.empty #window {
 
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  background-color: #eb4d4b;
+  background-color: alpha(@lavender, 0.95);
 }
 
 /* -----------------------------------------------------
@@ -353,9 +355,9 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 label:focus {
-  background-color: #000000;
+  background-color: alpha(@lavender, 0.95);
 }
 
 #backlight {
-  background-color: #90b1b1;
+  background-color: alpha(@lavender, 0.95);
 }

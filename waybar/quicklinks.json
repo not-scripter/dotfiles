@@ -1,16 +1,16 @@
 {
   "custom/quicklink1": {
-    "format": "",
+    "format": "",
     "on-click": "zen-browser",
     "tooltip-format": "Open the browser"
   },
   "custom/quicklink2": {
-    "format": "󱢴",
-    "on-click": "dolphin",
+    "format": "󰉋",
+    "on-click": "kitty ranger",
     "tooltip-format": "Open the filemanager"
   },
   "custom/quicklink3": {
-    "format": "",
+    "format": "󰈺",
     "on-click": "kitty",
     "tooltip-format": "Open Terminal"
   },

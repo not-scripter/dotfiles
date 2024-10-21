@@ -1,0 +1,35 @@
+[Added Associations]
+x-scheme-handler/http=zen-alpha.desktop;
+x-scheme-handler/https=zen-alpha.desktop;
+x-scheme-handler/chrome=zen-alpha.desktop;
+text/html=zen-alpha.desktop;
+application/x-extension-htm=zen-alpha.desktop;
+application/x-extension-html=zen-alpha.desktop;
+application/x-extension-shtml=zen-alpha.desktop;
+application/xhtml+xml=zen-alpha.desktop;
+application/x-extension-xhtml=zen-alpha.desktop;
+application/x-extension-xht=zen-alpha.desktop;
+
+[Removed Associations]
+
+[Default Applications]
+image/jpeg=feh.desktop
+image/jpg=feh.desktop
+image/png=feh.desktop
+video/H264=mpv.desktop
+video/webm=mpv.desktop
+audio/mp3=io.bassi.Amberol.desktop
+x-scheme-handler/postman=Postman.desktop
+x-scheme-handler/http=zen-alpha.desktop
+x-scheme-handler/https=zen-alpha.desktop
+x-scheme-handler/chrome=zen-alpha.desktop
+text/html=zen-alpha.desktop
+application/x-extension-htm=zen-alpha.desktop
+application/x-extension-html=zen-alpha.desktop
+application/x-extension-shtml=zen-alpha.desktop
+application/xhtml+xml=zen-alpha.desktop
+application/x-extension-xhtml=zen-alpha.desktop
+application/x-extension-xht=zen-alpha.desktop
+video/mp4=mpv.desktop
+x-scheme-handler/about=zen-alpha.desktop
+x-scheme-handler/unknown=zen-alpha.desktop

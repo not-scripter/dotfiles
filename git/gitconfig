@@ -9,3 +9,6 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/data/data/com.termux/files/usr/bin/gh auth git-credential
+[http]
+	postBuffer = 157286400
+	version = HTTP/2

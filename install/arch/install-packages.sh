@@ -22,7 +22,14 @@ installer_packages=(
   "mpv"
   "elisa"
   "blueman"
-  "yt-dlp"
+  "polkit"
+  "xdg-desktop-portal-hyprland"
+  "xdg-desktop-portal-gtk"
+  # "iwd"
+  # "iwgtk"
+  "gvfs"
+  "thunar"
+  "ranger"
 
   "arc-gtk-theme"
   # "lxappearance"
@@ -32,6 +39,7 @@ installer_packages=(
 
   "webcord"
   "coreimage"
+  "yt-dlp"
 
   "waybar"
   "hyprpaper"
@@ -43,6 +51,7 @@ installer_yay=(
   "wlogout"
   "hyprshot"
   "xremap-x11-bin"
+  "hyprpolkitagent-git"
 
   "amberol"
 
