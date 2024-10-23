@@ -29,6 +29,7 @@ installer_packages=(
   # "iwgtk"
   "gvfs"
   "thunar"
+  "thunar-volman"
   "ranger"
 
   "arc-gtk-theme"
