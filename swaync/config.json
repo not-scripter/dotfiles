@@ -28,12 +28,7 @@
   "hide-on-clear": false,
   "hide-on-action": true,
   "script-fail-notify": true,
-  "scripts": {
-    "example-script": {
-      "exec": "",
-      "urgency": "Normal"
-    }
-  },
+  "scripts": {},
   "notification-visibility": {
     "example-name": {
       "state": "muted",
