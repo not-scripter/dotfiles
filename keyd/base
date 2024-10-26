@@ -1,0 +1,31 @@
+capslock = tab
+tab = layer(meta)
+
+leftalt = layer(media)
+leftalt = overload(media, esc)
+
+space = layer(nav)
+space = overload(nav, space)
+
+leftmeta = layer(fun)
+leftmeta = overload(fun, tab)
+
+rightalt = layer(sym)
+rightalt = overload(sym, enter)
+
+rightcontrol = layer(num)
+rightcontrol = overload(num, backspace)
+
+leftalt = oneshot(alt)
+leftcontrol = oneshot(control)
+leftshift = oneshot(shift)
+
+a = overload(tab, a)
+s = overload(alt, s)
+d = overload(control, d)
+f = overload(shift, f)
+
+j = overload(shift, j)
+k = overload(control, k)
+l = overload(alt, l)
+; = overload(tab, a)
