@@ -12,7 +12,7 @@ space = 0
 leftalt = .
 leftmeta = -
 q = [
-a = ;
+a = '
 z = `
 t = ]
 g = =
