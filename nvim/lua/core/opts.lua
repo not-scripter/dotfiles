@@ -11,14 +11,14 @@ g.netrw_banner = 0
 g.netrw_liststyle = 0
 -- Give me some fenced codeblock goodness
 g.markdown_fenced_languages = {
-	"html",
-	"javascript",
-	"javascriptreact",
-	"json",
-	"css",
-	"lua",
-	"vim",
-	"bash",
+  "html",
+  "javascript",
+  "javascriptreact",
+  "json",
+  "css",
+  "lua",
+  "vim",
+  "bash",
 }
 
 opt.laststatus = 3 -- global statusline
@@ -38,10 +38,10 @@ opt.cursorline = true
 
 -- Indenting
 opt.expandtab = true
-opt.shiftwidth = 2
+opt.shiftwidth = 4
 opt.smartindent = true
-opt.tabstop = 2
-opt.softtabstop = 2
+opt.tabstop = 4
+opt.softtabstop = 4
 
 opt.fillchars = { eob = " " }
 opt.ignorecase = true
@@ -89,7 +89,7 @@ opt.timeout = true
 opt.timeoutlen = 300
 
 if vim.fn.has("nvim-0.10") == 1 then
-	opt.smoothscroll = true
+  opt.smoothscroll = true
 end
 
 -- highlight on yank
