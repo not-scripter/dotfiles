@@ -1,6 +1,7 @@
 lastupdatecheck: 0
 recentrepos:
     - /home/notscripter/dotfiles
+    - /home/notscripter/dsa-in-cpp
     - /home/notscripter/chai-aur-backend
     - /home/notscripter/chai-aur-cpp
 startuppopupversion: 5
