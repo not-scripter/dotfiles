@@ -32,6 +32,7 @@ installer_packages=(
   "thunar-volman"
   "ranger"
   "keyd" # sudo systemctl enable keyd
+  "zenity"
 
   "arc-gtk-theme"
   # "lxappearance"

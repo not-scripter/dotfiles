@@ -1,9 +1,26 @@
 #!/bin/bash
 
-quality = "480p"
-echo "paste the link here : "
-read link
-echo "select the quality : "
-read quality
+read -p "paste url : " link
+read -p "select quality : " quality
 
-yt-dlp -f quality link
+
+yt-dlp -f link
+
+# f(){
+#   yt-dlp -f $1
+# }
+#
+# select mode in audioOnly videoOnly
+# do
+#   case $mode in
+#     audioOnly)
+#       f $link
+#     ;;
+#     videoOnly)
+#       f $link
+#     ;;
+#   *)
+#     echo "invalid"
+#     ;;
+#   esac
+# done

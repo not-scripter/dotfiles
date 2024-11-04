@@ -39,7 +39,7 @@
 
 window#waybar {
   border-radius: 1rem;
-  background-color: rgba(43, 48, 59, 0.5);
+  background-color: transparent;
   /* background: shade(alpha(@crust, 0.1), 1.25); */
   transition-property: background-color;
   transition-duration: 0.5s;

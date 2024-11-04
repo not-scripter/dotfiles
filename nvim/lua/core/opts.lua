@@ -52,8 +52,8 @@ opt.mouse = "a"
 opt.number = true
 
 opt.relativenumber = true
-opt.numberwidth = 2
-opt.ruler = false
+opt.numberwidth = 1
+opt.ruler = true
 
 -- disable nvim intro
 opt.shortmess:append("sI")
@@ -65,7 +65,6 @@ opt.scrolloff = 999
 opt.showtabline = 2
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
 opt.shiftround = true
-opt.shiftwidth = 2
 opt.shortmess:append({ W = true, I = true, c = true, C = true })
 opt.showmode = false
 opt.sidescrolloff = 8
