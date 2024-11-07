@@ -34,10 +34,6 @@ installer_packages=(
   "keyd" # sudo systemctl enable keyd
   "zenity"
 
-  # intel drivers
-  "mesa"
-  "vulkan-intel"
-
   "arc-gtk-theme"
   # "lxappearance"
   # "qt5ct"
