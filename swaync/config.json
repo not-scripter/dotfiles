@@ -7,9 +7,9 @@
 
   "control-center-width": 368,
   "control-center-height": 860,
-  "control-center-margin-top": 2,
-  "control-center-margin-bottom": 2,
-  "control-center-margin-right": 2,
+  "control-center-margin-top": 5,
+  "control-center-margin-bottom": 5,
+  "control-center-margin-right": 10,
   "control-center-margin-left": 0,
 
   "notification-window-width": 400,

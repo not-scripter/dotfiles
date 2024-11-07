@@ -25,6 +25,9 @@ alias q='exit'
 alias bunst='bun start'
 alias bunrd='bun run dev'
 
+alias yt='yt-dlp -F'
+alias ytd='yt-dlp -f'
+
 # Keybindings
 bindkey -e
 
