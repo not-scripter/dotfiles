@@ -1,6 +1,6 @@
 {
   "custom/quicklink1": {
-    "format": "",
+    "format": "󰈹",
     "on-click": "zen-browser",
     "tooltip-format": "Open the browser"
   },
@@ -10,7 +10,7 @@
     "tooltip-format": "Open the filemanager"
   },
   "custom/quicklink3": {
-    "format": "󰈺",
+    "format": "",
     "on-click": "kitty",
     "tooltip-format": "Open Terminal"
   },
@@ -19,10 +19,16 @@
     "on-click": "kitty nvim",
     "tooltip-format": "Open Neovim"
   },
+  "custom/quicklink5": {
+    "format": "󰇮",
+    "on-click": "thunderbird",
+    "tooltip-format": "Open Thunderbird"
+  },
   "group/quicklinks": {
     "orientation": "horizontal",
     "modules": [
       "custom/quicklink1",
+      "custom/quicklink5",
       "custom/quicklink2",
       "custom/quicklink3",
       "custom/quicklink4"
