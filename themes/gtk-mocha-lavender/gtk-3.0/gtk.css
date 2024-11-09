@@ -149,7 +149,6 @@ widget.view:selected,
   background-color: transparent;
   color: #eff1f5;
 }
-
 .gtkstyle-fallback:hover {
   background-color: #14141f;
   color: #eff1f5;
@@ -2766,7 +2765,7 @@ menubar > menuitem > window.popup.background > menu menuitem,
 }
 
 .background.popup {
-  background-color: transparent;
+  background-color: alpha(#000000, 0.5);
 }
 
 menu {
@@ -2880,7 +2879,8 @@ menu separator {
 popover.background {
   transition: box-shadow 200ms ease-out;
   padding: 0;
-  background-color: transparent;
+  background-color: alpha(#000000, 0.5);
+  background-clip: border-box
   border-radius: 12px;
 }
 
