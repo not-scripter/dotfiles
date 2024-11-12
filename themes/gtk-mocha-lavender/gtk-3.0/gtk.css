@@ -2880,7 +2880,7 @@ popover.background {
   transition: box-shadow 200ms ease-out;
   padding: 0;
   background-color: alpha(#000000, 0.5);
-  background-clip: border-box
+  background-clip: border-box;
   border-radius: 12px;
 }
 

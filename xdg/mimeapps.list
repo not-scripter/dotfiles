@@ -7,10 +7,10 @@ text/html=zen-alpha.desktop;
 [Removed Associations]
 
 [Default Applications]
-image/jpeg=feh.desktop
-image/jpg=feh.desktop
-image/png=feh.desktop
-image/svg=feh.desktop
+image/jpeg=org.cubocore.CoreImage.desktop
+image/jpg=org.cubocore.CoreImage.desktop
+image/png=org.cubocore.CoreImage.desktop
+image/svg=org.cubocore.CoreImage.desktop
 video/H264=mpv.desktop
 video/webm=mpv.desktop
 audio/mp3=io.bassi.Amberol.desktop
