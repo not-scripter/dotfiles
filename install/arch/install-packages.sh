@@ -39,6 +39,7 @@ installer_packages=(
   # "qt5ct"
   "kvantum"
   "kvantum-qt5"
+  "dconf-editor"
 
   "webcord"
   "coreimage"
