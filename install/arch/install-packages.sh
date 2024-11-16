@@ -32,12 +32,14 @@ installer_packages=(
   "thunar-volman"
   "ranger"
   "keyd" # sudo systemctl enable keyd
+  "zenity"
 
   "arc-gtk-theme"
   # "lxappearance"
   # "qt5ct"
   "kvantum"
   "kvantum-qt5"
+  "dconf-editor"
 
   "webcord"
   "coreimage"
@@ -47,6 +49,10 @@ installer_packages=(
   "hyprpaper"
   "hyprlock"
   "hypridle"
+
+  "arduino-cli"
+  "kicad-library"
+  "scrapy"
 )
 
 installer_yay=(

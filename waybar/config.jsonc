@@ -24,9 +24,9 @@
     ],
     "modules-right": [
         "tray",
+        "network",
         "mpd",
         "pulseaudio",
-        "network",
         "cpu",
         "memory",
         "temperature",

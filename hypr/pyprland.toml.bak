@@ -10,16 +10,16 @@ plugins = [
  "workspaces_follow_focus",
 ]
 
-[scratchpads.term]
-animation = "fromTop"
-command = "kitty --class kitty-dropterm"
-class = "kitty-dropterm"
-size= "90% 90%"
-
-[scratchpads.volume]
-animation = "fromRight"
-command = "pavucontrol"
-class = "org.pulseaudio.pavucontrol"
-size = "40% 90%"
-unfocus = "hide"
-lazy = true
+# [scratchpads.term]
+# animation = "fromTop"
+# command = "kitty --class kitty-dropterm"
+# class = "kitty-dropterm"
+# size= "90% 90%"
+#
+# [scratchpads.volume]
+# animation = "fromRight"
+# command = "pavucontrol"
+# class = "org.pulseaudio.pavucontrol"
+# size = "40% 90%"
+# unfocus = "hide"
+# lazy = true

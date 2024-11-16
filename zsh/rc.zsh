@@ -1,4 +1,9 @@
 export QT_STYLE_OVERRIDE=kvantum
+export QT_QPA_PLATFORMTHEME=qt5ct
+
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
+# export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel ${_JAVA_OPTIONS}"
+
 # for nix-on-droid
 # export PATH="$PATH:/opt/nvim/"
 
@@ -24,6 +29,9 @@ alias q='exit'
 
 alias bunst='bun start'
 alias bunrd='bun run dev'
+
+alias yt='yt-dlp -F'
+alias ytd='yt-dlp -f'
 
 # Keybindings
 bindkey -e
