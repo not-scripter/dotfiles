@@ -49,6 +49,10 @@ installer_packages=(
   "hyprpaper"
   "hyprlock"
   "hypridle"
+
+  "arduino-cli"
+  "kicad-library"
+  "scrapy"
 )
 
 installer_yay=(
