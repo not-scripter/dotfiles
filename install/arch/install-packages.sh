@@ -33,6 +33,11 @@ installer_packages=(
   "ranger"
   "keyd" # sudo systemctl enable keyd
   "zenity"
+  "ufw" # sudo ufw enable # sudo ufw allow 3389/tcp
+  "xrdp" # sudo systemctl enable xrdp
+  "xorgxrdb"
+  "ddcutil" # sudo usermod -G i2c -a user
+  "ddcui"
 
   "arc-gtk-theme"
   # "lxappearance"
