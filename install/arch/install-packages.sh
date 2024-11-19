@@ -38,6 +38,8 @@ installer_packages=(
   "xorgxrdb"
   "ddcutil" # sudo usermod -G i2c -a user
   "ddcui"
+  "gimp"
+  "libreoffice-fresh"
 
   "arc-gtk-theme"
   # "lxappearance"
