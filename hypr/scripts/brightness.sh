@@ -35,5 +35,5 @@ if [ "$focused_name" == "eDP-1" ]; then
     fi
 else
     focused_id=$(echo $monitor_data | jq -r '.[] | select(.focused == true) | .id')
-    ddcutil --sleep-multiplier=.2 --display=$focused_id setvcp 10 $direction 10
+    ddcutil --sleep-multiplier=.2 --display=$(($focused_id + 1)) setvcp 10 $direction 10
 fi
