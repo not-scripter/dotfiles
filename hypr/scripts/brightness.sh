@@ -29,11 +29,11 @@ focused_name=$(echo $monitor_data | jq -r '.[] | select(.focused == true) | .nam
 
 if [ "$focused_name" == "eDP-1" ]; then
     if [ "$direction" == "-" ]; then
-        brillo -u 150000 -U 8
+        brillo -u 150000 -U 10
     else
-        brillo -u 150000 -A 8
+        brillo -u 150000 -A 10
     fi
 else
     focused_id=$(echo $monitor_data | jq -r '.[] | select(.focused == true) | .id')
-    ddcutil --sleep-multiplier=.2 --display=$focused_id setvcp 10 $direction 15
+    ddcutil --sleep-multiplier=.2 --display=$focused_id setvcp 10 $direction 10
 fi
