@@ -1,11 +1,11 @@
 lastupdatecheck: 0
 recentrepos:
     - /home/notscripter/dotfiles
-    - /home/notscripter/projects/netra
     - /home/notscripter/projects/aatmaa
+    - /home/notscripter/dsa-in-cpp
+    - /home/notscripter/projects/netra
     - /home/notscripter/kicad
     - /home/notscripter/arduino
-    - /home/notscripter/dsa-in-cpp
     - /home/notscripter/chai-aur-backend
     - /home/notscripter/chai-aur-cpp
 startuppopupversion: 5

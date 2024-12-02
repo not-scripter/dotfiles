@@ -32,6 +32,7 @@ alias bunrd='bun run dev'
 
 alias yt='yt-dlp -F'
 alias ytd='yt-dlp -f'
+alias ytp='sh ./dotfiles/scripts/ytdlp-segment.sh'
 
 # Keybindings
 bindkey -e
