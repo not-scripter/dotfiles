@@ -60,6 +60,7 @@ installer_packages=(
   "arduino-cli"
   "kicad-library"
   "scrapy"
+  "minicom"
 )
 
 installer_yay=(
