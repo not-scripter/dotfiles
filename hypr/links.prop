@@ -1,1 +1,2 @@
 $DOTFILES/hypr/=$HOME/.config/hypr
+$DOTFILES/hypr/hyprland-portals.conf=$HOME/.config/xdg-desktop-portal/hyprland-portals.conf 
